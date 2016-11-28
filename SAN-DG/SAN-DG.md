@@ -16,9 +16,22 @@
 ####  3. Switched Fabric (pełna sieć - tzw. Fabric)
 #####    Najbardziej przydatna topologia, wykorzystująca przełączniki i inne urządzenia sieciowe. Zwana inaczej Fibre Channel Switched Fabric (FC-SW). Fabric ma przynajmniej jeden przełącznik SAN w ramach swojej konfiguracji. Przełączany Fabric zapewnia pełną szerokość pasma w medium transmisyjnym #####    (bandwidth) na każdy port w porównaniu ze współdzieloną szerokością pasma w przypadku implementacji pętli z arbitrażem. Najważniejszą różnicą pomiędzy FC-AL, a FC-SW jest to że dodanie nowego urządzenia w FC-AL powoduje dalszy podział współdzielonej szerokości pasma. W przypadku FC-SW #####    przepustowość pasma w medium transmisyjnym zostaje zwiększona. Powoduje to stopniowe odchodzenie od topologii FC-AL.                                                                                                                                                                               
 
-##3. Warstwy Fibre Channel:
+## 3. Fibre Channel
+###  Warstwy Fibre Channel:
 #### FC0
-#### FC1 
+##### Warstwa fizyczna. W przypadku FC stosujemy okablowanie światłowodowe oraz miedziane.
+#### FC1
+##### Warsta łącza danych (Data-Link). Odpowiedzialna za obsługę odpowiedniego 
+##### schematu kodowania (encoding scheme) dla danego łącza. 
 #### FC2
+##### Warstwa odpowiedzialna za zarządzanie sposobem dostarczania informacji poprzez 
+##### podział na ramki (*Framing Protocol*), ile danych wysyłamy w jednej transmisji (*Flow Control*) 
+##### oraz miejsce docelowe wysyłanej informacji. 
 #### FC3
+##### Warstwa odpowiedzialna za zarządzanie transmisją danych do wielu portów w węźle. 
 #### FC4
+##### Warstwa będąca pośrednikiem pomiędzy niższymi protokołami FC, a protokołami takimi jak SCSI, IP
+#### Klasy usług FC
+##### W zależności od typu i jakości okablowania zastosowanego w sieci SAN, określa się 6 klas usługi FC:
+[tu będzie tabela, a co...]
+## 4. 
