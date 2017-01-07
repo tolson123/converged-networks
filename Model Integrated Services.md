@@ -14,12 +14,6 @@ Usługa sterowanego obciążenia (ang. > controlled-load service) może być sto
 Zagadnieniem spornym modelu Integrated Services (Intserv) jest jego skalowalność, szczególnie ma to znaczenie w wielkich sieciach publicznych IP, które mogą potencjalnie mieć miliony aktywnych mikro-strumieni w ruchu tranzytowym równocześnie.
 Warto w tym miejscu zauważyć, że model Intserv wymaga jednej bardzo ważnej cechy, a mianowicie jawnej sygnalizacji wymagań QoS od systemu końcowego do wszystkich routerów w sieci, obsługujących dany strumień. Te funkcje sygnalizacyjne spełnia Resource ReserVation Protocol (RSVP). Protokół ten jest krytycznym komponentem modelu usług zintegrowanych (Intserv).
 
-> We loved with a love that was more than love
-
-> We loved with a love that was more than love
-
-
-
 
 ## Architektura IntServ:
 - W architekturze IntServ [RFC1633] zakłada się, że zasoby w sieci są rezerwowane dla poszczególnych lub zagregowanych strumieni danych
@@ -34,6 +28,8 @@ Cechy architektury IntServ:
 - Opis ruchu przy pomocy modelu płynnego – wiadro tokenowe (r – intensywność (szybkość) napływania tokenów, b - głębokość wiadra, p – szybkość szczytowa, m – najmniejsza rozróżnialna wielkość pakietu, M – maksymalny rozmiar pakietu)
 Usługi w architekturze IntServ:
 - Guaranteed Service [RFC2212] — przeznaczona dla aplikacji wymagających gwarancji odnośnie parametrów jakości przekazu danych związanych z opóźnieniami
-- Controlled-load Service [RFC2211] — przeznaczoną dla aplikacji wymagających bezstratnego przekazu danych i charakteryzującą się jakością przekazu określaną jako lepszą niż best ef fort
+- Controlled-load Service [RFC2211] — przeznaczoną dla aplikacji wymagających bezstratnego przekazu danych i charakteryzującą się jakością przekazu określaną jako lepszą niż Best Effort.
+
+> Adrian Krawczyński, Daniel Cegielski, Damian Kaczyński
 
 
