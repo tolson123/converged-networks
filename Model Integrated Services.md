@@ -14,6 +14,10 @@ Usługa sterowanego obciążenia (ang. > controlled-load service) może być sto
 Zagadnieniem spornym modelu Integrated Services (Intserv) jest jego skalowalność, szczególnie ma to znaczenie w wielkich sieciach publicznych IP, które mogą potencjalnie mieć miliony aktywnych mikro-strumieni w ruchu tranzytowym równocześnie.
 Warto w tym miejscu zauważyć, że model Intserv wymaga jednej bardzo ważnej cechy, a mianowicie jawnej sygnalizacji wymagań QoS od systemu końcowego do wszystkich routerów w sieci, obsługujących dany strumień. Te funkcje sygnalizacyjne spełnia Resource ReserVation Protocol (RSVP). Protokół ten jest krytycznym komponentem modelu usług zintegrowanych (Intserv).
 
+> We loved with a love that was more than love
+
+> We loved with a love that was more than love
+
 
 
 
