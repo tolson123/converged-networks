@@ -1,6 +1,5 @@
-## A New Post
+## Model Integrated Services
 
-Model Integrated Services
 
 Grupa robocza IETF Integrated Services (grupa usług zintegrowanych) opracowała model usług zintegrowanych (Intserv). Model ten wymaga zasobów, takich jak szerokość pasma i wielkość buforów, które muszą być zarezerwowane a priori dla danego strumienia ruchu, by upewnić się, czy jakość usług (QoS) żądana przez strumień ruchu jest satysfakcjonująca. Model Intserv zawiera dodatkowe komponenty poza tymi, które są używane w modelu best-effort (brak QoS, brak reguł, czyli sieć przesyła najlepiej jak potrafi). Tymi dodatkowymi komponentami są: klasyfikatory pakietów, programy szeregujące pakiety oraz wstępne kontrolowanie.
 
