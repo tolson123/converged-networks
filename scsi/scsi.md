@@ -59,3 +59,19 @@ oraz parametry elektryczne. Poniżej przedstawiam szczegółowy podział:
     * sterowanie różnicowe wysokonapięciowe HVD (High Voltage Differential ) - 5V, długość kabla do 25m
     * sterowanie róznicowe niskonapięciowe LVD (Low Voltage Differential) - 3.3V, długość kabla do 12m
 
+## Odmiany SCSI ##
+
+* __SCSI-1__ :Pierwsza wersja standardu, posiada złącze Centronics 50 stykowe, wersja ta pozwalała na transfer z prędkością 5MB/s 
+              na maksymalną odległość 6 metrów
+
+* __SCSI-2__ :Wprowadzony został w 1994 roku. Kolejna wersja standardu, posiadała ona dwa warianty. Plain SCSI na złączu centronics 50 stykowym 
+              pozwalającym na transfer rzędu 10 MB/s 
+              oraz Wide SCSI na złączu 50 lub 68 stykowym o maksymalnej prędkości transferu 20 MB/s. 
+              maksymalna odległość obu wariantów to 3 metry.
+
+* __SCSI-3__ :swą premierę miał w roku 1996 Zwany również Ultra SCSI lub Fast20- również posiadał 2 warianty, 20 MB/s na 50 stykowym złączu oraz 40MB/s na złaczu 68 stykowym. odległość nadal 3 metry 
+
+* __SCSI-4__ :jest wersją przełomową w technologii SCSI,zwany inaczej Ultra2 SCSI zaprezentowany w roku 1997 tak jak poprzednik dostępny był w 2 wariantach Ultra2 SCSI na klasycznym
+              złączu 50 stykowym z transferem 40MB/s oraz Ultra2 Wide SCSI o transferze 80 MB/s ze złączem 68 stykowym. w tej wersji zastosowane zostało nowe sterowanie przesyłem danych, sterowanie niskonapięciowe LVD 
+              dzięki czemu zwiękrzono długość kabla do 12 metrów.
+
