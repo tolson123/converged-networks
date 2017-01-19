@@ -23,3 +23,6 @@ Za pomocą FCoE, przesył danych sieci (IP) i pamięci masowej (SAN) mogą być 
 # FCoE Frame diagram
 
 ![Przykład SAN](https://upload.wikimedia.org/wikipedia/commons/8/8d/Frame_FCoE.png)
+
+
+**Grupa: Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko**
