@@ -1,1 +1,2 @@
 inicjalizacja pracy zaliczeniowej
+fdsfdsafdsas
