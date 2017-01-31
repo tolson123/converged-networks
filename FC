@@ -1,0 +1,86 @@
+Fibre Channel
+
+Fibre Channel to protokół przesyłana danych, który jest uniwersalny, szybki i niedrogi. Zastosowaną architekturą to architektura szeregowa transferu danych. W pierwszej wersji był oparty na medium światłowodowym i dlatego początkowo nazywał się Fiber Channel. Okazało się jednak że można zastosować technologię, która pozwoli na zastosowanie kabla miedzianego. W wyniku tego została zmieniona zastosowana nazwa na Fibre Channel. Znaczenie zastosowanej nazwy znacznie uległo rozszerzeniu. Na dzień dzisiejszy Fibre Channel  jest zdefiniowany jako otwarty standard ANSI i OSI, działające w sieci wykonanej z przewodów miedzianych, jak również w sieciach wykonanych ze światłowodów. Transmisja FC to transmisja kanałowa oraz sieciowa, możemy więc stwierdzić że FC jest protokołem hybrydowym. Kanał jest zamknięty oraz przewidywalny, współpracuje między ograniczoną liczbą jednostek. Wysoka wydajność wynika między innymi z faktu, że raz ustawiony kanał wymaga niewielkiej pracy na kolejne transfery. Kanały mogą być realizowane przez warstwę sprzętową ponieważ podczas przesyłania danych podejmuje się niewielką liczbę decyzji.
+Najpopularniejsze protokoły kanałowe to SCSI i HPPI. (SCSI – Small Computer System Interface; HPPI – High Performance Parallel Interface).  Sieci takie są mniej przewidywalne i mają zdolność przystosowywanie się do  zaistniałych zmian, są również w stanie obsłużyć wiele węzłów. Ustalenie drogi przesyłania informacji w takich sieciach wymaga podjęcie większej liczby decyzji, które należy przełożyć na większe opóźnienia w odniesieniu do transmisji kanałowej.
+
+FC stosuje się w dużej mierze w systemach przechowywania danych, gdzie implementacja SCSI jest protokołem górnej warstwy powyżej protokołu FC.
+Przy mapowaniu poleceń SCSI na Fibre Channel w porównaniu z tradycyjnym protokołem SCSI  wykazuje następujące zalety:
+1. wydajność jest wyższa
+2. ilość urządzeń, które mogą być ze sobą połączone jest większa
+3. odległość między urządzeniami jest większa
+Fibre Channel protokół sprawdza się zamiennie z protokołem SCSI, doskonale go zastępuje. Dzisiaj wiele serwerów wykorzystuje tą technologię i ma wbudowaną na stałe możliwość obsługi protokołów FC. Posiadają one wbudowaną w płytę główną kontroler Fibre Channel, który jest skonfigurowany tak aby mógł obsługiwać pętlę arbitrażową.  Analogiczna sytuacja występuje w macierzach dyskowych. Protokół Fiber Channel został uznany przez producentów za protokół najbardziej optymalny i powoli wypiera on tradycyjny protokół SCSI oraz jemu podobne.
+
+Protokół Fibre Channel można podzielić na pięć warstw:
+1. FC-0
+Warstwa FC-0 obejmuje:
+sygnalizację
+specyfikację medium transmisyjnego
+specyfikację odbiornika i nadajnika
+
+2. FC-1
+Warstwa FC-1 obejmuje:
+Kodowanie znaków 8B/10B
+Zarządzanie połączeniem
+
+3. FC-2
+Warstwa FC-2 obejmuje:
+format ramki
+zarządzanie sekwencjami
+zarządzanie wymianą
+zarządzanie przepływem danych
+klasy usług
+logowanie i wylogowywanie
+topologię połączeń
+segmentację i scalanie
+
+FC-3
+Warstwa FC-3 jest zestawem usług dla urządzeń, które posiadją więcej niż jeden port.
+
+FC-4
+Warstwa FC-4 obejmuje mapowanie protokołów wyższych warstw przez protokół Fibre Channel.
+
+
+Topologie połączeń
+
+Topologia połączeń, która jest najprostsza to topologia punkt-punkt. Port wejściowy jednego urządzenia jest połączony z portem wyjściowego innnego. Połączenie to jak i medium nie współdzieli transmisji z innymi urządzeniami. Pozwala to na wykorzystanie pełnej przepustowości takiego połączenia. Rozpoczącie transmisji musi jedynie być poprzedzona inicjalizacją łącza.
+
+Pętla arbitrażowa to topologia, która jest najczęściej spotykanym typem połączeń urządzeń w architekturze Fibre Channel, jest ona również najbardziej złożona. Podłączyć można do 127 portów w jedną sieć. W tym przypadku zarówno medium transmisyjne, jak również pasmo przenoszenia jest współdzielone przez wszystkie podłączone urządzenia. 
+
+Topologia Fabric to topologia z przełącznicą, używana w momencie kiedy wymagane jest podłączenie dużej liczby urządzeń w konfiguracji tzw. przełączenia krzyżowego. Zaletą tej topologii jest fakt, że  podłączone w ten sposób urządzenia wszystkie mogą transmitować a medium nie jest współdzielone przez urządzenia. Wadą tej topologi jest konieczność zakupienia drogiej przełącznicy Fibre Channel. Na rynku można znaleźć switche FC, które umożliwiają podłączenie do portów pętli arbitrażowej. Topologia przełączania stosowana jest w sieciach Storage Area Network.
+
+Porty
+Fibre Channel wymaga zdefiniowania kilka rodzajów portów. Port w serwerze lub dysku to N_Port a w przełączniku to F_Port. Port oznaczony jako L_Port to taki port, który jest zdolny do pracy arbitrażowej. Kombinacja tych portów daje porty NL i FL. Następne porty to:
+E_Port – pozwala na łączenie przełącznic
+G_Port – pozwala na łączenie przełącznic i równocześnie dołączanie urządzeń, węzłów
+GL_Port – pozwala na dodatkowo przyłączenie pętli z arbitrażem
+
+Klasy usług
+Dla Fibre Channel można zdefiniować kilka klas usług. Rodzaj transmitowanych danych określa konkretną klasę jaką należy użyć. Różnice między klasami wynikają z rodzaju danych jakie są transmitowane. Dla przykładu porty typu N kiedy wymieniają dane lub też gdy port typu N dokonuje logowania się na przełącznicy to wtedy musi istnieć minimum jedna klasa wspólna usług, która jest obsługiwana przez oba porty. Chodzi o to, że np. wymiana danych jest wykonywana w ramach jednej klasy usług. Informacja o użytych klasach zostaje przekazana podczas logowania do portu N lub przełącznicy.
+
+Klasa 1
+Charakteryzuje się  dostarczaniem usług połączeniowych z potwierdzeniem. Między dwoma portami N  ustanawiane jest dedykowane połączenie. Jeżeli połączenie to zostanie ustanowione to wtedy oba porty mogą wykorzystać pełną przepustowość łącza. Inne ruchy w sieci, które aktualnie są wykonywane nie zakłócają żadnej komunikacji między tymi dwoma portami. Cecha ta powoduje, że ramki, które zostają przesłane do odbiorcy w pewnej kolejności zostaną odebrane w takiej samej kolejności. Istotna jest szybkość mediów transmisyjnych użytych w połączeniu, to znaczy szybkość ta musi być taka sama. Połączenie, które jest przekazywane przez przełącznice nie musi być buforowane. Uzasadnione jest użycie kontroli danych węzeł-węzeł. Taka klasa usług to transmisje stałe o dużej liczbie danych w jednostce czasu np. obraz, dźwięk. 
+Intermix to rozszerzenie klasy 1 w taki sposób aby można było przesyłać ramki klasy 2 i 3, w tym momencie kiedy ramka klasy 1 w danym momencie nie jest przesyłana. Rozszerzenie to wymaga wsparcia po stronie portów typu N oraz po stronie przełącznicy.
+Klasa 2
+
+To usługi bezpołączeniowe z potwierdzeniem. Wyróżniamy potwierdzenia z dostarczeniem lub bez dostarczenia. Połączenia, które tu występują nie są połączeniami dedykowanymi. Port w takiej sytuacji może otrzymywać i wysyłać dane do wielu N-portów. Występuje współdzielenie łącza przez porty. W tym przypadku klasy nie ma zapewnienia takiej samej kolejności otrzymywania ramek w jakiej zostały wysłane. Wyjątkiem zapewnienia kolejności są połączania w topologi punkt-punkt oraz pętli z arbitrażem. Szybkości przy poszczególnych portach mogą być różne. Zastosowanie znajdują dwa typy kontroli przepływu danych. Należą do nich bufor-bufor oraz węzeł-węzeł. Klasa 2 znalazła najczęstsze zastosowanie w sieciach LAN, z IP – protokołem górnej warstwy, gdzie nie ma znaczenia kolejność otrzymywanych ramek jak również czas ich wysyłania.
+
+Klasa 3
+
+Klasa 3 i jej usługi są bardzo podobne do usług klasy 2. Różni się jednak wyłączeniem kontroli bufor-bufor i nie posiada potwierdzenia dostarczenia ramek. Usługi oferowane przez zastosowanie klasy 3 są podobne do protokołów datagramowych. Klasa 3 jest używana tam gdzie kolejność ani czas otrzymywania ramek nie ma znaczenia. Retransmisja nie dostarczonych danych jest zapewniona przez protokół wyższej warstwy. Klasa 3 jest stosowana w przypadku połączeń SCSI.
+
+
+Klasa 4
+
+Klasa 4 gwarantuje dowolną alokację pasma połączenia między dwoma portami N połączonych przez przełącznice. Klasa 4 może być użyta w topologii z Fabric – przełącznicą. Port typu N może żądać od przełącznicy otworzenia wirtualnego obwodu – Virtual Circuit – VC – wymagając odpowiednią przepustowość łącza. W takim obwodzie występujące dwa połączenia jednokierunkowe między portami a ich prędkość może się od siebie różnić. W klasie 4 jest zachowana kolejność wysyłania i odbierania ramek tak samo jak w klasie 1. Różnicą jest możliwość połączenia przez pojedynczy port N  dużej ilości wirtualnych obwodów. Wymuszony zostaje podział  tych zasobów, które są wysyłane  między  poszczególne obwody. Ruchem w sieci jak również przepływem danych między buforami odpowiada Fabric – przełącznica. Wykonanie usługi klasy 4 jest możliwe jedynie przez urządzenia, które obsługują ramki klasy 2 i 3.
+
+Klasa 5
+
+Klasa 5 jest bardzo podobna do klasy 4, jest to usługa, która ma zapewnić przesłanie danych dokładnie w ściśle określonym czasie. Nie została jeszcze dokładnie zdefiniowana.
+
+Klasa 6
+
+Klasa 6 za pośrednictwem przełącznicy poprzez urządzenie dołączone do sieci wspiera multicast – wielonadawanie. Port, który nadaje N_Port łączy połączeni klasy 1 z serwerem multicast w przełącznicy. Serwer multicast łączy połączenie, które jest dedykowane pomiędzy portem nadającym a odbiorcami. Serwer ten odpowiada również za powielenie ramek oraz przekazanie ich do każdego odbiorcy. Klasa 6 znalazła zastosowanie przy transmisji obrazu video do wielu odbiorców. 
+Fibre Channel to technologia, która znajduje się na rynku od dłuższego czasu. Nadal jest wykorzystywana. Sieć SAN ma swoją popularność i co za tym idzie urządzenia FC, które oferują przepustowość 1 Gb/s wchodzą w nowszą technologię i zaczynają się pojawiać takie, które zapewniają prędkość 2 Gb/s. Producenci obecnie opracowują wersję zapewniającą transmisję z prędkością  10 Gb/s.
+
+
+
