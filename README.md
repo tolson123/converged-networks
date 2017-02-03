@@ -36,7 +36,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ### SAN oraz [SAN-DG](SAN-DG/SAN-DG.md)
 [Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech]
 
-## Systemy RAID
+## [Systemy RAID](RAID.md)
 (Joanna Kiełtyka, Kacper Barański, Maciej Kajanek)
 
 ## Podstawowe protokoły:
