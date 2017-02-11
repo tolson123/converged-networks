@@ -28,7 +28,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 (Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
 ### NAS
 
-(Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
+(Kamil Paryż, Tomasz Marzec, Janusz Ładecki)
 
 ### [SAN](SAN-2.md)
 (Mateusz Łysek, Marcin Świerczek, Robert Słuszniak)
