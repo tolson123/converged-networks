@@ -1,10 +1,11 @@
+![alt text](http://archive.openflow.org/img/newlogo7.png "Logo Title Text 1") 
 ###1. Co to jest OpenFlow:
 Def "Standardowy protokół komunikacyjny używany pomiędzy „control” i „data panels"
 OpenFlow  jest protokołem komunikacyjnym umożliwiając zdalny dostęp do poszczegulnych płaszczyzn danych urządzenia sieciowego.
 Głównym zamierzenim twórców protokołu było wsparcie budowy programowalnych sieci komputerowych dzięki standaryzacji oraz dopasowaniu 
 do możliwości produkowanych urządzeń.
 
-###2. Zarys działania:
+###2. Zarys działania
 Wykorzystując technologię OpenFlow, otrzymujemy bogaty zestaw narzędzi pozwalający na zaawansowaną inżynierię ruchu. 
 Możemy optymalizować transmisję pod kątem zapewnienia odpowiedniego pasma, unikania opóźnień czy liczby węzłów, 
 przez które przechodzi pakiet. Dzięki temu jesteśmy w stanie oferować usługi spełniające wymagania QoS. 
@@ -18,6 +19,7 @@ normalnego działania sieci.
 OpenFlow jest protokołem działającym w drugiej warstwie modelu ISO OSI. Do stworzenia sieci opartej na technologii OpenFlow 
 niezbędne są trzy elementy: przełączniki współpracujące z tym protokołem, kontroler oraz kanał komunikacyjny, 
 wykorzystujący protokół OpenFlow, za pomocą którego kontroler i przełącznik mogą się komunikować.
+![alt text](https://gigadom.files.wordpress.com/2011/07/openflow1.jpg?w=300&h=225)
 
 ###4.Przełączniki w OpenFlow:
 Przełącznik OpenFlow Jest to element infrastruktury sieciowej działający w warstwie drugiej modelu ISO OSI, 
@@ -36,3 +38,8 @@ Kanał komunikacyjny Jest to bardzo ważny element w sieciach opartych na techno
 Służy on do komunikacji przełączników z kontrolerami, co jest kluczowe, ponieważ tak naprawdę decyzje o zarządzaniu ruchem w 
 sieci są podejmowane przez kontroler i muszą być rozpropagowane wśród przełączników. Postać danych przesyłanych takim kanałem 
 musi być zgodna ze specyfikacją OpenFlow i zazwyczaj jest zaszyfrowana przy użyciu SSL. 
+
+##Więcej informacji o Protokole można znaleść :
+[OpenFlow Specyfikation](http://archive.openflow.org/documents/openflow-spec-v1.1.0.pdf)
+[OpenFlow version 1.2](https://www.opennetworking.org/images/stories/downloads/sdn-resources/onf-specifications/openflow/openflow-spec-v1.2.pdf)
+[OpenFlow version 1.4](https://www.opennetworking.org/images/stories/downloads/sdn-resources/onf-specifications/openflow/openflow-spec-v1.4.0.pdf)
