@@ -68,7 +68,11 @@ Jeżeli chodzi o pierwszy rodzaj sieci SAN, powstało kompleksowe rozwiązanie �
 Jeżeli chodzi o sieci pamięci masowych bazujących na szkielecie sieci IP (określane skrótem E-SAN), najnowszym rozwiązaniem jest protokół iSCSI (internet Smali Computer System Interface). Protokół działa w warstwie 5 (warstwa sesji) modelu ISO/OSI i kapsułkuje w pakiety TCP komendy oraz dane protokołu **[SCSI](scsi/scsi.md)** Specyfikacja protokołu iSCSI wymusza pełną kompatybilność z sieciami LAN, w związku z czym parametry fizyczne łączy, kontrola błędów czy klasy usług pozostają takie same jak w sieci LAN. Niezaprzeczalną zaletą sieci SAN opartych o szkielet IP i protokół iSCSI jest wykorzystywanie dojrzałych, popularnych technologii sieciowych, oferujących wiele funkcji (elastyczne protokoły routingu, jakość usług), łączących duże przepustowości (np. Ethernet 10Gb/s) z niskimi kosztami infrastruktury. Z tego powodu protokół iSCSI stanowi silnego konkurenta dla Fibre Channel (przekonują o tym poczynania producentów rozwiązań FC, takich jak IBM, EMC, Brocade, Cisco, którzy wprowadzają do swojej oferty urządzenia i systemy oparte na iSCS/). 
 
 **Źródła:**
-[Pierwsze](http://zskl.p.lodz.pl/~morawski/Dyplomy/Praca%20dyplomowa%20p.%20Bozyka.pdf)
-[Drugie](http://www.sieci.infopl.info/index.php/rodzaje/san/san)
-[Trzecie](https://www.s4e.pl/das-nas-san-storage-nie-jedno-ma-imie/)
-[Czwarte](http://www.integrator.solidex.com.pl/integrator/archiwum/archiwum-wydania-online/wydanie-2003/nr-5-6-2003-59/zasady-dobrej-praktyki-budowy-sieci-san-przyklady-rozwiazan)
+
+[Praca magisterska Krzysztof Bożyk](http://zskl.p.lodz.pl/~morawski/Dyplomy/Praca%20dyplomowa%20p.%20Bozyka.pdf)
+
+[www.sieci.infopl.info](http://www.sieci.infopl.info/index.php/rodzaje/san/san)
+
+[S4E](https://www.s4e.pl/das-nas-san-storage-nie-jedno-ma-imie/)
+
+[Integrator](http://www.integrator.solidex.com.pl/integrator/archiwum/archiwum-wydania-online/wydanie-2003/nr-5-6-2003-59/zasady-dobrej-praktyki-budowy-sieci-san-przyklady-rozwiazan)
