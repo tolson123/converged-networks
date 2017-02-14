@@ -1,7 +1,20 @@
 # converged-networks
 
-## Opis
+## Opis 
 Dokumentacja do wypełnienia podczas przedmiotu "Sieci konwergentne".
+
+## Deadline  wykonania:
+
+### Pierwsza wersja (do komentarzy przez prowadzącego)
+
+7.01.2017
+
+### Wersja końcowa
+
+4.02.2017
+
+### Informacje techniczne
+
 Każdy zespół dwu- lub trzyosobowy powinien wypełnić jeden z poniższych działów w spisie treści
 jako osobny [podlinkowany plik](FCoE.md).
 Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull requests)](https://help.github.com/articles/about-pull-requests/).
@@ -12,35 +25,59 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 
 ## Architektura storage w ujęciu ogólnym:
 ### DAS
+(Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
 ### NAS
+
+(Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
+
+### SAN
+(Mateusz Łysek, Marcin Świerczek, Robert Słuszniak)
+
 ### SAN oraz [SAN-DG](SAN-DG/SAN-DG.md)
 [Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech]
+
 ## Systemy RAID
 (Joanna Kiełtyka, Kacper Barański, Maciej Kajanek)
 
 ## Podstawowe protokoły:
-### SCSI
+### [SCSI](scsi/scsi.md)
+(Daniel Karoń)
 ### iSCSI
 ### FC
 (Konrad Brandys, Karol Barczyk, Kamil Świerkot)
 ### FCoE 
+(Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko)
 
 ## Technologie konwergentnego data-center:
 ### DCB
 ### TRILL
+(Kristina Napreienko, Anton Ombodi, Yuri Odrzhekhovskyi)
 
 ## Jakość usług:
 ### Model Best Effort (Krzysztof Golonka)
 ### Model Integrated Services
+(Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
 ### Protokół RSVP
+(Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
 ### Model Differentiated Services
+(Natalia Lasek, )
 ### Przykłady DSCP
 
 ## Przydatne narzędzia:
+
 ### Aplikacje do pomiarów wydajności storage na przykładzie Bonnie++
+
 ### Systemy open-source do udostępniania zasobów iSCSI
+
+(Mateusz Błachnio, Sławomir Tyliba)
+
 ### Konfiguracja serwera i klienta iSCSI na platformie Linux
+
+Joanna Marszałek
+
 ### Konfiguracja serwera i klienta iSCSI na platformie Windows Server
+
+Jakub Bojanek
 
 ## Rozproszone systemy plików: 
 ### GFS
@@ -52,5 +89,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 
 ## Sieci sterowane programowo
 ### Koncepcja SDN
-### Protokół OpenFlow
+(Paweł Miczka)
+### [Protokół OpenFlow](Openflow.md)
+(Damian Niedziela, Krzysztof Czech)
 ### Przełączniki programowalne
