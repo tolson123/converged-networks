@@ -59,3 +59,42 @@ oraz parametry elektryczne. Poniżej przedstawiam szczegółowy podział:
     * sterowanie różnicowe wysokonapięciowe HVD (High Voltage Differential ) - 5V, długość kabla do 25m
     * sterowanie róznicowe niskonapięciowe LVD (Low Voltage Differential) - 3.3V, długość kabla do 12m
 
+## Odmiany SCSI ##
+
+* __SCSI-1__ :Pierwsza wersja standardu, posiada złącze Centronics 50 stykowe, wersja ta pozwalała na transfer z prędkością 5MB/s 
+              na maksymalną odległość 6 metrów
+
+* __SCSI-2__ :Wprowadzony został w 1994 roku. Kolejna wersja standardu, posiadała ona dwa warianty. Fast SCSI na złączu centronics 50 stykowym 
+              pozwalającym na transfer rzędu 10 MB/s 
+              oraz Fast Wide SCSI na złączu 50 lub 68 stykowym o maksymalnej prędkości transferu 20 MB/s. 
+              maksymalna odległość obu wariantów to 3 metry.
+
+* __SCSI-3/Ultra SCSI__ :swą premierę miał w roku 1996 Zwany również Ultra SCSI lub Fast20- również posiadał 2 warianty, 
+20 MB/s na 50 stykowym złączu oraz 40MB/s na złaczu 68 stykowym. odległość maksymalnie 1,5 metra 
+
+* __Ultra 2 SCSI__ :jest wersją przełomową w technologii SCSI,zwany też SCSI 40- zaprezentowany w roku 1997 tak 
+jak poprzednik dostępny był w 2 wariantach Ultra2 SCSI na klasycznym
+              złączu 50 stykowym z transferem 40MB/s oraz Ultra2 Wide SCSI o transferze 80 MB/s ze złączem 68 stykowym.
+               w tej wersji zastosowane zostało nowe sterowanie przesyłem danych, sterowanie niskonapięciowe LVD 
+              dzięki czemu zwiękrzono długość kabla do 12 metrów.
+* __Ultra 3 SCSI__ :(Ultra- 160 SCSI) maksymalny transfer 160 MB/s, dodano funkcje wspomagające wykrywanie i usuwanie przekłamań. 68- lub 80-stykowe złącze.
+* __Ultra 4 SCSI__ :(Ultra- 320 SCSI) maksymalny transfer 320 MB/s. 68- lub 80-stykowe złącze.
+* __Ultra 5 SCSI__ :(Ultra- 640 SCSI) maksymalny transfer 640 MB/s.
+
+poniżej przedstawiam tabele rozpisującą rodzaje SCSI 
+
+![tabela rodzajów SCSI](/scsi/tabelaSCSI.png)
+
+większość rodzajów SCSI jest ze sobą wzajemnie kompatybilna i można je ze sobą łączyć za pomocą odpowiednich przejściówek, 
+ważne podczas łączenia wielu urządzeń jest sprawdzenie w jakim trybie one pracuje.
+jeżeli choć jedno urządzenie będzie działało tylko w trybie SE całe połączenie przełączy się na tryb SE jeżeli magistrala to potrafi,
+ w przeciwnym wypadku połączenie nie będzie działać.
+oznaczenie w jakim trybie pracuje dane urządzenie zwykle widnieje na logo SCSI.
+poniższa grafika przedstawia oznaczenia.
+
+![tryby SCSI](/scsi/tryby.png)
+
+urządzenie z oznaczeniem trzecim: LVD/SE potrafi samodzielnie zmienić tryb pracy z LVD na SE, jeżeli połączymy urządzenia SE z 
+urządzeniem o oznacziu tylko LVD połączenie to nie zadziała.
+
+
