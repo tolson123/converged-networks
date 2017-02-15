@@ -24,9 +24,10 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ## Spis treści
 
 ## Architektura storage w ujęciu ogólnym:
-### DAS
+### [DAS](das.md)
+
 (Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
-### NAS
+### [NAS](nas.md)
 
 (Kamil Paryż, Tomasz Marzec, Janusz Ładecki)
 
