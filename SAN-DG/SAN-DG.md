@@ -50,7 +50,7 @@ FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI,
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
 ![Warstwy FC, z opisem i protokołami](/SAN-DG/Grafiki/FC-Layers2.PNG)
 Klasy usługi FC | Opis | Wymaga potwierdzenia (istotna jest kolejność przesyłanych ramek)
-----------------|------|-----------------------
+----------------|------|------------------------------------------------------------------
 Class 1 | Dedykowane połączenie z pełną przepustowością. | Tak
 Class 2 | Połączenie nie wymaga rozpoczęcia komunikacji (connectionless). Komunikacja Przełącznik-Przełącznik do przesyłania ramek FC (ramki FC są podstawową jednostka danych przesyłaną poprzez protokół) | Tak
 Class 3 | Podobnie jak klasa 2. Z wyjątkiem braku potwierdzeń. | Nie
@@ -79,6 +79,7 @@ NL_port | Port węzła, zdolny do utworzenia pętli (loop-capable). Wykorzystywa
 Port | Opis
 -----|-------
 ![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
+### FCIP - protokół... 
 
 
 
