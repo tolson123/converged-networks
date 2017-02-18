@@ -29,10 +29,12 @@
 #####Topologia Siatki (Mech topology) - każdy przełącznik jest podłączony fizycznie do pozostałych przełączników w sieci (zapewnia redundancje połączeń).
 ![Mesh topology](/SAN-DG/Grafiki/FC-SW-Mesh.PNG)
 #### Topologie warstwowe.
-#####Edge-Core
+#####Edge-Core - urządzenia pamięci masowej podłączone są do urządzenia głównego (centralnego, w jądrze sieci).
 ![Core-Edge](/SAN-DG/Grafiki/FC-Core-Edge.PNG)
-#####Edge-Core-Edge
+##### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
 ![Edge-Core-Edge](/SAN-DG/Grafiki/FC-Edge-Core-Edge.PNG)
+##### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
+
 ## 3. Fibre Channel
 ### Warstwy Fibre Channel:
 #### FC0
@@ -49,6 +51,6 @@
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
 
 ## 4. Fabric
-#### Fabric - sieć urządzeń (np. przełączników FC) spełniająca funkcję zarządzania dostępem do danych.
+#### Fabric - sieć urządzeń (np. przełączników FC) spełniająca funkcję zapewniania dostępu do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
 
 
