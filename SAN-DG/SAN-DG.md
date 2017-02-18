@@ -40,24 +40,24 @@
 ### Warstwy Fibre Channel:
 Warstwa | Opis
 --------|---------
-#### FC0 | Warstwa fizyczna - stardard zastosowanego okablowania, jego cechy. W przypadku FC stosujemy okablowanie światłowodowe oraz miedziane.
-#### FC1 | Warsta łącza danych (Data-Link). Odpowiedzialna za obsługę odpowiedniego schematu kodowania (encoding scheme) dla danego łącza. 
-#### FC2 | Warstwy odpowiedzialna za zarządzanie parametrami transferu danych - podział danych na ramki (*Framing Protocol*), wielkość pojedyńczej ramki danych (flow control), port/adres docelowy dla tej ramki. Wartswa ta zawiera definicje klas usługi - wybieranych zależności od wymagań które musi spełnić system. Warstwa ta zajmuje się definiowaniem funkcji dla transmisji z wykorzystaniem pojedynczego portu.
-#### FC3 | Warstwa ta definiuje zaawansowne funkcje takie jak stripping (tranfer danych przy pomocy wielu łączy), multicast (wielu odbiorców), hunt group (przypisanie wielu portów do jednego węzła). Warstwa ta definiuje funkcje transmisji wykorzystujące wiele portów.  
-#### FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI, FCP, FICON. 
+FC0 | Warstwa fizyczna - stardard zastosowanego okablowania, jego cechy. W przypadku FC stosujemy okablowanie światłowodowe oraz miedziane.
+FC1 | Warsta łącza danych (Data-Link). Odpowiedzialna za obsługę odpowiedniego schematu kodowania (encoding scheme) dla danego łącza. 
+FC2 | Warstwy odpowiedzialna za zarządzanie parametrami transferu danych - podział danych na ramki (*Framing Protocol*), wielkość pojedyńczej ramki danych (flow control), port/adres docelowy dla tej ramki. Wartswa ta zawiera definicje klas usługi - wybieranych zależności od wymagań które musi spełnić system. Warstwa ta zajmuje się definiowaniem funkcji dla transmisji z wykorzystaniem pojedynczego portu.
+FC3 | Warstwa ta definiuje zaawansowne funkcje takie jak stripping (tranfer danych przy pomocy wielu łączy), multicast (wielu odbiorców), hunt group (przypisanie wielu portów do jednego węzła). Warstwa ta definiuje funkcje transmisji wykorzystujące wiele portów.  
+FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI, FCP, FICON. 
 ![Warstwy Fiber Channel](/SAN-DG/Grafiki/FC-Layers.PNG)
 ### **Warstwy FC0, FC1 oraz FC2 nazywane są czasem jako warstwa fizyczna i sygnałowa protokołu FC - opisywana skrótem FC-PH**
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
-### Klasy usługi FC | Opis
---------------------|------------
-#### Class 1 | Opis1
-#### Class 2 | Opis2
-#### Class 3 | Opis3
-#### Class 4 | Opis4
-#### Class 5 | Opis5
-#### Class 6 | Opis6
-#### Class F | OpisF
+Klasy usługi FC | Opis
+----------------|------------
+Class 1 | Opis1
+Class 2 | Opis2
+Class 3 | Opis3
+Class 4 | Opis4
+Class 5 | Opis5
+Class 6 | Opis6
+Class F | OpisF
 ## 4. Fabric
-#### Fabric - sieć urządzeń (np. przełączników FC) spełniająca funkcję zapewniania dostępu do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
+#### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
 
 
