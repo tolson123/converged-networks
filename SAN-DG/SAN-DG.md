@@ -49,6 +49,7 @@ FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI,
 ### **Warstwy FC0, FC1 oraz FC2 nazywane są czasem warstwą fizyczną i sygnałową protokołu FC - opisywaną skrótem FC-PH**
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
 ![Warstwy FC, z opisem i protokołami](/SAN-DG/Grafiki/FC-Layers2.PNG)
+
 Klasy usługi FC | Opis | Wymaga potwierdzenia (istotna jest kolejność przesyłanych ramek)
 ----------------|------|------------------------------------------------------------------
 Class 1 | Dedykowane połączenie z pełną przepustowością. | Tak
@@ -58,6 +59,7 @@ Class 4 | Dedykowane połączenie wykorzystujące tylko część przepustowości
 Class 5 | Klasa jeszcze niezdefiniowana, nazywana izochroniczą usługą (isochronous service). Z założenia będzie miała zastosowania przy aplikacjach wymagających prawie natychmiastowego odbioru danych (usługi wideokonferencji dla przykładu). Klasa nie jest opisana w dokumentacji FC-PH. | Brak danych
 Class 6 | Klasa wspierająca połączenia multicast, wymagająca ustonowienia połączenie (connection-oriented). | Tak
 Class F | Klasa wykorzystywana do połączeń ISLs (Inter-switch links). Połączenie nie musi być wcześniej ustanowione (connectionless) ale przesyłane są potwierdzenia braku dostarczenia ramki. Klasa wykorzystywana do kontroli, koordynacji i konfiguracji Fabrics. | Tak
+
 ### **ISL - inter-switch link - połączenie ustanawiane pomiędzy przełącznika lub logicznymi przełącznika.**
 ## 4. Fabric
 #### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
