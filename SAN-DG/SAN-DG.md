@@ -46,17 +46,18 @@ FC2 | Warstwy odpowiedzialna za zarządzanie parametrami transferu danych - podz
 FC3 | Warstwa ta definiuje zaawansowne funkcje takie jak stripping (tranfer danych przy pomocy wielu łączy), multicast (wielu odbiorców), hunt group (przypisanie wielu portów do jednego węzła). Warstwa ta definiuje funkcje transmisji wykorzystujące wiele portów.  
 FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI, FCP, FICON. 
 ![Warstwy Fiber Channel](/SAN-DG/Grafiki/FC-Layers.PNG)
-### **Warstwy FC0, FC1 oraz FC2 nazywane są czasem jako warstwa fizyczna i sygnałowa protokołu FC - opisywana skrótem FC-PH**
+### **Warstwy FC0, FC1 oraz FC2 nazywane są czasem warstwą fizyczną i sygnałową protokołu FC - opisywaną skrótem FC-PH**
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
-Klasy usługi FC | Opis
-----------------|------------
-Class 1 | Opis1
-Class 2 | Opis2
-Class 3 | Opis3
-Class 4 | Opis4
-Class 5 | Opis5
-Class 6 | Opis6
-Class F | OpisF
+Klasy usługi FC | Opis | Wymaga potwierdzenia (istotna jest kolejność przesyłanych ramek)
+----------------|------|-----------------------
+Class 1 | Dedykowane połączenie z pełną przepustowością. | Tak
+Class 2 | Połączenie nie wymaga rozpoczęcia komunikacji (connectionless). Komunikacja Przełącznik-Przełącznik do przesyłania ramek FC (ramki FC są podstawową jednostka danych przesyłaną poprzez protokół) | Tak
+Class 3 | Podobnie jak klasa 2. Z wyjątkiem braku potwierdzeń. | Nie
+Class 4 | Dedykowane połączenie wykorzystujące tylko część przepustowości w trakcie komunikacji port-port, wykorzystuje tzw. Virtual Circuits (VCs). Każdy port typu N może zarządać VC wraz z gwarantowaną jakością usług (przepustowością łącza). Zestawiony obwód wirtualny składa się z dwóch jednokierunkowych połączeń, prędkość połączeń nie musi być równa. Klasa usługi osiągalna tylko w sieciach z przełącznika (FC-SW) | Tak.
+Class 5 | Klasa jeszcze niezdefiniowana, nazywana izochroniczą usługą (isochronous service). Z założenia będzie miała zastosowania przy aplikacjach wymagających prawie natychmiastowego odbioru danych (usługi wideokonferencji dla przykładu). Klasa nie jest opisana w dokumentacji FC-PH. | Brak danych, raczej Nie
+Class 6 | Klasa wspierająca połączenia multicast, wymagająca ustonowienia połączenie (connection-oriented). | Tak
+Class F | Klasa wykorzystywana do połączeń ISLs (Inter-switch links). Połączenie nie musi być wcześniej ustanowione (connectionless) ale przesyłane są potwierdzenia braku dostarczenia ramki. Klasa wykorzystywana do kontroli, koordynacji i konfiguracji Fabrics. | Tak
+### **ISL - inter-switch link - połączenie ustanawiane pomiędzy przełącznika lub logicznymi przełącznika.**
 ## 4. Fabric
 #### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
 
