@@ -19,7 +19,20 @@
 ##### Najbardziej przydatna topologia, wykorzystująca przełączniki i inne urządzenia sieciowe. Zwana inaczej Fibre Channel Switched Fabric (FC-SW). Fabric ma przynajmniej jeden przełącznik SAN w ramach swojej konfiguracji. Przełączany Fabric zapewnia pełną szerokość pasma w medium transmisyjnym (bandwidth) na każdy port w porównaniu ze współdzieloną szerokością pasma w przypadku implementacji pętli z arbitrażem.
 ![FC-SW](/SAN-DG/Grafiki/FC-SW.PNG)
 ##### Najważniejszą różnicą pomiędzy FC-AL, a FC-SW jest to że dodanie nowego urządzenia w FC-AL powoduje dalszy podział współdzielonej szerokości pasma. W przypadku FC-SW przepustowość pasma w medium transmisyjnym zostaje zwiększona. Powoduje to stopniowe odchodzenie od topologii FC-AL.
-
+#### Tradycyjne topologie FC-SW
+#####Pojedynczy przełącznik (single switch) - urządzenie podpięte są do jednego przełącznika FC.
+![Single Switch](/SAN-DG/Grafiki/FC-SW-Single.PNG)
+#####Pierścień (ring) - przełączniki są podłączone ze sobą, przełączniki na początku i na końcu kolejki mają dodatkowe połączenie zamykające pierścień.
+![Ring topology](/SAN-DG/Grafiki/FC-SW-Ring.PNG)
+#####Kaskadowa (Cascade) - przełączniki są podłączone ze sobą (w kolejce).
+![Cascade topology](/SAN-DG/Grafiki/FC-SW-Cascade.PNG)
+#####Topologia Siatki (Mech topology) - każdy przełącznik jest podłączony fizycznie do pozostałych przełączników w sieci (zapewnia redundancje połączeń).
+![Mesh topology](/SAN-DG/Grafiki/FC-SW-Mesh.PNG)
+#### Topologie warstwowe.
+#####Edge-Core
+![Core-Edge](/SAN-DG/Grafiki/FC-Core-Edge.PNG)
+#####Edge-Core-Edge
+![Edge-Core-Edge](/SAN-DG/Grafiki/FC-Edge-Core-Edge.PNG)
 ## 3. Fibre Channel
 ### Warstwy Fibre Channel:
 #### FC0
