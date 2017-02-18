@@ -34,6 +34,7 @@
 ##### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
 ![Edge-Core-Edge](/SAN-DG/Grafiki/FC-Edge-Core-Edge.PNG)
 ##### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
+##### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci" - Fabrics. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabric. W **Edge-Core-Edge** oraz **Core-Edge można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć lepszej administracji infrastrukturą SAN. 
 
 ## 3. Fibre Channel
 ### Warstwy Fibre Channel:
