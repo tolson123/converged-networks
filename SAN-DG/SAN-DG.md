@@ -34,7 +34,7 @@
 ##### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
 ![Edge-Core-Edge](/SAN-DG/Grafiki/FC-Edge-Core-Edge.PNG)
 ##### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
-##### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci" - Fabrics. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabric. W __Edge-Core-Edge__ oraz __Core-Edge__ można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć lepszej administracji infrastrukturą SAN. 
+##### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci FC" - **subfabrics**. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabrics. W **Edge-Core-Edge** oraz **Core-Edge** można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć łatwiejszej i bezpieczniejszej administracji infrastrukturą SAN. 
 
 ## 3. Fibre Channel
 ### Warstwy Fibre Channel:
@@ -48,17 +48,38 @@ FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI,
 ![Warstwy Fiber Channel](/SAN-DG/Grafiki/FC-Layers.PNG)
 ### **Warstwy FC0, FC1 oraz FC2 nazywane są czasem warstwą fizyczną i sygnałową protokołu FC - opisywaną skrótem FC-PH**
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
+![Warstwy FC, z opisem i protokołami](/SAN-DG/Grafiki/FC-Layers2.PNG)
 Klasy usługi FC | Opis | Wymaga potwierdzenia (istotna jest kolejność przesyłanych ramek)
 ----------------|------|-----------------------
 Class 1 | Dedykowane połączenie z pełną przepustowością. | Tak
 Class 2 | Połączenie nie wymaga rozpoczęcia komunikacji (connectionless). Komunikacja Przełącznik-Przełącznik do przesyłania ramek FC (ramki FC są podstawową jednostka danych przesyłaną poprzez protokół) | Tak
 Class 3 | Podobnie jak klasa 2. Z wyjątkiem braku potwierdzeń. | Nie
 Class 4 | Dedykowane połączenie wykorzystujące tylko część przepustowości w trakcie komunikacji port-port, wykorzystuje tzw. Virtual Circuits (VCs). Każdy port typu N może zarządać VC wraz z gwarantowaną jakością usług (przepustowością łącza). Zestawiony obwód wirtualny składa się z dwóch jednokierunkowych połączeń, prędkość połączeń nie musi być równa. Klasa usługi osiągalna tylko w sieciach z przełącznika (FC-SW) | Tak.
-Class 5 | Klasa jeszcze niezdefiniowana, nazywana izochroniczą usługą (isochronous service). Z założenia będzie miała zastosowania przy aplikacjach wymagających prawie natychmiastowego odbioru danych (usługi wideokonferencji dla przykładu). Klasa nie jest opisana w dokumentacji FC-PH. | Brak danych, raczej Nie
+Class 5 | Klasa jeszcze niezdefiniowana, nazywana izochroniczą usługą (isochronous service). Z założenia będzie miała zastosowania przy aplikacjach wymagających prawie natychmiastowego odbioru danych (usługi wideokonferencji dla przykładu). Klasa nie jest opisana w dokumentacji FC-PH. | Brak danych
 Class 6 | Klasa wspierająca połączenia multicast, wymagająca ustonowienia połączenie (connection-oriented). | Tak
 Class F | Klasa wykorzystywana do połączeń ISLs (Inter-switch links). Połączenie nie musi być wcześniej ustanowione (connectionless) ale przesyłane są potwierdzenia braku dostarczenia ramki. Klasa wykorzystywana do kontroli, koordynacji i konfiguracji Fabrics. | Tak
 ### **ISL - inter-switch link - połączenie ustanawiane pomiędzy przełącznika lub logicznymi przełącznika.**
 ## 4. Fabric
 #### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
+## 5. Porty
+### **Port jest podstawowym elmentem sieci opartej na Fiber Channel.**
+Port | Opis
+-----|------
+F_port | Wykorzystywana do połączenia się z portem typu N_port (node port), połączenie punkt-punkt z przełącznikiem.
+FL_port | Port pętli, wykorzystywana do podłączenia się do portu NL_port (node loop port). Porty pętli wykorzystywane są w rozwiązaniach typu pętla z arbitrażem.
+TL_port | Port w urządzeniach firmy CISCO wykorzystywany do podłączenia urządzeń nierozpoznających Fabrica (non-fabric aware) w prywatnych pętlach urządzeń. Translative loop port.
+G_port | port typu rodzajowego (generic), może pracować jako expansion port (E_port) lub jako F_port. Port jest definiowany jako G_port jeżeli nastapiło połączenie ale nie otrzymano potwierdzenia inicjalizacji pętli (look initialization) lub nie ukończono inicjalizacji pętli z najbliższym urządzeniem Fiber Channel.
+L_port | Port typu loop-capable, może dotyczyć węzła lub przełącznika. 
+U_port | Port uniwersalny, bardziej uniwersalny niż G_port. Może pracować jako E_port, F_port lub FL_port. Port jest definiowany jako U_port jeżeli nie został jeszcze wykorzystany do podłączenia lub nie ma z góry przypisanej roli w Fabricu.
+N_port | Port węzła, niezdolny do utworzenia pętli (not loop-capable). Port końcowy dla hosta (serwera) wykorzystywany do podłączenia się do przełącznika FC.
+NL_port | Port węzła, zdolny do utworzenia pętli (loop-capable). Wykorzystywany do podłączania urządzeń poprzez porty L_port i FL_port.
+![Podstawowe porty w Fabricu](/SAN-DG/Grafiki/FCPorts.PNG)
+### **Powyższa konfiguracja nie posiada bezpośredniego połączenia pomiędzy przełącznika.**
+### Porty rozszerzające (Expansion port types)
+Port | Opis
+-----|-------
+![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
+
+
 
 
