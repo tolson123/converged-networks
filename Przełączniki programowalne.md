@@ -39,4 +39,4 @@ Zarówno w przypadku dużych sieci rdzeniowych, korporacyjnych jak również w p
 
 #EPICENTER
 
-![enter image description here](http://http://www.extremenetworks-ua.com/assets/images/Products/chassis-full.jpg
+![enter image description here](http://www.extremenetworks-ua.com/assets/images/Products/chassis-full.jpg
