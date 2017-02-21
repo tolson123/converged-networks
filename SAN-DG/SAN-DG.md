@@ -93,6 +93,14 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 
 ### FCIP - protokół... 
 
+## 6. Schemat adresowania
+### WWNN
+### WWPN
+### Adres portu
+
+## 7. Inicjalizacja portów w FC
+## 8. Fabric Services
+## 9. Routing w sieciach SAN
 
 
 
