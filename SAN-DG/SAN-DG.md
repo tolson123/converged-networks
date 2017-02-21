@@ -80,6 +80,11 @@ NL_port | Port węzła, zdolny do utworzenia pętli (loop-capable). Wykorzystywa
 ### Porty rozszerzające (Expansion port types)
 Port | Opis
 -----|-------
+E_port | Port wykorzystywany w ISL do powiększania Fabrica.
+EX_port | Port nie pozwala na łączenie Fabrics ale wspiera FC-NAT (Fiber Channel Network Address Translation). Wykorzystujemy ten port w celu podłączenia wieloprotokołowych routerów do Edge Fabrics.
+VE_port | Wirtualny E_port, emulujący E_port i wykorzystujący protokół FCIP (Fiber Channel over Internet Protocol). Funckja VE_port jest dostępna w przypadku połączeń punkt-punkt.
+VEX_port | Jest to zroutowany VE_port, ma taką samą funkcjonalność jak VE_port.
+TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wielu wirtualnych sieci SAN (VSANs). Port zwany inaczej **Trunking E_port**.
 ![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
 ### FCIP - protokół... 
 
