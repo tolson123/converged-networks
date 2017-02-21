@@ -87,7 +87,7 @@ VEX_port | Jest to zroutowany VE_port, ma taką samą funkcjonalność jak VE_po
 TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wielu wirtualnych sieci SAN (VSANs). Port zwany inaczej **Trunking E_port**.
 ![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
 Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. Poniższa grafika przedstawia porty FC w urządzeniach firmy CISCO.
-![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC-Cisco_ports.PNG)
+![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC_Cisco_ports.PNG)
 ### FCIP - protokół... 
 
 
