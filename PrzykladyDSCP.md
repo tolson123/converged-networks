@@ -5,13 +5,12 @@ Spis treści
 * [DSCP oparte o QoS z HTB](#dscp-oparte-o-qos-z-htb)
 * [Znakowanie DSCP](#znakowanie-dscp)
 * [Konfiguracja drzewa klas](#konfiguracja-drzewa-klas)
-* [Dalsze udoskonalenia (według BrotherDust)](#dalszeudoskonalenia(wedługbrotherdust))
+* [Dalsze udoskonalenia (według BrotherDust)](#dalsze-udoskonalenia-według-brotherdust)
 * [Komentarz do różnic pomiędzy modyfikacja a pierwszym przykładem](#komentarz-do-różnic-pomiędzy-modyfikacja-a-pierwszym-przykładem)
-* [Architektura Diffserv – RFC2475](#architektura-diffserv-\–-rfc2475)
+* [Architektura Diffserv – RFC2475](#architektura-diffserv--rfc2475)
 * [Klasyfikacja i oznaczanie](#klasyfikacja-i-oznaczanie)
 * [Narzędzia klasyfikacji IP Precedence i DiffServ Code Points](#narzędzia-klasyfikacji-ip-precedence-i-diffserv-code-points)
 * [Źródła](#Źródła)
-[Architektura Diffserv – RFC2475](#architektura-diffserv-\–-rfc2475)\
 
 ---------------------
 
