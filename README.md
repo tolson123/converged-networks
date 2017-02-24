@@ -64,7 +64,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 (Natalia Lasek)
 (Oleksandr Voloshyn, Ivan Kopko)
 
-### [Przykłady DSCP](PrzykladyDSCP.mb)
+### [Przykłady DSCP](PrzykladyDSCP.md)
 (Oleksandr Voloshyn, Ivan Kopko)
 
 ## Przydatne narzędzia:
