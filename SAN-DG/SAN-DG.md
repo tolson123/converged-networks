@@ -93,12 +93,10 @@ TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wi
 ![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
 
 Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. Poniższa grafika przedstawia porty FC w urządzeniach firmy CISCO.
-
-![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC_Cisco_ports.PNG)
-
+![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC-Cisco.PNG)
 ## 6. Protokoły
 ### FCIP - Fiber Channel over Internet Protocol - protokół pozwalający na wysyłanie pakietów Fiber channel poprzez zwykłą sieć z wykorzystaniem protokołu IP. FCIP wykonuje enkapsulację ramki FC, i wysyła ją w pakiecie IP.
-![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FC-Encapsulation.PNG)
+![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FCIP-Encapsulation.PNG)
 ####Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fiber Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
 ####Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
 ### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...    
