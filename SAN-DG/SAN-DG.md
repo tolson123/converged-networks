@@ -93,7 +93,9 @@ TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wi
 ![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
 
 Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. Poniższa grafika przedstawia porty FC w urządzeniach firmy CISCO.
+
 ![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC-Cisco.PNG)
+
 ## 6. Protokoły
 ### FCIP - Fiber Channel over Internet Protocol - protokół pozwalający na wysyłanie pakietów Fiber channel poprzez zwykłą sieć z wykorzystaniem protokołu IP. FCIP wykonuje enkapsulację ramki FC, i wysyła ją w pakiecie IP.
 ![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FCIP-Encapsulation.PNG)
