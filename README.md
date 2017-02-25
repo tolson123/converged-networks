@@ -56,9 +56,9 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 
 ## Jakość usług:
 ### Model Best Effort (Krzysztof Golonka)
-### Model Integrated Services
+### Model Integrated Services (Model Integrated Services.md)
 (Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
-### Protokół RSVP
+### Protokół RSVP (RSVP.md)
 (Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
 ### Model Differentiated Services
 (Natalia Lasek)
