@@ -60,7 +60,12 @@ Class 5 | Klasa jeszcze niezdefiniowana, nazywana izochroniczą usługą (isochr
 Class 6 | Klasa wspierająca połączenia multicast, wymagająca ustonowienia połączenie (connection-oriented). | Tak
 Class F | Klasa wykorzystywana do połączeń ISLs (Inter-switch links). Połączenie nie musi być wcześniej ustanowione (connectionless) ale przesyłane są potwierdzenia braku dostarczenia ramki. Klasa wykorzystywana do kontroli, koordynacji i konfiguracji Fabrics. | Tak
 
-### **ISL - inter-switch link - połączenie ustanawiane pomiędzy przełącznika lub logicznymi przełącznika.**
+### **ISL - inter-switch link - protokół połączenia ustanawianego pomiędzy przełącznika lub logicznymi przełącznika.**
+### Ramka FC
+![Schemat ramki Fiber channel](/SAN-DG/Grafiki/FC-frame.PNG)
+
+####Elementy ramki FC:
+#### SOF (Start of Frame), Nagłówek FC, Blok danych SCSI, Cyclic Redundancy Check, End of Frame delimeter;      
 ## 4. Fabric
 #### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
 ## 5. Porty
@@ -91,16 +96,20 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 
 ![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC_Cisco_ports.PNG)
 
-### FCIP - protokół... 
-
-## 6. Schemat adresowania
+## 6. Protokoły
+### FCIP - Fiber Channel over Internet Protocol - protokół pozwalający na wysyłanie pakietów Fiber channel poprzez zwykłą sieć z wykorzystaniem protokołu IP. FCIP wykonuje enkapsulację ramki FC, i wysyła ją w pakiecie IP.
+![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FC-Encapsulation.PNG)
+####Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fiber Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
+####Z uwagi na to, że FCIP tworzy tunel komunikacodrębnychyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
+### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...    
+# 7. Schemat adresowania
 ### WWNN
 ### WWPN
 ### Adres portu
 
-## 7. Inicjalizacja portów w FC
-## 8. Fabric Services
-## 9. Routing w sieciach SAN
+## 8. Inicjalizacja portów w FC
+## 9. Fabric Services
+## 10. Routing w sieciach SAN
 
 
 
