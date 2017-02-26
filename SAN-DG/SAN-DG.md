@@ -135,6 +135,7 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ### **Jeżeli wykorzystywane są wirtualizatory Storage, WWNN może odnosić się do indywidualnej wirtualnej instancji zasobów Storage.**
 
 ![WWPN-Tapes](/SAN-DG/Grafiki/WWPN-Tapes.PNG)
+
 ##### WWNN oraz WWPN dla taśm
 
 ### Adres portu
