@@ -12,7 +12,7 @@
 ####    Przepustowość łącza nie jest współdzielona pomiędzy urządzeniami, więc wykorzystywana jest ona w pełni na potrzeby komunikacji pomiędzy połączonymi węzłami.
 ####    Łącze działa trybie pełnego dupleksu - komunikacja może odbywać się jednocześnie w dwóch kierunkach.
 ###  2. Arbitrated loop (pętla z arbitrażem).
-####    Zwana inaczej siecią FC-AL (Fiber Channel - Arbitrated Loop). Topologia tego typu nie wymaga dodatkowych urządzeń sieciowych takich jak przełączniki SAN. Wszystkie urządzenia połączone są ze sobą w pętlę. Komunikacja odbywa się pomiędzy kolejnymi urządzeniami w pętli, to oznacza że wszystkie urządzenia muszą działać przy tej samej przepływności (channel capacity). Inaczej mówiąc, sieć działa z najwyższą przepływnością najwolniejszego elementu pętli.
+####    Zwana inaczej siecią FC-AL (Fibre Channel - Arbitrated Loop). Topologia tego typu nie wymaga dodatkowych urządzeń sieciowych takich jak przełączniki SAN. Wszystkie urządzenia połączone są ze sobą w pętlę. Komunikacja odbywa się pomiędzy kolejnymi urządzeniami w pętli, to oznacza że wszystkie urządzenia muszą działać przy tej samej przepływności (channel capacity). Inaczej mówiąc, sieć działa z najwyższą przepływnością najwolniejszego elementu pętli.
 ![FC-AL](/SAN-DG/Grafiki/FC-AL.PNG)
 ####    Z uwagi na ograniczenia adresowe w pętli nie może być w niej więcej niż 126 urządzeń - zarządzane są one jako jedna współdzielona szyna transmisji. Ruch odbywa się w jednym kierunku przekazując ramki przez kolejne elementy pętli. Protokół arbitrażu pozwala na ustanowienie jednego połączenia między nadawcą i odbiorcą, kiedy komunikacja zostaje zrealizowana pomiędzy dwoma portami następuje zwolnienie pętli i może być ustanowione nowe połączenie pomiędzy dwoma portami w pętli. Pętle można skonfigurować z Hubami w celu ułatwienia zarządzania połączeniami. Dystans do 10 km jest wspierany przez standard Fibre Channel, jednak długość pętli wpływa na opóżnienia w komunikacji.  
 ###  3. Switched Fabric (pełna sieć - tzw. Fabric)
@@ -45,7 +45,7 @@ FC1 | Warsta łącza danych (Data-Link). Odpowiedzialna za obsługę odpowiednie
 FC2 | Warstwy odpowiedzialna za zarządzanie parametrami transferu danych - podział danych na ramki (*Framing Protocol*), wielkość pojedyńczej ramki danych (flow control), port/adres docelowy dla tej ramki. Wartswa ta zawiera definicje klas usługi - wybieranych zależności od wymagań które musi spełnić system. Warstwa ta zajmuje się definiowaniem funkcji dla transmisji z wykorzystaniem pojedynczego portu.
 FC3 | Warstwa ta definiuje zaawansowne funkcje takie jak stripping (tranfer danych przy pomocy wielu łączy), multicast (wielu odbiorców), hunt group (przypisanie wielu portów do jednego węzła). Warstwa ta definiuje funkcje transmisji wykorzystujące wiele portów.  
 FC4 | Umożliwia współpracę FC z innymi protokołami takimi jak np. IP, SCSI, FCP, FICON. 
-![Warstwy Fiber Channel](/SAN-DG/Grafiki/FC-Layers.PNG)
+![Warstwy Fibre Channel](/SAN-DG/Grafiki/FC-Layers.PNG)
 ### **Warstwy FC0, FC1 oraz FC2 nazywane są czasem warstwą fizyczną i sygnałową protokołu FC - opisywaną skrótem FC-PH**
 ### Fibre Channel jest to protokół łączący cechy zwykłej szyny danych (np. SCSI) - przestrzeń dyskowa udostępniona w ten sposób jest widoczna jako zwykły DAS, z funkcjonalnościami dostępnymi w tradycyjnych sieciach.
 ![Warstwy FC, z opisem i protokołami](/SAN-DG/Grafiki/FC-Layers2.PNG)
@@ -62,20 +62,20 @@ Class F | Klasa wykorzystywana do połączeń ISLs (Inter-switch links). Połąc
 
 ### **ISL - inter-switch link - protokół połączenia ustanawianego pomiędzy przełącznika lub logicznymi przełącznika.**
 ### Ramka FC
-![Schemat ramki Fiber channel](/SAN-DG/Grafiki/FC-frame.PNG)
+![Schemat ramki Fibre channel](/SAN-DG/Grafiki/FC-frame.PNG)
 
 ####Elementy ramki FC:
 #### SOF (Start of Frame), Nagłówek FC, Blok danych SCSI, Cyclic Redundancy Check, End of Frame delimeter;      
 ## 4. Fabric
 #### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
 ## 5. Porty
-### **Port jest podstawowym elmentem sieci opartej na Fiber Channel.**
+### **Port jest podstawowym elmentem sieci opartej na Fibre Channel.**
 Port | Opis
 -----|------
 F_port | Wykorzystywana do połączenia się z portem typu N_port (node port), połączenie punkt-punkt z przełącznikiem.
 FL_port | Port pętli, wykorzystywana do podłączenia się do portu NL_port (node loop port). Porty pętli wykorzystywane są w rozwiązaniach typu pętla z arbitrażem.
 TL_port | Port w urządzeniach firmy CISCO wykorzystywany do podłączenia urządzeń nierozpoznających Fabrica (non-fabric aware) w prywatnych pętlach urządzeń. Translative loop port.
-G_port | port typu rodzajowego (generic), może pracować jako expansion port (E_port) lub jako F_port. Port jest definiowany jako G_port jeżeli nastapiło połączenie ale nie otrzymano potwierdzenia inicjalizacji pętli (look initialization) lub nie ukończono inicjalizacji pętli z najbliższym urządzeniem Fiber Channel.
+G_port | port typu rodzajowego (generic), może pracować jako expansion port (E_port) lub jako F_port. Port jest definiowany jako G_port jeżeli nastapiło połączenie ale nie otrzymano potwierdzenia inicjalizacji pętli (look initialization) lub nie ukończono inicjalizacji pętli z najbliższym urządzeniem Fibre Channel.
 L_port | Port typu loop-capable, może dotyczyć węzła lub przełącznika. 
 U_port | Port uniwersalny, bardziej uniwersalny niż G_port. Może pracować jako E_port, F_port lub FL_port. Port jest definiowany jako U_port jeżeli nie został jeszcze wykorzystany do podłączenia lub nie ma z góry przypisanej roli w Fabricu.
 N_port | Port węzła, niezdolny do utworzenia pętli (not loop-capable). Port końcowy dla hosta (serwera) wykorzystywany do podłączenia się do przełącznika FC.
@@ -88,8 +88,8 @@ NL_port | Port węzła, zdolny do utworzenia pętli (loop-capable). Wykorzystywa
 Port | Opis
 -----|-------
 E_port | Port wykorzystywany w ISL do powiększania Fabrica.
-EX_port | Port nie pozwala na łączenie Fabrics ale wspiera FC-NAT (Fiber Channel Network Address Translation). Wykorzystujemy ten port w celu podłączenia wieloprotokołowych routerów do Edge Fabrics.
-VE_port | Wirtualny E_port, emulujący E_port i wykorzystujący protokół FCIP (Fiber Channel over Internet Protocol). Funckja VE_port jest dostępna w przypadku połączeń punkt-punkt.
+EX_port | Port nie pozwala na łączenie Fabrics ale wspiera FC-NAT (Fibre Channel Network Address Translation). Wykorzystujemy ten port w celu podłączenia wieloprotokołowych routerów do Edge Fabrics.
+VE_port | Wirtualny E_port, emulujący E_port i wykorzystujący protokół FCIP (Fibre Channel over Internet Protocol). Funckja VE_port jest dostępna w przypadku połączeń punkt-punkt.
 VEX_port | Jest to zroutowany VE_port, ma taką samą funkcjonalność jak VE_port.
 TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wielu wirtualnych sieci SAN (VSANs). Port zwany inaczej **Trunking E_port**.
 
@@ -100,19 +100,23 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ![Porty FC w urządzeniach CISCO](/SAN-DG/Grafiki/FC-Cisco.PNG)
 
 ## 6. Protokoły
-### FCIP - Fiber Channel over Internet Protocol - protokół pozwalający na wysyłanie pakietów Fiber channel poprzez zwykłą sieć z wykorzystaniem protokołu IP. FCIP wykonuje enkapsulację ramki FC, i wysyła ją w pakiecie IP.
+### FCIP - Fibre Channel over Internet Protocol - protokół pozwalający na wysyłanie pakietów Fibre Channel poprzez zwykłą sieć z wykorzystaniem protokołu IP. FCIP wykonuje enkapsulację ramki FC, i wysyła ją w pakiecie IP.
 
 ![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FCIP-Encapsulation.PNG)
 
-####Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fiber Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
+####Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fibre Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
 ####Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
-### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...
+### iFCP - Internet Fibre Channel Protocol - protokół dostarczający usługi Fabrica Fibre Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje TCP do zapobieganiu przeciążeniu sieci (congestion control), wykrywaniu błędów w transmisji danych (error detection) oraz odzyskiwaniu (recovery).
+### Podstawowym celem iFCP jest wykorzystanie istniejącej infrastruktury sieciowej do rozszerzenia sieci SAN bez konieczności rozbudowywania sieci SAN. W iFCP, stos TCP/IP i jego infrastruktura zastępują infrastrukturę Fibre Channel. Jest to protokół brama-brama (router-router).
+### Enkapsulacja w pakietach IP odbywa się podobnie jak w przypadku FCIP, za wyjątkiem nagłówka, który jest mapowany (odwzorowywany) w nagłówku IP, i danych sesji TCP.
 
 ![Enkpsulacja w iFCP](/SAN-DG/Grafiki/iFCP-encapsulation.PNG)
 
 ### SCSI - [SCSI](/scsi/scsi.md)
 ### iSCSI - [iSCSI](/iSCSI.md)
-### FICON - ...    
+### FICON - Fiber Connectivity - protokół/interfejs, będący własnością intelektualną firmy IBM, wykorzystywany do połączeń komputerów typu Mainframe z urządzeniami storage. Następca **ESCON**, poprzedniego standardu do połączeń storage.
+### FCoE - [FCoE](/FCoE.md)
+### iSNS - Internet Storage Name Service - protokół służący do obsługi interakcji pomiedzy serwerami iSNS oraz klientami iSNS. Klienci iSNS to komputery (nazywane inicjatorami), które podejmują próby odnajdowania urządzeń magazynujących (nazywanych obiektami docelowymi) w sieci Ethernet. Protokół iSNS umożliwia zautomatyzowane odnajdowanie i konfigurowanie urzędzeń iSCSI oraz Fibre Channel (przy użyciu bram iFCP), a także zarządzanie nimi w sieci TCP/IP.     
 ## 7. Schemat adresowania
 ### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.  
 ### WWNN
@@ -124,6 +128,12 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ## 10. Routing w sieciach SAN
 ## 11. Urządzenia SAN
 ## 12. Źródła
+[FICON](http://searchstorage.techtarget.com/definition/FICON)
+[FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
+[iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
+[iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
+[Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
+
 
 
 
