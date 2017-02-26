@@ -2,59 +2,59 @@
 ##### **Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech**
 
 ##1. Podstawowe informacje o SAN. 
-	###  * SAN jest typem sieci komputerowej, której celem jest udostępnianie zasobów takich jak macierze dyskowe (storage) dla serwerów w ramach organizacji.
-	###  * Jest to dedykowany typ sieci, do której zazwyczaj nie ma dostępu z sieci LAN organizacji. SAN ma własne dedykowane urządzenia sieciowe.
-	###  * Zazwyczaj jest to storage typu blokowego.
-	###  * Według [Storage Network Industry Association](http://www.snia.org/about) głównym celem SAN jest tranfer danych pomiędzy systemami komputerowymi, a urządzeniami storage.
+###  * SAN jest typem sieci komputerowej, której celem jest udostępnianie zasobów takich jak macierze dyskowe (storage) dla serwerów w ramach organizacji.
+###  * Jest to dedykowany typ sieci, do której zazwyczaj nie ma dostępu z sieci LAN organizacji. SAN ma własne dedykowane urządzenia sieciowe.
+###  * Zazwyczaj jest to storage typu blokowego.
+###  * Według [Storage Network Industry Association](http://www.snia.org/about) głównym celem SAN jest tranfer danych pomiędzy systemami komputerowymi, a urządzeniami storage.
 
 ##2. Podstawowe topologie SAN
 
 ![Topologie SAN](/SAN-DG/Grafiki/San-Top.PNG)
 
 ###  1. Point-to-Point (Punkt-Punkt).
-	###    Najprostsza topologia sieci SAN, wykorzystywana do podłączania ze sobą dwóch węzłów (urządzeń). Zakładamy, że nie będziemy skalować infrastruktury poziomo (vertical scaling) - czyli nie będą podłączane nowe urządzenia (węzły).
-	###    Przepustowość łącza nie jest współdzielona pomiędzy urządzeniami, więc wykorzystywana jest ona w pełni na potrzeby komunikacji pomiędzy połączonymi węzłami.
-	###    Łącze działa trybie pełnego dupleksu - komunikacja może odbywać się jednocześnie w dwóch kierunkach.
+###    Najprostsza topologia sieci SAN, wykorzystywana do podłączania ze sobą dwóch węzłów (urządzeń). Zakładamy, że nie będziemy skalować infrastruktury poziomo (vertical scaling) - czyli nie będą podłączane nowe urządzenia (węzły).
+###    Przepustowość łącza nie jest współdzielona pomiędzy urządzeniami, więc wykorzystywana jest ona w pełni na potrzeby komunikacji pomiędzy połączonymi węzłami.
+###    Łącze działa trybie pełnego dupleksu - komunikacja może odbywać się jednocześnie w dwóch kierunkach.
 ###  2. Arbitrated loop (pętla z arbitrażem).
-	###    Zwana inaczej siecią FC-AL (Fibre Channel - Arbitrated Loop). Topologia tego typu nie wymaga dodatkowych urządzeń sieciowych takich jak przełączniki SAN. Wszystkie urządzenia połączone są ze sobą w pętlę. Komunikacja odbywa się pomiędzy kolejnymi urządzeniami w pętli, to oznacza że wszystkie urządzenia muszą działać przy tej samej przepływności (channel capacity). Inaczej mówiąc, sieć działa z najwyższą przepływnością najwolniejszego elementu pętli.
+###    Zwana inaczej siecią FC-AL (Fibre Channel - Arbitrated Loop). Topologia tego typu nie wymaga dodatkowych urządzeń sieciowych takich jak przełączniki SAN. Wszystkie urządzenia połączone są ze sobą w pętlę. Komunikacja odbywa się pomiędzy kolejnymi urządzeniami w pętli, to oznacza że wszystkie urządzenia muszą działać przy tej samej przepływności (channel capacity). Inaczej mówiąc, sieć działa z najwyższą przepływnością najwolniejszego elementu pętli.
 
 ![FC-AL](/SAN-DG/Grafiki/FC-AL.PNG)
 
-	###    Z uwagi na ograniczenia adresowe w pętli nie może być w niej więcej niż 126 urządzeń - zarządzane są one jako jedna współdzielona szyna transmisji. Ruch odbywa się w jednym kierunku przekazując ramki przez kolejne elementy pętli. Protokół arbitrażu pozwala na ustanowienie jednego połączenia między nadawcą i odbiorcą, kiedy komunikacja zostaje zrealizowana pomiędzy dwoma portami następuje zwolnienie pętli i może być ustanowione nowe połączenie pomiędzy dwoma portami w pętli. Pętle można skonfigurować z Hubami w celu ułatwienia zarządzania połączeniami. Dystans do 10 km jest wspierany przez standard Fibre Channel, jednak długość pętli wpływa na opóżnienia w komunikacji.  
+###    Z uwagi na ograniczenia adresowe w pętli nie może być w niej więcej niż 126 urządzeń - zarządzane są one jako jedna współdzielona szyna transmisji. Ruch odbywa się w jednym kierunku przekazując ramki przez kolejne elementy pętli. Protokół arbitrażu pozwala na ustanowienie jednego połączenia między nadawcą i odbiorcą, kiedy komunikacja zostaje zrealizowana pomiędzy dwoma portami następuje zwolnienie pętli i może być ustanowione nowe połączenie pomiędzy dwoma portami w pętli. Pętle można skonfigurować z Hubami w celu ułatwienia zarządzania połączeniami. Dystans do 10 km jest wspierany przez standard Fibre Channel, jednak długość pętli wpływa na opóżnienia w komunikacji.  
 ###  3. Switched Fabric (pełna sieć - tzw. Fabric)
-	### Najbardziej przydatna topologia, wykorzystująca przełączniki i inne urządzenia sieciowe. Zwana inaczej Fibre Channel Switched Fabric (FC-SW). Fabric ma przynajmniej jeden przełącznik SAN w ramach swojej konfiguracji. Przełączany Fabric zapewnia pełną szerokość pasma w medium transmisyjnym (bandwidth) na każdy port w porównaniu ze współdzieloną szerokością pasma w przypadku implementacji pętli z arbitrażem.
+### Najbardziej przydatna topologia, wykorzystująca przełączniki i inne urządzenia sieciowe. Zwana inaczej Fibre Channel Switched Fabric (FC-SW). Fabric ma przynajmniej jeden przełącznik SAN w ramach swojej konfiguracji. Przełączany Fabric zapewnia pełną szerokość pasma w medium transmisyjnym (bandwidth) na każdy port w porównaniu ze współdzieloną szerokością pasma w przypadku implementacji pętli z arbitrażem.
 
 ![FC-SW](/SAN-DG/Grafiki/FC-SW.PNG)
 
-	### Najważniejszą różnicą pomiędzy FC-AL, a FC-SW jest to że dodanie nowego urządzenia w FC-AL powoduje dalszy podział współdzielonej szerokości pasma. W przypadku FC-SW przepustowość pasma w medium transmisyjnym zostaje zwiększona. Powoduje to stopniowe odchodzenie od topologii FC-AL.
+### Najważniejszą różnicą pomiędzy FC-AL, a FC-SW jest to że dodanie nowego urządzenia w FC-AL powoduje dalszy podział współdzielonej szerokości pasma. W przypadku FC-SW przepustowość pasma w medium transmisyjnym zostaje zwiększona. Powoduje to stopniowe odchodzenie od topologii FC-AL.
 
 ### Tradycyjne topologie FC-SW:
-	### Pojedynczy przełącznik (single switch) - urządzenie podpięte są do jednego przełącznika FC.
+### Pojedynczy przełącznik (single switch) - urządzenie podpięte są do jednego przełącznika FC.
 
 ![Single Switch](/SAN-DG/Grafiki/FC-SW-Single.PNG)
 
-	### Pierścień (ring) - przełączniki są podłączone ze sobą, przełączniki na początku i na końcu kolejki mają dodatkowe połączenie zamykające pierścień.
+### Pierścień (ring) - przełączniki są podłączone ze sobą, przełączniki na początku i na końcu kolejki mają dodatkowe połączenie zamykające pierścień.
 
 ![Ring topology](/SAN-DG/Grafiki/FC-SW-Ring.PNG)
 
-	### Kaskadowa (Cascade) - przełączniki są podłączone ze sobą (w kolejce).
+### Kaskadowa (Cascade) - przełączniki są podłączone ze sobą (w kolejce).
 
 ![Cascade topology](/SAN-DG/Grafiki/FC-SW-Cascade.PNG)
 
-	### Topologia Siatki (Mech topology) - każdy przełącznik jest podłączony fizycznie do pozostałych przełączników w sieci (zapewnia redundancje połączeń).
+### Topologia Siatki (Mech topology) - każdy przełącznik jest podłączony fizycznie do pozostałych przełączników w sieci (zapewnia redundancje połączeń).
 
 ![Mesh topology](/SAN-DG/Grafiki/FC-SW-Mesh.PNG)
 
 ### Topologie warstwowe.
-	### Edge-Core - urządzenia pamięci masowej podłączone są do urządzenia głównego (centralnego, w jądrze sieci).
+### Edge-Core - urządzenia pamięci masowej podłączone są do urządzenia głównego (centralnego, w jądrze sieci).
 ![Core-Edge](/SAN-DG/Grafiki/FC-Core-Edge.PNG)
 
-	### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
+### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
 
 ![Edge-Core-Edge](/SAN-DG/Grafiki/FC-Edge-Core-Edge.PNG)
 
-	### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
-	### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci FC" - **subfabrics**. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabrics. W **Edge-Core-Edge** oraz **Core-Edge** można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć łatwiejszej i bezpieczniejszej administracji infrastrukturą SAN. 
+### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
+### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci FC" - **subfabrics**. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabrics. W **Edge-Core-Edge** oraz **Core-Edge** można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć łatwiejszej i bezpieczniejszej administracji infrastrukturą SAN. 
 
 ## 3. Fibre Channel (dodatkowe informacje o [FC](/FC - Fibre Channel.md)):
 ### Warstwy Fibre Channel:
@@ -124,27 +124,27 @@ TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wi
 
 ![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FCIP-Encapsulation.PNG)
 
-	###Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fibre Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
-	###Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
-	### iFCP - Internet Fibre Channel Protocol - protokół dostarczający usługi Fabrica Fibre Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje TCP do zapobieganiu przeciążeniu sieci (congestion control), wykrywaniu błędów w transmisji danych (error detection) oraz odzyskiwaniu (recovery).
-	### Podstawowym celem iFCP jest wykorzystanie istniejącej infrastruktury sieciowej do rozszerzenia sieci SAN bez konieczności rozbudowywania sieci SAN. W iFCP, stos TCP/IP i jego infrastruktura zastępują infrastrukturę Fibre Channel. Jest to protokół brama-brama (router-router).
-	### Enkapsulacja w pakietach IP odbywa się podobnie jak w przypadku FCIP, za wyjątkiem nagłówka, który jest mapowany (odwzorowywany) w nagłówku IP, i danych sesji TCP.
+###Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fibre Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
+###Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
+### iFCP - Internet Fibre Channel Protocol - protokół dostarczający usługi Fabrica Fibre Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje TCP do zapobieganiu przeciążeniu sieci (congestion control), wykrywaniu błędów w transmisji danych (error detection) oraz odzyskiwaniu (recovery).
+### Podstawowym celem iFCP jest wykorzystanie istniejącej infrastruktury sieciowej do rozszerzenia sieci SAN bez konieczności rozbudowywania sieci SAN. W iFCP, stos TCP/IP i jego infrastruktura zastępują infrastrukturę Fibre Channel. Jest to protokół brama-brama (router-router).
+### Enkapsulacja w pakietach IP odbywa się podobnie jak w przypadku FCIP, za wyjątkiem nagłówka, który jest mapowany (odwzorowywany) w nagłówku IP, i danych sesji TCP.
 
 ![Enkpsulacja w iFCP](/SAN-DG/Grafiki/iFCP-encapsulation.PNG)
 
-	### SCSI - [SCSI](/scsi/scsi.md)
-	### iSCSI - [iSCSI](/iSCSI.md)
-	### FICON - Fiber Connectivity - protokół/interfejs, będący własnością intelektualną firmy IBM, wykorzystywany do połączeń komputerów typu Mainframe z urządzeniami storage. Następca **ESCON**, poprzedniego standardu do połączeń storage.
-	### FCoE - [FCoE](/FCoE.md)
-	### iSNS - Internet Storage Name Service - protokół służący do obsługi interakcji pomiedzy serwerami iSNS oraz klientami iSNS. Klienci iSNS to komputery (nazywane inicjatorami), które podejmują próby odnajdowania urządzeń magazynujących (nazywanych obiektami docelowymi) w sieci Ethernet. Protokół iSNS umożliwia zautomatyzowane odnajdowanie i konfigurowanie urzędzeń iSCSI oraz Fibre Channel (przy użyciu bram iFCP), a także zarządzanie nimi w sieci TCP/IP.     
+### SCSI - [SCSI](/scsi/scsi.md)
+### iSCSI - [iSCSI](/iSCSI.md)
+### FICON - Fiber Connectivity - protokół/interfejs, będący własnością intelektualną firmy IBM, wykorzystywany do połączeń komputerów typu Mainframe z urządzeniami storage. Następca **ESCON**, poprzedniego standardu do połączeń storage.
+### FCoE - [FCoE](/FCoE.md)
+### iSNS - Internet Storage Name Service - protokół służący do obsługi interakcji pomiedzy serwerami iSNS oraz klientami iSNS. Klienci iSNS to komputery (nazywane inicjatorami), które podejmują próby odnajdowania urządzeń magazynujących (nazywanych obiektami docelowymi) w sieci Ethernet. Protokół iSNS umożliwia zautomatyzowane odnajdowanie i konfigurowanie urzędzeń iSCSI oraz Fibre Channel (przy użyciu bram iFCP), a także zarządzanie nimi w sieci TCP/IP.     
 ## 7. Schemat adresowania
-	### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.
+### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.
 
 ![World Wide Name](/SAN-DG/Grafiki/WWN-Scheme.PNG)
 ##### IEEE definiuje dwa standardy WWN.
 
-	### WWNN - world-wide node name - adres o długości 64 bitów, globalnie unikatowy (przynajmniej w ramach sieci), przypisany do węzła lub urządzenia sieciowego (serwera, przełącznika). W przypadku serwera z dwoma kartami HBA, każda karta ma unikatowy adres WWNN. W przypadku przełącznika SAN, WWNN jest przypisany do urządzenia (obudowy - chassis). Dla urządzeń storage, WWNN może być przypisany do każdego kontrolera (w urządzeniu), a w przypadku urządzeń klasy high-end enterprise - do macierzy dysków.  
-	### WWPN - world-wide port name - jest unikatowym identyfikatorem dla każdego portu FC. Dla serwera, karta HBA może [posiadać więcej portów, kazdy z nich ma przypisany adres WWPN]. W przełączniku, każdy port FC urządzenia ma odrębny WWPN. W przypadku urządzeń magazynujących dane, każdy port hosta ma swój WWPN.
+### WWNN - world-wide node name - adres o długości 64 bitów, globalnie unikatowy (przynajmniej w ramach sieci), przypisany do węzła lub urządzenia sieciowego (serwera, przełącznika). W przypadku serwera z dwoma kartami HBA, każda karta ma unikatowy adres WWNN. W przypadku przełącznika SAN, WWNN jest przypisany do urządzenia (obudowy - chassis). Dla urządzeń storage, WWNN może być przypisany do każdego kontrolera (w urządzeniu), a w przypadku urządzeń klasy high-end enterprise - do macierzy dysków.  
+### WWPN - world-wide port name - jest unikatowym identyfikatorem dla każdego portu FC. Dla serwera, karta HBA może [posiadać więcej portów, kazdy z nich ma przypisany adres WWPN]. W przełączniku, każdy port FC urządzenia ma odrębny WWPN. W przypadku urządzeń magazynujących dane, każdy port hosta ma swój WWPN.
 
 ![WWPN-Serwer](/SAN-DG/Grafiki/WWPN-Serwer.PNG)
 
@@ -159,47 +159,47 @@ TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wi
 ##### WWNN oraz WWPN dla taśm
 
 ### Adres portu
-	### Routing wykorzystujący 64-bitowe adresy może być niewydajny i problematyczny, w sieciach Fibre Channel wykorzystuje się jeszcze inny schemat adresowania. Wykorzystywany do praktycznej komunikacji w FC-SW (Fibre Channel Switched Fabric).
-	### Każdy port w sieci FC ma swój unikatowy 24-bitowy adres, uzyskany m. in. poprze wykorzystywanie krótszego nagłówka. Taka konfiguracja przyspiesza routing w sieci. W schemacie adresowania, z adresami długości 24 bitów, jest możliwość wykorzystania 16 milionów adresów. W przeciwieństwie do sieci Internetowej, gdzie taka pula adresów została już wielokrotnie wyczerpana, pojedyncze sieci SAN nie posiadają tyle fizycznych i/lub wirtualnych portów.
-	### Z uwagi na wspomniany wcześniej schemat WWN, istnieje zależność pomiędzy tymi dwoma schematami adresacji. WWN jest przypisany do urządzenia/portu przez producenta. Adresacja 24-bitowa jest nadawana urządzeniom podłączanym do sieci, adresacja jest utrzymywana poprzez przełączniki. Przełącznik zachowuje korelację adres WWN z adresem 24-bitowym portu.
-	### **Name server** - komponent systemu operacyjnego fabrica, działający w przełączniku, jest to baza danych obiektów w których urządzenia podpinane do fabrica zapisują wartości. Koncepcyjnie jest to odpowiednik tablicy routingu.
+### Routing wykorzystujący 64-bitowe adresy może być niewydajny i problematyczny, w sieciach Fibre Channel wykorzystuje się jeszcze inny schemat adresowania. Wykorzystywany do praktycznej komunikacji w FC-SW (Fibre Channel Switched Fabric).
+### Każdy port w sieci FC ma swój unikatowy 24-bitowy adres, uzyskany m. in. poprze wykorzystywanie krótszego nagłówka. Taka konfiguracja przyspiesza routing w sieci. W schemacie adresowania, z adresami długości 24 bitów, jest możliwość wykorzystania 16 milionów adresów. W przeciwieństwie do sieci Internetowej, gdzie taka pula adresów została już wielokrotnie wyczerpana, pojedyncze sieci SAN nie posiadają tyle fizycznych i/lub wirtualnych portów.
+### Z uwagi na wspomniany wcześniej schemat WWN, istnieje zależność pomiędzy tymi dwoma schematami adresacji. WWN jest przypisany do urządzenia/portu przez producenta. Adresacja 24-bitowa jest nadawana urządzeniom podłączanym do sieci, adresacja jest utrzymywana poprzez przełączniki. Przełącznik zachowuje korelację adres WWN z adresem 24-bitowym portu.
+### **Name server** - komponent systemu operacyjnego fabrica, działający w przełączniku, jest to baza danych obiektów w których urządzenia podpinane do fabrica zapisują wartości. Koncepcyjnie jest to odpowiednik tablicy routingu.
 
 ![Schemat adresu portu - 24-bitowego](/SAN-DG/Grafiki/Adres-24.PNG)
 
 ### Istnieją dwie możliwości przypisywania adresów w sieci SAN, podobnie jak w sieciach LAN, **dynamicznie** i **statycznie**.
 
 ### 24 bitowy adres składa się z 3 części:
-	### 1. Domain (bity 23 - 16)
-	### Domena jest adresem przełącznika, może być statyczny lub dynamiczny. Adres statyczny jest wymagany dla połączeń FICON. Każdy producent ma zakres liczb i maksymalną liczbę identyfikatorów domenowych (domain IDs), które można wykorzystać w fabricu.
-	### Każdy bajt pozwala na 256 możliwych adresów, jednak należy pamiętać że część z nich jest już zarezerwowana np. adres rozgłoszeniowy (broadcast). Ostatecznie tylko 239 adresów jest możliwych do wykorzystania. Identyfikator domeny pozwala na identyfikację przełącznika.
-	### 2. Area (bity 15 - 08)
-	### Pole Area pozwala na stworzenie 256 adresów. Pole to pozwala na indentyfikację indywidualnego portu.
-	### 3. Port lub adres fizyczny w pętli z arbitrażem: AL_PA (bity 07 - 00)
-	### Pozwala na identyfikację podłączonych N_port's lub NL_port_port's.
+### 1. Domain (bity 23 - 16)
+### Domena jest adresem przełącznika, może być statyczny lub dynamiczny. Adres statyczny jest wymagany dla połączeń FICON. Każdy producent ma zakres liczb i maksymalną liczbę identyfikatorów domenowych (domain IDs), które można wykorzystać w fabricu.
+### Każdy bajt pozwala na 256 możliwych adresów, jednak należy pamiętać że część z nich jest już zarezerwowana np. adres rozgłoszeniowy (broadcast). Ostatecznie tylko 239 adresów jest możliwych do wykorzystania. Identyfikator domeny pozwala na identyfikację przełącznika.
+### 2. Area (bity 15 - 08)
+### Pole Area pozwala na stworzenie 256 adresów. Pole to pozwala na indentyfikację indywidualnego portu.
+### 3. Port lub adres fizyczny w pętli z arbitrażem: AL_PA (bity 07 - 00)
+### Pozwala na identyfikację podłączonych **N port's** lub **NL port's**.
 
-	### Liczba prawie 16 milionów adresów, bierze się z:
-	Domain x area x ports = 239 x 256 x 256 = 15 663 104 adresów
+### Liczba prawie 16 milionów adresów, bierze się z:
+### **Domain x area x ports = 239 x 256 x 256 = 15 663 104 adresów**
 
-	### **Format adresu może się różnić w zależności od zastosowanej topologii.**
+### **Format adresu może się różnić w zależności od zastosowanej topologii.**
 ### **Adres FICON - adres FICON różni się co nieco od standardowego schematu.**
 ## 8. Inicjalizacja portów w FC
-	### 8.1. Fabric Login (FLOGI)
-	### Pierwszy
-	### 8.2. Port Login (PLOGI)
-	### 8.2. Process Login (PRLI)
+### 8.1. Fabric Login (FLOGI)
+### Pierwszy
+### 8.2. Port Login (PLOGI)
+### 8.2. Process Login (PRLI)
 ## 9. Fabric Services
 ## 10. Routing w sieciach SAN
-	### Zoning -
-	### Inne rozwiązania -
+### Zoning -
+### Inne rozwiązania -
 ## 11. Urządzenia SAN
-	### 11.1. HBA - Host Bus Adapter - odpowiednik karty NIC w sieciach TCP/IP. 
-	### 11.1. FC-Switch - Fibre Channel Switch - przełącznik FC.
+### 11.1. HBA - Host Bus Adapter - odpowiednik karty NIC w sieciach TCP/IP. 
+### 11.1. FC-Switch - Fibre Channel Switch - przełącznik FC.
 ## 12. Źródła
-	####	12.1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
-	####	12.2. [FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
-	####	12.3. [iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
-	####	12.4. [iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
-	####	12.5. [Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
+####	12.1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
+####	12.2. [FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
+####	12.3. [iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
+####	12.4. [iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
+####	12.5. [Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
 
 
 
