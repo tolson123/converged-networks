@@ -1,42 +1,42 @@
 # SAN - Storage Area Network
 
 ##1. Podstawowe informacje o SAN. 
-####  * SAN jest typem sieci komputerowej, której celem jest udostępnianie zasobów takich jak macierze dyskowe (storage) dla serwerów w ramach organizacji.
-####  * Jest to dedykowany typ sieci, do której zazwyczaj nie ma dostępu z sieci LAN organizacji. SAN ma własne dedykowane urządzenia sieciowe.
-####  * Zazwyczaj jest to storage typu blokowego.
-####  * Według [Storage Network Industry Association](http://www.snia.org/about) głównym celem SAN jest tranfer danych pomiędzy systemami komputerowymi, a urządzeniami storage.
+###  * SAN jest typem sieci komputerowej, której celem jest udostępnianie zasobów takich jak macierze dyskowe (storage) dla serwerów w ramach organizacji.
+###  * Jest to dedykowany typ sieci, do której zazwyczaj nie ma dostępu z sieci LAN organizacji. SAN ma własne dedykowane urządzenia sieciowe.
+###  * Zazwyczaj jest to storage typu blokowego.
+###  * Według [Storage Network Industry Association](http://www.snia.org/about) głównym celem SAN jest tranfer danych pomiędzy systemami komputerowymi, a urządzeniami storage.
 ##2. Podstawowe topologie SAN
 ![Topologie SAN](/SAN-DG/Grafiki/San-Top.PNG)
-####  1. Point-to-Point (Punkt-Punkt).
-#####    Najprostsza topologia sieci SAN, wykorzystywana do podłączania ze sobą dwóch węzłów (urządzeń). Zakładamy, że nie będziemy skalować infrastruktury poziomo (vertical scaling) - czyli nie będą podłączane nowe urządzenia (węzły).
-#####    Przepustowość łącza nie jest współdzielona pomiędzy urządzeniami, więc wykorzystywana jest ona w pełni na potrzeby komunikacji pomiędzy połączonymi węzłami.
-#####    Łącze działa trybie pełnego dupleksu - komunikacja może odbywać się jednocześnie w dwóch kierunkach.
-####  2. Arbitrated loop (pętla z arbitrażem).
-#####    Zwana inaczej siecią FC-AL (Fiber Channel - Arbitrated Loop). Topologia tego typu nie wymaga dodatkowych urządzeń sieciowych takich jak przełączniki SAN. Wszystkie urządzenia połączone są ze sobą w pętlę. Komunikacja odbywa się pomiędzy kolejnymi urządzeniami w pętli, to oznacza że wszystkie urządzenia muszą działać przy tej samej przepływności (channel capacity). Inaczej mówiąc, sieć działa z najwyższą przepływnością najwolniejszego elementu pętli.
+###  1. Point-to-Point (Punkt-Punkt).
+####    Najprostsza topologia sieci SAN, wykorzystywana do podłączania ze sobą dwóch węzłów (urządzeń). Zakładamy, że nie będziemy skalować infrastruktury poziomo (vertical scaling) - czyli nie będą podłączane nowe urządzenia (węzły).
+####    Przepustowość łącza nie jest współdzielona pomiędzy urządzeniami, więc wykorzystywana jest ona w pełni na potrzeby komunikacji pomiędzy połączonymi węzłami.
+####    Łącze działa trybie pełnego dupleksu - komunikacja może odbywać się jednocześnie w dwóch kierunkach.
+###  2. Arbitrated loop (pętla z arbitrażem).
+####    Zwana inaczej siecią FC-AL (Fiber Channel - Arbitrated Loop). Topologia tego typu nie wymaga dodatkowych urządzeń sieciowych takich jak przełączniki SAN. Wszystkie urządzenia połączone są ze sobą w pętlę. Komunikacja odbywa się pomiędzy kolejnymi urządzeniami w pętli, to oznacza że wszystkie urządzenia muszą działać przy tej samej przepływności (channel capacity). Inaczej mówiąc, sieć działa z najwyższą przepływnością najwolniejszego elementu pętli.
 ![FC-AL](/SAN-DG/Grafiki/FC-AL.PNG)
-#####    Z uwagi na ograniczenia adresowe w pętli nie może być w niej więcej niż 126 urządzeń - zarządzane są one jako jedna współdzielona szyna transmisji. Ruch odbywa się w jednym kierunku przekazując ramki przez kolejne elementy pętli. Protokół arbitrażu pozwala na ustanowienie jednego połączenia między nadawcą i odbiorcą, kiedy komunikacja zostaje zrealizowana pomiędzy dwoma portami następuje zwolnienie pętli i może być ustanowione nowe połączenie pomiędzy dwoma portami w pętli. Pętle można skonfigurować z Hubami w celu ułatwienia zarządzania połączeniami. Dystans do 10 km jest wspierany przez standard Fibre Channel, jednak długość pętli wpływa na opóżnienia w komunikacji.  
-####  3. Switched Fabric (pełna sieć - tzw. Fabric)
-##### Najbardziej przydatna topologia, wykorzystująca przełączniki i inne urządzenia sieciowe. Zwana inaczej Fibre Channel Switched Fabric (FC-SW). Fabric ma przynajmniej jeden przełącznik SAN w ramach swojej konfiguracji. Przełączany Fabric zapewnia pełną szerokość pasma w medium transmisyjnym (bandwidth) na każdy port w porównaniu ze współdzieloną szerokością pasma w przypadku implementacji pętli z arbitrażem.
+####    Z uwagi na ograniczenia adresowe w pętli nie może być w niej więcej niż 126 urządzeń - zarządzane są one jako jedna współdzielona szyna transmisji. Ruch odbywa się w jednym kierunku przekazując ramki przez kolejne elementy pętli. Protokół arbitrażu pozwala na ustanowienie jednego połączenia między nadawcą i odbiorcą, kiedy komunikacja zostaje zrealizowana pomiędzy dwoma portami następuje zwolnienie pętli i może być ustanowione nowe połączenie pomiędzy dwoma portami w pętli. Pętle można skonfigurować z Hubami w celu ułatwienia zarządzania połączeniami. Dystans do 10 km jest wspierany przez standard Fibre Channel, jednak długość pętli wpływa na opóżnienia w komunikacji.  
+###  3. Switched Fabric (pełna sieć - tzw. Fabric)
+#### Najbardziej przydatna topologia, wykorzystująca przełączniki i inne urządzenia sieciowe. Zwana inaczej Fibre Channel Switched Fabric (FC-SW). Fabric ma przynajmniej jeden przełącznik SAN w ramach swojej konfiguracji. Przełączany Fabric zapewnia pełną szerokość pasma w medium transmisyjnym (bandwidth) na każdy port w porównaniu ze współdzieloną szerokością pasma w przypadku implementacji pętli z arbitrażem.
 ![FC-SW](/SAN-DG/Grafiki/FC-SW.PNG)
-##### Najważniejszą różnicą pomiędzy FC-AL, a FC-SW jest to że dodanie nowego urządzenia w FC-AL powoduje dalszy podział współdzielonej szerokości pasma. W przypadku FC-SW przepustowość pasma w medium transmisyjnym zostaje zwiększona. Powoduje to stopniowe odchodzenie od topologii FC-AL.
-#### Tradycyjne topologie FC-SW
-#####Pojedynczy przełącznik (single switch) - urządzenie podpięte są do jednego przełącznika FC.
+#### Najważniejszą różnicą pomiędzy FC-AL, a FC-SW jest to że dodanie nowego urządzenia w FC-AL powoduje dalszy podział współdzielonej szerokości pasma. W przypadku FC-SW przepustowość pasma w medium transmisyjnym zostaje zwiększona. Powoduje to stopniowe odchodzenie od topologii FC-AL.
+### Tradycyjne topologie FC-SW:
+#### Pojedynczy przełącznik (single switch) - urządzenie podpięte są do jednego przełącznika FC.
 ![Single Switch](/SAN-DG/Grafiki/FC-SW-Single.PNG)
-#####Pierścień (ring) - przełączniki są podłączone ze sobą, przełączniki na początku i na końcu kolejki mają dodatkowe połączenie zamykające pierścień.
+#### Pierścień (ring) - przełączniki są podłączone ze sobą, przełączniki na początku i na końcu kolejki mają dodatkowe połączenie zamykające pierścień.
 ![Ring topology](/SAN-DG/Grafiki/FC-SW-Ring.PNG)
-#####Kaskadowa (Cascade) - przełączniki są podłączone ze sobą (w kolejce).
+#### Kaskadowa (Cascade) - przełączniki są podłączone ze sobą (w kolejce).
 ![Cascade topology](/SAN-DG/Grafiki/FC-SW-Cascade.PNG)
-#####Topologia Siatki (Mech topology) - każdy przełącznik jest podłączony fizycznie do pozostałych przełączników w sieci (zapewnia redundancje połączeń).
+#### Topologia Siatki (Mech topology) - każdy przełącznik jest podłączony fizycznie do pozostałych przełączników w sieci (zapewnia redundancje połączeń).
 ![Mesh topology](/SAN-DG/Grafiki/FC-SW-Mesh.PNG)
-#### Topologie warstwowe.
-#####Edge-Core - urządzenia pamięci masowej podłączone są do urządzenia głównego (centralnego, w jądrze sieci).
+### Topologie warstwowe.
+#### Edge-Core - urządzenia pamięci masowej podłączone są do urządzenia głównego (centralnego, w jądrze sieci).
 ![Core-Edge](/SAN-DG/Grafiki/FC-Core-Edge.PNG)
-##### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
+#### Edge-Core-Edge - urządzenia pamięci masowej moga być podłączone do urządzeń wyższej warstwy sieci. W tym przypadku są to przełączniki brzegowe.
 ![Edge-Core-Edge](/SAN-DG/Grafiki/FC-Edge-Core-Edge.PNG)
-##### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
-##### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci FC" - **subfabrics**. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabrics. W **Edge-Core-Edge** oraz **Core-Edge** można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć łatwiejszej i bezpieczniejszej administracji infrastrukturą SAN. 
+#### Edge Switch (przełącznik brzegowy) - przełącznik znajdujący się na brzegu sieci, umożliwiający komunikację pomiędzy innymi sieciami, może być to komunikacja z hostami lub innymi Fabricami.
+#### Obydwie wspomniane wyżej architektury mogą opisywać więcej "podsieci FC" - **subfabrics**. W przypadku architektury Core-Edge może istnieć podział na Core Fabric oraz na Edge Fabrics. W **Edge-Core-Edge** oraz **Core-Edge** można izolować zasoby od hostów (serwerów). Zasoby dyskowe są podłączone do innego Fabrica niż serwery - może to służyć łatwiejszej i bezpieczniejszej administracji infrastrukturą SAN. 
 
-## 3. Fibre Channel
+## 3. Fibre Channel (dodatkowe informacje o [FC](/FC - Fibre Channel.md)):
 ### Warstwy Fibre Channel:
 Warstwa | Opis
 --------|---------
@@ -103,6 +103,7 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ####Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
 ### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...
 ![Enkpsulacja w iFCP](/SAN-DG/Grafiki/iFCP-encapsulation.PNG)
+### SCSI - [SCSI](/scsi/scsi.md)
 ### iSCSI - [iSCSI](/iSCSI.md)
 ### FICON - ...    
 ## 7. Schemat adresowania
