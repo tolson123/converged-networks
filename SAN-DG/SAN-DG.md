@@ -223,25 +223,60 @@ oprócz portu, który ramkę wysłał)
 ###Procesy powiązane (related processes, grupa takich procesów nazywana jest wyrażeniem **image pair**.), to mogą być procesy systemowe, obrazy systemowe (np. Logical Partitions na Mainframe), procesy warstwy 4. FC (FC-4). Wykorzystywanie PRLI jest opcjonalne z punktu widzenia warstwy 2. FC (FC-2), jednak może być wymagane przez konkretną technologię operującą w wyższej warstwie np. mapowanie SCSI-FCP.
 ## 9. Fabric Services
 ### Zestaw usług dostępnych dla każdego urządzenia podłączonego do fabrica Fiber Channel.
-### 9.1. Management Services -
-### 9.2. Time Services -
-### 9.3. Simple Name Server -
-### 9.4. Management Services -
-### 9.5. Login Services -
-### 9.6. Registered State Change Notification (RSCN) -
+### 9.1. Management Services - usługa odpowiedzialna za zbieranie informacji o topologii, adresach, wykorzystaniu i jakości łączy oraz błędach transmisji. Umożliwia dostęp, poprzez oprogramowanie zarządzające, do Simple Name Server (SNS), rozwiązując potencjalne problemy związane z **zoning**. Oprogramowanie zarządzające może mieć informacje o całej sieci SAN, wykorzystując tą usługę. Ułatwia to oczywiście monitoring oraz administrację. Dobrze znany port tej usługi to 0xFFFFFA.
+### 9.2. Time Services - znane też jako **time server**, dostarcza informacje o aktualnym czasie urządzeniom w sieci, co pozwala zarządzać funkcjami które mają ograniczenie czasowe.
+### Modelowo usługę można podzielić na dwa obiekty:
+### Time Service Application - obiekt ten reprezentuje użytkownika łączacego się do serwera czasu
+### Time Server - poprzez usługę time service dostarcza informację o aktualnej dacie i godzinie.
+### 9.3. Simple Name Server - usługa, stale aktualizowana przez wszystkie przełączniki w fabricu - co powoduje, że "znają" one wszystkie urządzenia zapisane w SNS. Węzęł, po udanym zalogowaniu się do fabrica, wykonuje operację logowania portu (PLOGI, port login) na adres docelowy 0xFFFFFC. Proces ten pozwala węzłowi na zarejestrowanie się, i przekazanie krytycznych informacji (takich jak np. klasa usługi, jej parametry itp.). 
+### 9.4. Login Services, Fabric Login Services - serwer odpowiedzialny za proces logowania do fabrica (FLOGI), dostępny pod adresem portu 0xFFFFFE.
+### 9.5. Registered State Change Notification (RSCN) - usługa krytyczna dla prawidłowego funkcjonowania fabrica, propaguje ona informację na temat zmiany stanu węzłów w sieci SAN wszystkim pozostałym węzłom. Dzięki temu urządzenia nie próbują się stale komunikować z niedziałającymi węzłami.
+### Węzły rejestrują się do kontrolera fabrica (fabric kontroler) specjalną ramką SCR (state change registration). Kontroler fabrica, utrzymujący stan sieci rozsyła komunikaty RSCN do wszystkich zarejestrowanych urządzeń, w przypadku każdej zmiany: np. usunięcia/dodania urządzenia, zmiany Zone, adres przełącznika się zmienił, nazwa się zmieniła. Adres kontrolera fabrica to port 0xFFFFFD.
 ### Wymienione wyżej usługi są zaimplementowane w przełącznikach i innych podobnych urządzeniach w sieci SAN. Wszystkie wymienione usługi są dostępne poprzez ramki warstwy 2. FC (FC-2), pod zarezerwowanymi adresami portów (well-known addresses).
 ## 10. Routing w sieciach SAN
-### Zoning -
-### Inne rozwiązania -
-## 11. Urządzenia SAN
-### 11.1. HBA - Host Bus Adapter - odpowiednik karty NIC w sieciach TCP/IP. 
-### 11.1. FC-Switch - Fibre Channel Switch - przełącznik FC.
+### Rozbudowana sieć SAN, może zawierać w sobie wiele przełączników i innych urządzeń. Może nawet wykraczać poza sieć SAN i wykorzystywać połączenia do sieci LAN oraz WAN. Potrzebne są mechanizamy zapewniające QoS (Quality of Service) w nawet bardzo rozbudowanej sieci. 
+### 10.1. Spanning Tree - szukanie najbardziej wydajnej ścieżki, wykorzystując liczbę przeskoków pomiędzy urządzeniami. Wykorzystywana jest tylko jedna ścieżka, pozostałe są zablokowane i wykorzystywane tylko gdy pierwotnie najkrótsza ścieżka staje się niemożliwa do wykorzystania. Najczęściej wykorzystywanym protokołem jest Fabric Shortest Path First (FSPF).     
+### 10.2. Fabric Shortest Path First - wybór ścieżki następuje po zainicjowaniu urządzeń, nie jest on zmieniany poza przypadkami awarii urządzeń bądź podłączaniu nowych przełączników (nowe połączenia ISL).
+### Protokół FSPF sprawdza koszt każdego łącza na przełącznikach w sieci. Koszt jest zawsze liczony w liczbie wymaganych skoków (hops, ilości urządzeń przez które musi przejść pakiet by dotrzeć do celu).
+###Wybierany jest zawsze wariant najmniejszej liczby skoków. Przełącznik przechowuje ścieżki do innych przełączników w sieci w bazie topologii. Zwana jest ona inaczej Link State Database. Baza topologii jest utrzymywana na każdym przełączniku, ponadto jest synchronizawana pomiędzy przełącznikami gdy następują w niej zmiany. W przypadku obecności alternatywnych ścieżek, wybierana jest najmniej kosztowna (najmniejsza liczba skoków). 
+### Jeżeli opóźnienie przy skokach jest takie samo, łącza pomiędzy przełącznikami mają taką samą prędkość oraz nie są przeciążone przez ruch sieciowy - FSPF wybierze najkrótszą ścieżkę.
+### 10.3. Zoning - pozwala na dalszy podział sieci SAN (fabrica), przypisanie do zony pozwala udostępniać dany zasób tylko hostom przypisanych do tej zony.
+### Przykład: Chcemy oddzielić środowisko Microsoft Server od środowiska UNIX. Windows Server stara się zainicjować wszystkie dostępne zasoby storage. Nie każde urządzenie magazynujące jest w stanie ochronić swoje zasoby przed próbą dostępu do danego zasobu.
+
+![Zoning](/SAN-DG/Grafiki/Zoning.PNG) 
+
+###Zoning może służyć do separacji zasobów dla środowisk wykonujących różne zadania, np. podział na środowiska testowe oraz produkcyjne. Może także służyć jako element systemu bezpieczeństwa, ograniczając dostęp do krytycznych zasobów.
+
+### 10.4. Hardware Zoning - zoning opierający się na fizycznym numerze portu fabrica. Członkami danej zone, są porty fizyczne na przełączniku SAN. HZ można podzielić na konfigurację: jeden-do-jeden, jeden-do-wielu oraz wiele-do-wielu. 
+### 10.5. Software Zoning - zoning utworzony za pomocą oprogramowania, dokładnie przez system operacyjny fabrica. Gdy port wysyła zapytanie do Serwera Nazw (Name Server), otrzymuje tylko informacje o portach w jego zdefiniowanej soft-zone (software-zone). Oczywiści jest zrobione na poziome oprogramowania, więc jeżeli nastąpi wysłanie ramki na niepoprawny port - ramka do niego dotrze. Definiując członków soft-zone możemy się posługiwać ich WWN (WWNN oraz WWNP).  
+### 10.6. Logical Unit Number Masking - LUN Masking - Więcej niż jeden host może widzieć, a nawet zarządać dostępu (lub po prostu uzyskać dostęp) do konkretnego urządzenia magazynującego (LUNa). Logical Unit Masking służy do kontrolowania dostępu do LUNów dostepnych przez dane urządzenie magazynujące. Host może wysłać żądanie uzyskania dostępu do danego LUNa, i uzyskać dostęp jeżeli jest na liście dostępowej dla danego LUNa (podobnie jak Access Control Lists).
+### **LUN - Logical Unit Number** 
+### Termin pierwotnie kategoryzował obiekt SCSI, wykonujący operacje I/O (Input/Output) - np. dysk. Współcześnie macierz storage, może mieć wirtualne dyski udostępnione jako zasoby dla hostów (serwerów). W tym przypadku każdy wirtualny dysk może mieć swój LUN. 
+## 11. Podstawowe urządzenia SAN
+### 11.1. HBA - Host Bus Adapter - odpowiednik karty NIC w sieciach TCP/IP.
+![Karta HBA](/SAN-DG/Grafiki/hba.jpg)
+### 11.2. Fibre Channel Bridge - pozwala na integrację tradycyjnego urządzenia SCSI z siecią Fibre Channel. Mostki są uznawane za urządzenia historyczne, z uwagi na to że nie zapewniały nic poza przesyłaniem informacji między różnymi protokołami komunikacyjnymi.
+### 11.3. Huby
+###Niezarządzalne huby służą jako koncetratory okablowania, wspierają topologię pętli z arbitrażem. Zarządzalne Huby mają dodatkowo opcję konfiguracji oraz wspierają wykorzystanie SNMP (Simple Networking Management Protocol) do zarządzania zdalnego.
+### W topologii pętli z arbitrażem (FC-AL) huby mogą wspierać konfiguracje, które bazują wykrywaniu czy dany port jest aktualnie zagospodarowany (czy wtyczka jest do niego wpięta) - jeżeli nie, jest on wyłączany.
+### Przełącznik Hub (switched hub) - wykorzystywane jako urządzenia z których można zbudować wewnętrzną pętle z arbitrażem dla podpiętych do niego urządzeń. Jednocześnie mogą one korzystać z pełnej przepustowości Fibre Channel (w przeciwieństwie do współdzielonej przez wszystkie urządzenia przepustowości).       
+### 11.3. FC-Switch - Fibre Channel Switch - przełącznik FC.
+![SAN Switch](/SAN-DG/Grafiki/san-switch.jpg)
+### 11.4. FC-Director - zestaw urządzeń (przełączników i innych urządzeń) zamknięty w jednej obudowie. Może służyć jako np. Core-Switch. Director-switch to w dużym uproszczeniu serwer z zestawem przełączników SAN, być może awaryjnym zasilaniem i wirtualizatorami Storage. Urządzenie ma zapewnioną redundancję sprzętową: chłodzenie, procesory, awaryjne zasilanie. Zapewnia modułowość i wymianę komponentów bez wyłączania urządzenia (w locie, podobnie jak komputery klasy Mainframe).
+![SAN Director](/SAN-DG/Grafiki/san-director.png)
+### 11.5. Wieloprotokołowe routery - pozwalają na komunikację urządzeń w odrębnych sieciach SAN na komunikację bez konieczności łączenia fabrics. Wspierają one takie protokoły jak: FCP, FCIP, iFCP, iSCSI, IP.
+### 11.6. Moduły rozszerzające - do niektórych urządzeń (np. Director-class switch) można dokupywać moduły rozszerzające ich funkcjonalność.
+### 11.7. Multipleksery (multiplexers) - pozwalają na wysyłanie wielu sygnałów przy pomocy jednego fizycznego łącza.
 ## 12. Źródła
 ####	12.1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
 ####	12.2. [FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
 ####	12.3. [iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
 ####	12.4. [iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
 ####	12.5. [Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
+####    12.6. [Differentiating Fibre Channel logins](http://www.redbooks.ibm.com/abstracts/tips0035.html?Open)
+####    12.7. [Praca dyplomowa Krzysztofa Bożyka](http://zskl.p.lodz.pl/~morawski/Dyplomy/Praca%20dyplomowa%20p.%20Bozyka.pdf)
+####    12.8. [Director-class switch](http://searchstorage.techtarget.com/definition/Fibre-Channel-director-FC-director)
+
 
 
 
