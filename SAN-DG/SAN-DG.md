@@ -134,15 +134,18 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 
 ### **Jeżeli wykorzystywane są wirtualizatory Storage, WWNN może odnosić się do indywidualnej wirtualnej instancji zasobów Storage.**
 
-![WWPN-Tapes](/SAN-DG/Grafiki/WWPM-Tapes.PNG)
+![WWPN-Tapes](/SAN-DG/Grafiki/WWPN-Tapes.PNG)
 ##### WWNN oraz WWPN dla taśm
 
 ### Adres portu
+#### Routing wykorzystujący 64-bitowe adresy może być niewydajny i problematyczny, w sieciach Fibre Channel wykorzystuje się jeszcze inny schemat adresowania. Wykorzystywany do praktycznej komunikacji w FC-SW (Fibre Channel Switched Fabric).
+#### Każdy port w sieci FC ma swój unikatowy 24-bitowy adres, uzyskany m. in. poprze wykorzystywanie krótszego nagłówka. Taka konfiguracja przyspiesza routing w sieci. W schemacie adresowania, z adresami długości 24 bitów, jest możliwość wykorzystania 16 milionów adresów. W przeciwieństwie do sieci Internetowej, gdzie taka pula adresów została już wielokrotnie wyczerpana, pojedyncze sieci SAN nie posiadają tyle fizycznych i/lub wirtualnych portów.
+#### Z uwagi na wspomniany wcześniej schemat WWN, istnieje zależność pomiędzy tymi dwoma schematami adresacji. WWN jest przypisany do urządzenia/portu przez producenta. Adresacja 24-bitowa jest nadawana urządzeniom podłączanym do sieci, adresacja jest utrzymywana poprzez przełączniki.
 
 ## 8. Inicjalizacja portów w FC
-### 8.1. Fabric Login
-### 8.2. Port Login
-### 8.2. Service Login
+### 8.1. Fabric Login (FLOGI)
+### 8.2. Port Login (PLOGI)
+### 8.2. Process Login (PRLI)
 ## 9. Fabric Services
 ## 10. Routing w sieciach SAN
 ### Zoning -
