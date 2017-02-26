@@ -128,11 +128,11 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ## 10. Routing w sieciach SAN
 ## 11. Urządzenia SAN
 ## 12. Źródła
-[FICON](http://searchstorage.techtarget.com/definition/FICON)
-[FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
-[iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
-[iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
-[Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
+###	1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
+###	2. [FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
+###	3. [iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
+###	4. [iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
+###	5. [Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
 
 
 
