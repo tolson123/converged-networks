@@ -86,7 +86,7 @@ Joanna Marszałek
 Jakub Bojanek
 
 ## Rozproszone systemy plików: 
-### GFS(Rozproszone systemy plików: GFS)
+### GFS - (Rozproszone systemy plików: GFS)
 (Dominik Kozok)
 
 ### OCFS
