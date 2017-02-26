@@ -118,9 +118,25 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ### FCoE - [FCoE](/FCoE.md)
 ### iSNS - Internet Storage Name Service - protokół służący do obsługi interakcji pomiedzy serwerami iSNS oraz klientami iSNS. Klienci iSNS to komputery (nazywane inicjatorami), które podejmują próby odnajdowania urządzeń magazynujących (nazywanych obiektami docelowymi) w sieci Ethernet. Protokół iSNS umożliwia zautomatyzowane odnajdowanie i konfigurowanie urzędzeń iSCSI oraz Fibre Channel (przy użyciu bram iFCP), a także zarządzanie nimi w sieci TCP/IP.     
 ## 7. Schemat adresowania
-### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.  
-### WWNN - world-wide node name -
-### WWPN - world-wide port name -
+### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.
+
+![World Wide Name](/SAN-DG/Grafiki/WWN-Scheme.PNG)
+##### IEEE definiuje dwa standardy WWN.
+
+### WWNN - world-wide node name - adres o długości 64 bitów, globalnie unikatowy (przynajmniej w ramach sieci), przypisany do węzła lub urządzenia sieciowego (serwera, przełącznika). W przypadku serwera z dwoma kartami HBA, każda karta ma unikatowy adres WWNN. W przypadku przełącznika SAN, WWNN jest przypisany do urządzenia (obudowy - chassis). Dla urządzeń storage, WWNN może być przypisany do każdego kontrolera (w urządzeniu), a w przypadku urządzeń klasy high-end enterprise - do macierzy dysków.  
+### WWPN - world-wide port name - jest unikatowym identyfikatorem dla każdego portu FC. Dla serwera, karta HBA może [posiadać więcej portów, kazdy z nich ma przypisany adres WWPN]. W przełączniku, każdy port FC urządzenia ma odrębny WWPN. W przypadku urządzeń magazynujących dane, każdy port hosta ma swój WWPN.
+
+![WWPN-Serwer](/SAN-DG/Grafiki/WWPN-Serwer.PNG)
+
+![WWPN-Switch](/SAN-DG/Grafiki/WWPN-Switch.PNG)
+
+![WWPN-Storage](/SAN-DG/Grafiki/WWPN-Storage.PNG)
+
+### **Jeżeli wykorzystywane są wirtualizatory Storage, WWNN może odnosić się do indywidualnej wirtualnej instancji zasobów Storage.**
+
+![WWPN-Tapes](/SAN-DG/Grafiki/WWPM-Tapes.PNG)
+##### WWNN oraz WWPN dla taśm
+
 ### Adres portu
 
 ## 8. Inicjalizacja portów w FC
@@ -132,7 +148,7 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ### Zoning -
 ### Inne rozwiązania -
 ## 11. Urządzenia SAN
-### 11.1. HBA
+### 11.1. HBA - Host Bus Adapter - odpowiednik karty NIC w sieciach TCP/IP. 
 ### 11.1. FC-Switch - Fibre Channel Switch - przełącznik FC.
 ## 12. Źródła
 ####	12.1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
