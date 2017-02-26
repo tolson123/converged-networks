@@ -101,8 +101,12 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FCIP-Encapsulation.PNG)
 ####Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fiber Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
 ####Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
-### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...    
-# 7. Schemat adresowania
+### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...
+![Enkpsulacja w iFCP](/SAN-DG/Grafiki/iFCP-encapsulation.PNG)
+### iSCSI - [iSCSI](/iSCSI.md)
+### FICON - ...    
+## 7. Schemat adresowania
+### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.  
 ### WWNN
 ### WWPN
 ### Adres portu
@@ -110,6 +114,8 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ## 8. Inicjalizacja portów w FC
 ## 9. Fabric Services
 ## 10. Routing w sieciach SAN
+## 11. Urządzenia SAN
+## 12. Źródła
 
 
 
