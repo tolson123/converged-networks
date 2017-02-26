@@ -80,7 +80,9 @@ L_port | Port typu loop-capable, może dotyczyć węzła lub przełącznika.
 U_port | Port uniwersalny, bardziej uniwersalny niż G_port. Może pracować jako E_port, F_port lub FL_port. Port jest definiowany jako U_port jeżeli nie został jeszcze wykorzystany do podłączenia lub nie ma z góry przypisanej roli w Fabricu.
 N_port | Port węzła, niezdolny do utworzenia pętli (not loop-capable). Port końcowy dla hosta (serwera) wykorzystywany do podłączenia się do przełącznika FC.
 NL_port | Port węzła, zdolny do utworzenia pętli (loop-capable). Wykorzystywany do podłączania urządzeń poprzez porty L_port i FL_port.
+
 ![Podstawowe porty w Fabricu](/SAN-DG/Grafiki/FCPorts.PNG)
+
 ### **Powyższa konfiguracja nie posiada bezpośredniego połączenia pomiędzy przełącznika.**
 ### Porty rozszerzające (Expansion port types)
 Port | Opis
@@ -90,6 +92,7 @@ EX_port | Port nie pozwala na łączenie Fabrics ale wspiera FC-NAT (Fiber Chann
 VE_port | Wirtualny E_port, emulujący E_port i wykorzystujący protokół FCIP (Fiber Channel over Internet Protocol). Funckja VE_port jest dostępna w przypadku połączeń punkt-punkt.
 VEX_port | Jest to zroutowany VE_port, ma taką samą funkcjonalność jak VE_port.
 TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wielu wirtualnych sieci SAN (VSANs). Port zwany inaczej **Trunking E_port**.
+
 ![Fabric z portami typu rozszerzającego](/SAN-DG/Grafiki/FCExpPorts.PNG)
 
 Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. Poniższa grafika przedstawia porty FC w urządzeniach firmy CISCO.
@@ -98,11 +101,15 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 
 ## 6. Protokoły
 ### FCIP - Fiber Channel over Internet Protocol - protokół pozwalający na wysyłanie pakietów Fiber channel poprzez zwykłą sieć z wykorzystaniem protokołu IP. FCIP wykonuje enkapsulację ramki FC, i wysyła ją w pakiecie IP.
+
 ![Enkapsulacja w protokole FCIP](/SAN-DG/Grafiki/FCIP-Encapsulation.PNG)
+
 ####Podstawowym argumentem za wykorzystywaniem FCIP jest możliwość wysyłania danych do lokalizacji odległych, w sytuacji gdy odległość fizyczna wykracza poza możliwości Fiber Channel. Kolejnym argumentem "za" jest możliwość wykorzystania istniejącej infrastruktury sieciowej, bez konieczności rozbudowywania lokalnej infrastruktury SAN.
 ####Z uwagi na to, że FCIP tworzy tunel komunikacyjny pomiędzy dwiema lokalizacjami (podobnie jak Inter-switch links), Fabrics w dwóch odrębnych lokalizacjach zostają połączone ze sobą w jeden Fabric. Może to powodować problemy biznesowe, szczególnie gdy chcemy utrzymać podział Fabrics. Ponadto łącze może nie zawsze zapewniać stabilność parametrów połączenia, co może powodować problemy z utrzymaniem jakości usług.
 ### iFCP - Internet Fiber Channel Protocol - protokół dostarczający usługi Fabrica Fiber Channel dla urządzeń FC poprzez sieć TCP/IP. iFCP wykorzystuje ...
+
 ![Enkpsulacja w iFCP](/SAN-DG/Grafiki/iFCP-encapsulation.PNG)
+
 ### SCSI - [SCSI](/scsi/scsi.md)
 ### iSCSI - [iSCSI](/iSCSI.md)
 ### FICON - ...    
