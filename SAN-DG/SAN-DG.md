@@ -64,8 +64,8 @@ Class F | Klasa wykorzystywana do połączeń ISLs (Inter-switch links). Połąc
 ### Ramka FC
 ![Schemat ramki Fibre channel](/SAN-DG/Grafiki/FC-frame.PNG)
 
-####Elementy ramki FC:
-#### SOF (Start of Frame), Nagłówek FC, Blok danych SCSI, Cyclic Redundancy Check, End of Frame delimeter;      
+###Elementy ramki FC:
+### SOF (Start of Frame), Nagłówek FC, Blok danych SCSI, Cyclic Redundancy Check, End of Frame delimeter;      
 ## 4. Fabric
 #### Fabric - sieć urządzeń (np. przełączników FC) zapewniająca dostęp do danych. Dane znajdują się na urządzeniach pamięci masowej podłączonych w ramach Fabrica.
 ## 5. Porty
@@ -119,20 +119,27 @@ Inni producenci sprzętu stosują swoje rozwiązania dotyczące typów portów. 
 ### iSNS - Internet Storage Name Service - protokół służący do obsługi interakcji pomiedzy serwerami iSNS oraz klientami iSNS. Klienci iSNS to komputery (nazywane inicjatorami), które podejmują próby odnajdowania urządzeń magazynujących (nazywanych obiektami docelowymi) w sieci Ethernet. Protokół iSNS umożliwia zautomatyzowane odnajdowanie i konfigurowanie urzędzeń iSCSI oraz Fibre Channel (przy użyciu bram iFCP), a także zarządzanie nimi w sieci TCP/IP.     
 ## 7. Schemat adresowania
 ### WWN - World-wide Name - każde urządzenie FC posiada unikatowy identyfikator WWN. Podobnie jak karty Ethernet posiadają unikatowy adres MAC (Media Access Control address). Każdy N_port ma przypisany adres WWN, więc istnieje możliwość posiadania wielu WWN (posiadanie wielu interfejsów FC - m. in. kart HBA z portem, portów w urządzeniu sieciowym). WWN to adres o długości 64 bitów, i gdy dwa adresy WWN są umieszczone w nagłówku ramki FC - 16 bitów jest zarezerwowane dla identyfikacji adresu docelowego oraz adresu źródłowego.  
-### WWNN
-### WWPN
+### WWNN - world-wide node name -
+### WWPN - world-wide port name -
 ### Adres portu
 
 ## 8. Inicjalizacja portów w FC
+### 8.1. Fabric Login
+### 8.2. Port Login
+### 8.2. Service Login
 ## 9. Fabric Services
 ## 10. Routing w sieciach SAN
+### Zoning -
+### Inne rozwiązania -
 ## 11. Urządzenia SAN
+### 11.1. HBA
+### 11.1. FC-Switch - Fibre Channel Switch - przełącznik FC.
 ## 12. Źródła
-###	1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
-###	2. [FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
-###	3. [iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
-###	4. [iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
-###	5. [Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
+####	12.1. [FICON](http://searchstorage.techtarget.com/definition/FICON)
+####	12.2. [FICON, wikipedia](https://en.wikipedia.org/wiki/FICON)
+####	12.3. [iSNS, wikipedia](https://en.wikipedia.org/wiki/Internet_Storage_Name_Service)
+####	12.4. [iSNS, w wersji Microsoft](https://technet.microsoft.com/pl-pl/library/cc772568(v=ws.11).aspx)
+####	12.5. [Introduction to Storage Area Networks, RedBook](http://www.redbooks.ibm.com/redbooks/pdfs/sg245470.pdf)
 
 
 
