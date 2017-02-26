@@ -179,15 +179,57 @@ TE_port | Zapewnia funkcje standardowego E_port, dodatkowo pozwala na routing wi
 
 ### Liczba prawie 16 milionów adresów, bierze się z:
 ### **Domain x area x ports = 239 x 256 x 256 = 15 663 104 adresów**
+### W sieciach SAN opartych na topologii Switched Fabric, wyróżnić można adresy powiązane z usługami w sieci Fibre Channel (tzw. well-known addresses):
+
+Adres | Nazwa | Zastosowanie
+------|-------|----------------------------------
+0xFFFFF0 - 0xFFFFF4 | Zarezerwowane | Adresy zarezerwowane dla późniejszych zastosowań
+0xFFFFF5 | Multicast server | Serwer multicast wykorzystywany usługach klasy 6. Fibre Channel
+0xFFFFF6 | Clock Synchronization Server | Serwer wykorzystywany w usługach multicastowych klasy 6 Fibre Channel
+0xFFFFF7 | Security Key Distribution Server | Serwer wykorzystywany przy dystrybucji kluczy szyfrowania
+0xFFFFF8 | Alias Server | Serwer odpowiadający za przypisywanie adresów portów N do identyfikatorów grup Multicast i Hunt
+0xFFFFF9 | Quality of Service Facilitator | Serwer odpowiadający za parametry jakości usług w klasie 4. FC
+0xFFFFFA | Management Server | Serwer zbierający informacje o topologii sieci, stanach urządzeń i łączy, wspomaga administrację sieci
+0xFFFFFB | Time Server | Serwer synchronizacji czasu dla urządzeń sieciowych
+0xFFFFFC | Directory Server | Serwer odwzorowujący adresy 24-bitowe na adresy WWN i odwrotnie
+0xFFFFFD | Fabric Controller | Serwer odpowiadajacy za routing ramek oraz powiadamianie o zmianach stanu urządzeń
+0xFFFFFE | Fabric F_Port | Adres przypisywany wszystkim portom F, wykorzystywany do komunikacji z przełącznikiem
+0xFFFFFF | Broadcast Address | Adres używany jako docelowy dla ramek adresowanych do wszystkich portów
+
+### Na potrzeny topologii pętli z arbitrażem zarezerwowano parę adresów AL_PA:
+Adres | Zastosowanie
+------|-------------------------------
+0x00 | Adres przyznawany portowi FL na etapie inicjalizacji pętli
+0xF0 | Adres wykorzystywany w algorytmie sprawiedliwości (fairness algorithm) oraz na etapie inicjalizacji pętli (przy wyborze zarządcy pętli)
+0xF1 - 0xF6 | Adresy zarezerwowane dla późniejszych zastosowań
+0xF7 | Wartość wykorzystywana w sekwencji LIP w celu wskazania, że wysyłający ją port nie został zainicjowany (nie posiada adresu AL_PA)
+0xF8 | Wartość wykorzystywana w sekwencji LIP w celu wskazania uszkodzenia pętli
+0xF9 - 0xFE | Adresy zarezerwowane dla późniejszych zastosowań
+0xFF | Adres broadcast (ramki wysłane na ten adres trafią do wszystkich portów pętli,
+oprócz portu, który ramkę wysłał)
+
+### **Loop Initialization Primitive - LIP**
 
 ### **Format adresu może się różnić w zależności od zastosowanej topologii.**
 ### **Adres FICON - adres FICON różni się co nieco od standardowego schematu.**
 ## 8. Inicjalizacja portów w FC
 ### 8.1. Fabric Login (FLOGI)
-### Pierwszy
+### Gdy podłączane jest urządzenie ***fabric-capable*** do przełącznika SAN, następuje Fabric Login.
+### Inicjuje ono sesję połączenia pomiędzy dwoma urządzeniami. Sesja jest tworzona pomiędzy portami N_port (lub NL port), a przełącznikiem. N port wysyła ramkę FLOGI zawierającą nazwę swojego węzła (node name), nazwę swojego portu N port i parametry usługi na adres 0xFFFFFE (adres przypisywany wszystkim portom F, wykorzystywanu do komunikacji z przełącznikiem - **Fabric F port**).
 ### 8.2. Port Login (PLOGI)
-### 8.2. Process Login (PRLI)
+### PLOGI jest wykorzystywany do nawiązania/zainicjowania sesji pomiędzy dwoma portami N (N_port, urządzeniami). Proces ten jest konieczny przed wykonanywaniem każdej operacji wyższego poziomu. W trakcie PLOGI dwa porty N wymieniają ze sobą informacje dotyczące parametrów usługi. 
+### 8.3. Process Login (PRLI)
+### PRLI jest wykorzystywany do stworzenia środowiska pomiędzy powiązanymi ze sobą procesami na porcie żródłowym N oraz decelowym portem N (odpowiadającym na komunikację z portu źródłowego).
+###Procesy powiązane (related processes, grupa takich procesów nazywana jest wyrażeniem **image pair**.), to mogą być procesy systemowe, obrazy systemowe (np. Logical Partitions na Mainframe), procesy warstwy 4. FC (FC-4). Wykorzystywanie PRLI jest opcjonalne z punktu widzenia warstwy 2. FC (FC-2), jednak może być wymagane przez konkretną technologię operującą w wyższej warstwie np. mapowanie SCSI-FCP.
 ## 9. Fabric Services
+### Zestaw usług dostępnych dla każdego urządzenia podłączonego do fabrica Fiber Channel.
+### 9.1. Management Services -
+### 9.2. Time Services -
+### 9.3. Simple Name Server -
+### 9.4. Management Services -
+### 9.5. Login Services -
+### 9.6. Registered State Change Notification (RSCN) -
+### Wymienione wyżej usługi są zaimplementowane w przełącznikach i innych podobnych urządzeniach w sieci SAN. Wszystkie wymienione usługi są dostępne poprzez ramki warstwy 2. FC (FC-2), pod zarezerwowanymi adresami portów (well-known addresses).
 ## 10. Routing w sieciach SAN
 ### Zoning -
 ### Inne rozwiązania -
