@@ -32,5 +32,10 @@ Czym zatem FCoE różni się od iSCSI? Przy protokole iSCSI dane są przesyłane
 
 ![FCoE i iSCSI](http://blogs.cisco.com/wp-content/uploads/2012.08.07-iSCSI-Latency-and-Design-550x348.png)
 
+# Sources
+
+[Czy FCoE wyprze ISCSI?](http://itfocus.pl/dzial-it/storage/czy-fcoe-wyprze-iscsi/)
+
+[Overview FCoE](http://www.cisco.com/c/en/us/solutions/data-center-virtualization/fibre-channel-over-ethernet-fcoe/index.html)
 
 **Grupa: Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko**
