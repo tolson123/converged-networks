@@ -52,6 +52,6 @@ The IEEE 802.1aq standard (Shortest Path Bridging – SPB) is considered the maj
 
 ## **Links** 
 
--https://en.wikipedia.org/wiki/TRILL_(computing)
--http://www.cisco.com/c/en/us/about/press/internet-protocol-journal/back-issues/table-contents-53/143-trill.html
--http://blog.ine.com/tag/trill/
+- https://en.wikipedia.org/wiki/TRILL_(computing)
+- http://www.cisco.com/c/en/us/about/press/internet-protocol-journal/back-issues/table-contents-53/143-trill.html
+- http://blog.ine.com/tag/trill/
