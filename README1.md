@@ -52,7 +52,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 
 ## Technologie konwergentnego data-center:
 ### DCB
-### [TRILL](TRILL.md)
+### TRILL
 (Kristina Napreienko, Anton Ombodi, Yuri Odrzhekhovskyi)
 
 ## Jakość usług:
