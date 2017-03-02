@@ -24,10 +24,9 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ## Spis treści
 
 ## Architektura storage w ujęciu ogólnym:
-### [DAS](das.md)
-
+### DAS
 (Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
-### [NAS](nas.md)
+### NAS
 
 (Kamil Paryż, Tomasz Marzec, Janusz Ładecki)
 
@@ -37,21 +36,21 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ### SAN oraz [SAN-DG](SAN-DG/SAN-DG.md)
 [Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech]
 
-## [Systemy RAID](RAID.md)
+## Systemy RAID
 (Joanna Kiełtyka, Kacper Barański, Maciej Kajanek)
 
 ## Podstawowe protokoły:
 ### [SCSI](scsi/scsi.md)
 (Daniel Karoń)
 ### iSCSI
-### [FC](FC - Fibre Channel.md)
+### FC
 (Konrad Brandys, Karol Barczyk, Kamil Świerkot)
 ### FCoE 
 (Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko)
 
 ## Technologie konwergentnego data-center:
 ### DCB
-### TRILL
+### [TRILL](TRILL.md)
 (Kristina Napreienko, Anton Ombodi, Yuri Odrzhekhovskyi)
 
 ## Jakość usług:
@@ -64,7 +63,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 (Natalia Lasek)
 (Oleksandr Voloshyn, Ivan Kopko)
 
-### [Przykłady DSCP](PrzykladyDSCP.md)
+### Przykłady DSCP
 (Oleksandr Voloshyn, Ivan Kopko)
 
 ## Przydatne narzędzia:
