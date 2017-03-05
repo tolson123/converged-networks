@@ -75,7 +75,7 @@ powtórnie otwiera źródła dla tego systemu. Od tej chwili rozwój koncentruje
 * mogli korzystać jedynie z plików (aplikacji, dokumentów, itp.) do których mają uprawnienia?  
 * - Modyfikacja pliku jest równoznaczna z odpowiednim narzutem czasowym ze względu na to że trzeba zmienić wszystkie kopie.  
 
-RYSUNEK
+git add Rozproszone systemy plików GFS - obraz.png  
 
 * **Cechy**:  
 Z tych wszystkich przeszkód, na które natrafiają twórcy rozproszonych systemów, można stworzyć pewną listę cech,  
