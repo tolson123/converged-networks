@@ -32,7 +32,9 @@
 
 ##3. Elementy klastra storage'owego CEPH:
 
+
 ![Elementy Ceph](/CEPH-DG/Grafiki/Ceph_components.svg)
+
 
 ### OSD - fizyczne lub logiczne (np. LUN) urządzenie storage.
 ### 3.1. OSDs, Object Storage Devices Daemon - oprogramowanie, które działa z OSD, jeden z elementów obowiązkowych stosu CEPH. Jest odpowiedzialne za przechowywanie danych, zarządzanie replikacją danych, odzyskiwaniem, zarządzaniem obciążeniem. Ponadto wysyła informacje na temat działania systemu do Ceph monitor, poprzez sprawdzanie pozostałych OSDs Daemons w systemie.
