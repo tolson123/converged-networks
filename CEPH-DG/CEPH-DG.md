@@ -43,11 +43,12 @@
 ##4. Element wyróżniający CEPH - algorytm CRUSH.
 ### **Controlled Replication Under Scalable Hashing** - tzw. CRUSH. Algorytm wykorzystywany w Ceph do "obliczania" lokalizacji danego obiektu w odpowiedniej Placement Group (PG), póżniej oblicza który OSD Daemon powinien przechowywać PG. Algorytm CRUSH pozwala na dynamiczne skalowanie, load-balancing oraz odzyskiwanie.
 ##5. Oprogramowanie oraz bilbioteki.
+
 ![Architektura Ceph](/CEPH-DG/Grafiki/storage_ceph-architecture.jpg)
 
 ##### Ogólna architektura klastra Ceph
 
-![Stos ceph](/CEPH-DG/Grafiki/Ceph_stack.PNG)
+![Stos ceph](/CEPH-DG/Grafiki/Ceph_stack.png)
 
 ### **Ceph Storage Gateway** - interfejs zbudowany na librados zapewniający aplikacjom RESTowego API umożliwiające dostęp do klastra storage opartego na Ceph.
 ### Ceph object storage wspiera dwa interfejsy (APIs):
