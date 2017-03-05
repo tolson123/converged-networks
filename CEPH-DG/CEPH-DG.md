@@ -67,3 +67,10 @@
 #### 6.1. [Dokumnetacja projektu Ceph](http://docs.ceph.com/docs/jewel/)
 
 #### 6.2. [Dokumentacja projektu OpenStack](https://docs.openstack.org/)
+
+#### 6.3. [POSIX](http://searchenterpriselinux.techtarget.com/definition/POSIX)
+
+#### 6.4. [RADOS](http://searchstorage.techtarget.com/definition/RADOS-Reliable-Autonomic-Distributed-Object-Store)
+
+#### 6.5. [Ceph](http://searchstorage.techtarget.com/definition/Ceph)
+
