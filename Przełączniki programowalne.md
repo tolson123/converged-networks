@@ -40,3 +40,9 @@ Zarówno w przypadku dużych sieci rdzeniowych, korporacyjnych jak również w p
 #EPICENTER
 
 ![Oprogramowanie](http://www.extremenetworks-ua.com/assets/images/Products/chassis-full.jpg)
+
+
+## Źródła
+
+*<http://www.konwergencja.republika.pl/teoria.html>
+*<http://www.clico.pl/b/t/no_7/Kompleksowe_rozwiazania_dla_sieci_rdzeniowych.pdf>
