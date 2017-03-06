@@ -17,6 +17,13 @@ Rezultatem żądania RSVP będzie rezerwacja zasobów w każdym węźle należą
 
 RSVP nie jest więc odpowiedzialny za wybór trasy. W praktyce rezerwacja etykiet za pomocą RSVP wygląda następująco: ruter wejściowy dla tunelu (ścieżki) generuje wiadomość RSVP Path, która jest przesyłana do kolejnych urządzeń na trasie aż do rutera kończącego tunel (ścieżkę). W odpowiedzi ruter kończący ścieżkę generuje wiadomość RSVP Resv, która jest przesyłana do każdego węzła na ścieżce. W trakcie trwania tej operacji każdy ruter na ścieżce dokonuje rezerwacji zasobów (o ile nimi dysponuje). Oprócz omówionych wcześniej wiadomości Path i Resv, RSVP używa kilku innych. Służą one głównie do poinformowania o wystąpieniu jakiegoś problemu. PathTear jest wysyłana przez ruter w celu powiadomienie o usunięciu aktywnej ścieżki. ResvTear jest odpowiedzią na PathTear. PathErr jest to wiadomość przesyłana w kierunku urządzenia wejściowego. Najbardziej prawdopodobną przyczyną jej wygenerowania jest uszkodzenie łącza, a co za tym idzie przerwanie ścieżki lub niepowodzenie w ustanowieniu ścieżki.
 
+
+### Źródła
+[Źródło pierwsze](http://www.tech-portal.pl/content/view/81/37/)
+[Źródło drugie](https://pl.wikipedia.org/wiki/Resource_Reservation_Protocol)
+[Źródło trzecie](http://www.tech-portal.pl/content/view/62/45/)
+
+
 > Adrian Krawczyński, Daniel Cegielski, Damian Kaczyński
 
 
