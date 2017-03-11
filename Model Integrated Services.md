@@ -36,5 +36,3 @@ Usługi w architekturze IntServ:
 [Źródło trzecie](https://pl.wikipedia.org/wiki/Integrated_Services)
 
 > Adrian Krawczyński, Daniel Cegielski, Damian Kaczyński
-
-
