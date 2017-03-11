@@ -30,6 +30,10 @@ Usługi w architekturze IntServ:
 - Guaranteed Service [RFC2212] — przeznaczona dla aplikacji wymagających gwarancji odnośnie parametrów jakości przekazu danych związanych z opóźnieniami
 - Controlled-load Service [RFC2211] — przeznaczoną dla aplikacji wymagających bezstratnego przekazu danych i charakteryzującą się jakością przekazu określaną jako lepszą niż Best Effort.
 
+### Źródła
+[Źródło pierwsze](http://www.tech-portal.pl/content/view/61/45/)
+[Źródło drugie](http://www.cisco.com/c/en/us/products/ios-nx-os-software/integrated-services/index.html)
+[Źródło trzecie](https://pl.wikipedia.org/wiki/Integrated_Services)
+
+
 > Adrian Krawczyński, Daniel Cegielski, Damian Kaczyński
-
-
