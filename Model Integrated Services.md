@@ -35,5 +35,4 @@ Usługi w architekturze IntServ:
 [Źródło drugie](http://www.cisco.com/c/en/us/products/ios-nx-os-software/integrated-services/index.html)
 [Źródło trzecie](https://pl.wikipedia.org/wiki/Integrated_Services)
 
-
 > Adrian Krawczyński, Daniel Cegielski, Damian Kaczyński
