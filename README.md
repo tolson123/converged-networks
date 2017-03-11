@@ -41,30 +41,38 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 (Joanna Kiełtyka, Kacper Barański, Maciej Kajanek)
 
 ## Podstawowe protokoły:
+
 ### [SCSI](scsi/scsi.md)
 (Daniel Karoń)
+
 ### [iSCSI](iSCSI.md)
 (Dmytro Zozulia)
+
 ### [FC](FC - Fibre Channel.md)
 (Konrad Brandys, Karol Barczyk, Kamil Świerkot)
+
 ### [FCoE](FCoE.md) 
 (Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko)
 
 ## Technologie konwergentnego data-center:
+
 ### DCB
+
 ### [TRILL](TRILL.md)
 (Kristina Napreienko, Anton Ombodi, Yuri Odrzhekhovskyi)
 
 ## Jakość usług:
+
 ### Model Best Effort (Krzysztof Golonka)
-### Model Integrated Services (Model Integrated Services.md)
+
+### [Model Integrated Services](Model Integrated Services.md)
 (Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
 
-### Protokół RSVP (rsvp.md)
+### [Protokół RSVP](RSVP.md)
 (Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
+
 ### Model Differentiated Services
 (Natalia Lasek)
-(Oleksandr Voloshyn, Ivan Kopko)
 
 ### [Przykłady DSCP](PrzykladyDSCP.md)
 (Oleksandr Voloshyn, Ivan Kopko)
@@ -75,15 +83,12 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 (Julia Zelenska)
 
 ### Systemy open-source do udostępniania zasobów iSCSI
-
 (Mateusz Błachnio, Sławomir Tyliba)
 
 ### Konfiguracja serwera i klienta iSCSI na platformie Linux
-
 Joanna Marszałek
 
 ### Konfiguracja serwera i klienta iSCSI na platformie Windows Server
-
 Jakub Bojanek
 
 ## Rozproszone systemy plików: 
