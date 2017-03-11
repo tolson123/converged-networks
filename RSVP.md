@@ -22,4 +22,5 @@ RSVP nie jest więc odpowiedzialny za wybór trasy. W praktyce rezerwacja etykie
 [Źródło drugie](https://pl.wikipedia.org/wiki/Resource_Reservation_Protocol)
 [Źródło trzecie](http://www.tech-portal.pl/content/view/62/45/)
 
+
 > Adrian Krawczyński, Daniel Cegielski, Damian Kaczyński
