@@ -49,3 +49,9 @@ The IEEE 802.1aq standard (Shortest Path Bridging – SPB) is considered the maj
 - Huawei Cloud Engine 5800, 6800, 7800, and 12800 Switches
 - Enterasys / Extreme Networks S-Series Switch Range
 - Ruijie Networks RG-S6220, RG-S12000, and RG-N18000 Series
+
+## **Links** 
+
+- https://en.wikipedia.org/wiki/TRILL_(computing)
+- http://www.cisco.com/c/en/us/about/press/internet-protocol-journal/back-issues/table-contents-53/143-trill.html
+- http://blog.ine.com/tag/trill/
