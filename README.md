@@ -56,7 +56,8 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 
 ## Technologie konwergentnego data-center:
 
-### DCB
+### DCB(scsi/scsi.md)
+(Daniel Karoń)
 
 ### [TRILL](TRILL.md)
 (Kristina Napreienko, Anton Ombodi, Yuri Odrzhekhovskyi)
@@ -92,7 +93,9 @@ Joanna Marszałek
 Jakub Bojanek
 
 ## Rozproszone systemy plików: 
-### GFS
+### GFS - (Rozproszone systemy plików: GFS)
+(Dominik Kozok)
+
 ### OCFS
 ### GPFS
 ### System Lustre

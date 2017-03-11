@@ -1,0 +1,130 @@
+    * # **Rozproszone systemy plików: GFS**  
+
+
+	* ## Systemy plików## są określane przez sposób odzwierciedlenia danych abstrakcyjnych  
+  na fizycznym nośniku, którym może być np. dysk twardy, pamięć komputerowa, czy dyskietka.  
+
+W jego skład wchodzi :  
+
+* - Sposób w jaki dane są umieszczane na danym nośniku tj:  
+    *	- Które bloki dane maja zajmowac  
+    * - Jak odszukiwac wolne bloki, itp  
+* - Jak mają być zapamiętywane różnego typu informacje o tych plikach tj:  
+    * - Gdzie jest zapisany plik  
+    * - Jak się przedostać do tego pliku   
+    *	- Musi zapewnić możliwie jak najszybszy i najłatwiejszy dostęp do plików,  
+    * możliwości manipulowania nimi oraz usuwania ich. Ma to miejsce tylko w razie takiej potrzeby,  
+    * kiedy jest to warunkiem spełnienia innych wymogów stawianych systemowi 	plików.  
+
+* Istnieje kilka rodzajów "Systemów plików". Najpopularniejszy jest dyskowy system plików,  
+tzn. opisujący system plików np. dla dysków twardych. Poza tym rozróżniamy systemy plików takie jak np. linuxowy/proc.  
+
+* Wśród systemów plików istnieje również podtyp zwany "##rozproszonym systemem plików##". Można przyjąć rozproszone systemów plików  
+za protokoły, ponieważ precyzują one sposób za pomocą którego użytkownicy są w stanie:  
+
+* - Przesyłać polecenia do serwera przez sieć  
+* - Realizować operacje na odległość  
+* - Otrzymywać inne informacje na powrót z serwera do klienta. Ów serwerów może być więcej niż  jeden jak i również  
+* użytkowników komunikujących się z nimi. Prócz tego użytkownicy powinni jednocześnie mieć możliwość korzystania  
+* z danego rozproszonego systemu plików. Pomimo to  dzięki tzw. wymogowi przezroczystości użytkownik winien domniemywać  
+* że korzysta ze zwykłego lokalnego systemu plików – czyli nie powinien widzieć żadnych podziałów na serwery,  
+* tego czy inna osoba korzysta z danego pliku, a jedynie widzieć drzewo katalogów, wyglądające bliźniaczo  
+* do tych z dyskowych systemów plików.  
+
+System spełniający te w/w podstawowe zasady może być uznany za rozproszony system plików.  
+
+    * ## Historia „Global File System“  
+
+*	GFS na samym początku był rozwijany jako projekt potrzebny do pracy dyplomowej na Uniwersytecie Minnesoty w 1997 roku.  
+Wstępnie tworzony na system operacyjny IRIX, jednak już następnego roku (1998) został przeniesiony na Linuxa.  
+Na przełomie lat 1999 / 2000 pracuje nad nim firma „Sistina Software“, która udostępnia go w myśl idei Open-Source,  
+jednak w 2001 roku zmienia strategię i czyni go komercyjnym tworem z zamkniętymi źródłami.  
+W tym okresie powstał odłam, który bazował na ostatniej dostępnej wersji kodu a nazwano go OpenGFS.  
+W grudniu 2003 roku firma Red Hat wykupuje „Sistina Software“ i po upływie około pól roku  
+powtórnie otwiera źródła dla tego systemu. Od tej chwili rozwój koncentruje się na stabilizacji i eliminacji błędów.  
+
+* Na chwilę obecną GFS jest częścią Linuxów Fedora i Centos, jak również może być nabyty dla Linuxa Red Hat.  
+
+    * ## W skrócie czym jest GFS?  
+* - Jest to rozproszony system plików rozwijany przez Red Hat Inc.  
+* - Klastrowy system plików przeznaczony dla systemu Linux.  
+* - Działa w oparciu o dzielone urządzenia blokowe - zapewnia węzłom bezpośredni dostęp do nich  
+* (dzielone urządzenia blokowe = specjalny sprzęt (Fibre Channel, iSCSI i inne).  
+* - Dostepny za darmo albo jako komercyjny produkt w ramach Red Hat Enterprise Linux.  
+
+**ZALETY**:  
+* - Możliwość dostępu do systemu przez wielu użytkowników. Wystarczy że zainstalujemy jedną kopię oprogramowania  
+* na danym serwerze i to wszystko. Wszyscy użytkownicy rozproszonego systemu plików mogą korzystać z tej aplikacji.  
+* - Sami użytkownicy mogą między sobą dzielić różne dokumenty, pliki itp. Wyłącza to problem wykonywania duplikatów jednej kopii  
+* danego dokumentu i wysyłania jej do wszystkich zainteresowanych osób.  
+* - Dzięki scentralizowaniu przechowywanych danych można zyskać większą niezawodność, np. dzięki dołączeniu  
+* nowego poziomu RAID dla serwerów, co w przypadku kilku lokalnych systemach plików spowodowało by duże problemy.  
+* Scentralizowanie upraszcza też administrację tzn. w dużej mierze łatwiej jest administrować jednym czy nawet kilkoma serwerami,  
+* niż całą siecią komputerów użytkowników. Aby zwiększyć pojemność systemu wystarczy dołączyć nowe serwery.  
+* - Niezauważalne dla klienta – porusza się jak na zwykłym systemie plików.  
+* - Większe bezpieczeństwo danych (np. przetrzymywanie kopii konkretnego pliku na kilku serwerach).  
+* - Podział obciążenia pomiędzy różne serwery.  
+
+**WADY**:  
+* - Jak sprawić by każdy klient widział identyczne pliki i katalogi, a jednocześnie utrzymać dobrą sprawność podczas operacji  
+* na systemie plików? Narzut czasowy będący skutkiem przesyłania danych przez sieć (do 3 razy wolniej niż przeciętny odczyt z dysku).  
+* - Jak ma reagować system w przypadku awarii jednego lub wiecej serwerów? Czyli jak zachować nieprzerwany dostęp użytkowników do plików.  
+* - Jak stawiać opór przeciążeniom sieci, które mogą owocnie uniemożliwić lub znacznie spowolnić prace użytkowników?  
+* - Jak postępować przy jednoczesnej pracy kilku użytkowników nad jednym plikiem, a co gorsza – równoczesnym zapisem do tego pliku?  
+* - Jak wykreować bezpieczny dostęp do plików z różnych grup użytkowników tak, aby odpowiedni użytkownicy  
+* mogli korzystać jedynie z plików (aplikacji, dokumentów, itp.) do których mają uprawnienia?  
+* - Modyfikacja pliku jest równoznaczna z odpowiednim narzutem czasowym ze względu na to że trzeba zmienić wszystkie kopie.  
+
+git add Rozproszone systemy plików GFS - obraz.png  
+
+* **Cechy**:  
+Z tych wszystkich przeszkód, na które natrafiają twórcy rozproszonych systemów, można stworzyć pewną listę cech,  
+jakie może, lub wręcz czasami musi posiadać, dobry rozproszony system plików.  
+
+    * ## Cechy GFS:  
+
+* - Brak podziału na klient serwer. W systemie GFS nie rozróżnia się serwerów które współużytkują pliki  
+* i klientów którzy z nich korzystają. Każdy węzeł jest w stanie w jednym czasie udostępniać pliki dla sieci  
+* oraz mieć dostęp do zawartości całej sieci.  
+
+* - Przezroczystość dostępu i położenia. GFS udziela dostępu do plików poprzez scalone drzewo katalogów,  
+* bez rozróżniania poszczególnych klastrów.  
+
+* - Wydajność.	Umożliwia tworzenie sieci przy użyciu technologii iSCSI i Fibre Channel, które to dostarczają wysoką przepustowość  
+* (np. w technologii Fibre Channel mowa nawet o 10 gigabitach.  
+
+* - Odporność na awarie. GFS pozwala na zwiększanie dostępności, dzięki łatwemu tworzeniu kopii dowolnego elementu systemu.  
+* Co więcej zaczynając od wersji 4 jest dostępny mechanizm księgowania (journaling),  
+* który znacząco zmniejsza ryzyko błędów na skutek awarii sprzętu.  
+
+* - Współbieżność i spójność. GFS wspiera równoległy dostęp do każdego klastra, który jest dzielony w sieci.  
+* Zarazem używa on rozbudowanego systemu blokad, dzięki którym maszyny w sieci koordynują swoje operacje wejscia-wyjscia,  
+* w celu zachowania maksymalnej spójności danych. Są tu możliwe do użycia różne mechanizmy,  
+* aktualnie preferowany system to Distributed lock manager. GFS pilnuje również, aby zawsze zmiany wprowadzone  
+* przez jedną maszynę miały od razu swoje zobrazowanie na reszcie maszyn.  
+
+* - Skalowalność. System ten jest skalowalny bez większego wysiłku. Dołączenie nowego komputera to tylko  
+* zamontowanie go do systemu plików. GFS posiada także ogromne możliwości jeśli chodzi o liczbę połączonych maszyn,  
+* których mogą być setki.  
+
+* - Brak pełnej heterogeniczności. Istotną wadą GFSa jest jego ukierunkowanie na systemy Linuxowe.  
+* Jest rozwijany wyłącznie na nie i nie jest dedykowany na inne systemy. W zamian jest dostępny na wiele różnych architektur  
+* np. był to pierwszy system klastrowy działający na architekturach 64 bitowych.  
+
+    * ## Podsumowanie  
+
+* Po co nam GFS?  
+* - Sprawia iż nie ma potrzeby duplikowania danych na każdym węźle.  
+* - Pozwala na jednoczesny zapis/odczyt danych przez wielu klientów. Sprawia iż węzły mają dostęp  
+* do systemu plików na takich zasadach jak procesy w architekturze SMP.  
+* - Usprawnia zarządzanie danymi, robienie backup-ów i odtwarzanie w razie awarii.  
+* - Ułatwia dodawanie nowych serwerów.  
+
+
+
+
+Autor: Dominik Kozok  
+
+Źródło:  
+http://students.mimuw.edu.pl/SO/Projekt07-08/temat5-g1/index.pdf  
+http://students.mimuw.edu.pl/SO/Projekt07-08/temat5-g4/NotatkiCz1.pdf  
