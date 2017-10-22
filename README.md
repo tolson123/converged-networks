@@ -105,6 +105,7 @@ Jakub Bojanek
 ## Sieci sterowane programowo
 ### Koncepcja SDN
 (Paweł Miczka)
+(Tomasz Chrabański, Marcin Karwot, Marta Olejnik)
 ### [Protokół OpenFlow](Openflow.md)
 (Damian Niedziela, Krzysztof Czech)
 ### Przełączniki programowalne
