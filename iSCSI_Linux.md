@@ -3,7 +3,7 @@
 
 
 
-  
+
 
 
 ## Serwer Debian/Fedora
@@ -156,3 +156,8 @@ iscsiadm -m session -o show
 ```
 # fdisk -l
 ```
+
+
+###### Żródło
+
+[https://wiki.debian.org/SAN/iSCSI/open-iscsi](https://wiki.debian.org/SAN/iSCSI/open-iscsi)
