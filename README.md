@@ -1,6 +1,6 @@
 # converged-networks
 
-## Opis 
+## Opis
 Dokumentacja do wypełnienia podczas przedmiotu "Sieci konwergentne".
 
 ## Deadline  wykonania:
@@ -51,7 +51,7 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ### [FC](FC - Fibre Channel.md)
 (Konrad Brandys, Karol Barczyk, Kamil Świerkot)
 
-### [FCoE](FCoE.md) 
+### [FCoE](FCoE.md)
 (Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko)
 
 ## Technologie konwergentnego data-center:
@@ -86,20 +86,20 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ### Systemy open-source do udostępniania zasobów iSCSI
 (Mateusz Błachnio, Sławomir Tyliba)
 
-### Konfiguracja serwera i klienta iSCSI na platformie Linux
-Joanna Marszałek
+### [Konfiguracja serwera i klienta iSCSI na platformie Linux](iSCSI_Linux.md)
+Marcin Maj
 
 ### Konfiguracja serwera i klienta iSCSI na platformie Windows Server
 Jakub Bojanek
 
-## Rozproszone systemy plików: 
+## Rozproszone systemy plików:
 ### GFS - (Rozproszone systemy plików: GFS)
 (Dominik Kozok)
 
 ### OCFS
 ### GPFS
 ### System Lustre
-### [System Ceph](CEPH-DG/CEPH-DG.md) 
+### [System Ceph](CEPH-DG/CEPH-DG.md)
 [Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech]
 
 ## Sieci sterowane programowo
