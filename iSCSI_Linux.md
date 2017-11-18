@@ -48,19 +48,19 @@ UWAGA! Dysk nie jest dynamiczny. Oznacza to, że zajmie on od razu taką powierz
 ###### Utworzenie 'udziału' sieciowego
 ```
 cd /iscsi
-create iqn.2017-11.convergent.srv:storage.target01
+create iqn.2017-11.converget.srv:storage.target01
 ```
 
 ###### Ustawienie LUN
 ```
-cd iqn.2017-11.convergent.srv:storage.target01/tpg1/luns
+cd iqn.2017-11.converget.srv:storage.target01/tpg1/luns
 create /backstores/fileio/disk01
 ```
 
 ###### Ustawienie ACL
 ```
 cd ../acls
-create iqn.2017-11.convergent.srv:www.srv.convergent
+create iqn.2017-11.converget.srv:www.srv.converget
 ```
 
 ###### Ustawienie autoryzacji
@@ -111,7 +111,7 @@ systemctl enable target
 ```
 # nano /etc/iscsi/initiatorname.iscsi
 
-InitiatorName=iqn.2017-11.convergent.srv:www.srv.convergent
+InitiatorName=iqn.2017-11.converget.srv:www.srv.converget
 ```
 
 #### Konfiguracja autoryzacji
