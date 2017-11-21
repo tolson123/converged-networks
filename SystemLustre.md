@@ -10,5 +10,5 @@ Luster działa na różnych jądrach Linuksa z dystrybucji Linuksa, w tym RHEL, 
 
 # **Źródła**
 
-- -- http://lustre.org
+- http://lustre.org
 - https://www.intel.com/content/www/us/en/lustre/new-generation-lustre-software.html
