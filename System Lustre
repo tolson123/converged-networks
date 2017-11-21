@@ -7,7 +7,8 @@ Luster działa na większości urządzeń z dowolnym typem blokowego urządzenia
 
 Luster pozwala na wiele MDS dla wysokiej dostępności. Rozmiar systemu plików nośnika MDT powinien być wybrany na podstawie łącznej liczby plików planowanych do przechowywania w systemie plików Lustre, a zagregowana przestrzeń OST powinna zostać wybrana na podstawie całkowitej ilości danych planowanych do zapisania w pliku system. Wstępne oszacowanie wymagań dotyczących miejsca może narzucać wymagania sprzętowe.
 Luster działa na różnych jądrach Linuksa z dystrybucji Linuksa, w tym RHEL, CentOS i SLES. Używając tylko Lustd ldiskfs OSD, konieczne będzie poprawienie jądra przed zbudowaniem Lustera. Luster ZFS OSD i kod klienta Lustre nie wymagają poprawek do jądra.
+![image](http://opensfs.org/wp-content/uploads/2013/10/LustreComponents21.gif)
 
-# **Linki**
+# **Źródła**
 
-http://lustre.org
+- --http://lustre.org
