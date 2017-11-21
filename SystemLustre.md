@@ -8,6 +8,36 @@ Luster pozwala na wiele MDS dla wysokiej dostępności. Rozmiar systemu plików 
 Luster działa na różnych jądrach Linuksa z dystrybucji Linuksa, w tym RHEL, CentOS i SLES. Używając tylko Lustd ldiskfs OSD, konieczne będzie poprawienie jądra przed zbudowaniem Lustera. Luster ZFS OSD i kod klienta Lustre nie wymagają poprawek do jądra.
 ![image](http://opensfs.org/wp-content/uploads/2013/10/LustreComponents21.gif)
 
+# **Skalowalność**
+
+Najbardziej skalowalny system plików POSIX. Klienci Lustre mogą odczytywać i zapisywać bezpośrednio z serwerów pamięci masowej, usuwając pliki z wielu obiektów docelowych. Pozwala to zwiększyć zarówno wydajność, jak i objętość w miarę dodawania serwerów pamięci, a ponieważ Luster zapewnia niezwykle wydajne wykorzystanie sprzętu, systemy pamięci masowej mogą skalować się nawet do tysięcy węzłów magazynowania. 
+
+Skalowalna wydajność metadanych 
+
+Katalogi zdalnego systemu plików można teraz rozłożyć na wiele serwerów metadanych w celu zapewnienia większej wydajności metadanych, ponieważ zwiększa się liczba serwerów metadanych.
+
+# **Bezpieczeństwo**
+
+Oprogramowanie Luster zapewnia ulepszone uwierzytelnianie i szyfrowanie dzięki wykorzystaniu protokołu Kerberos w celu zapewnienia klientom bezpiecznego uwierzytelniania i szyfrowania informacji przesyłanych przez sieć.
+Luster obsługuje teraz użycie SELinux, umożliwiając przeniesienie kontroli dostępu do plików z przestrzeni użytkownika do przestrzeni jądra i zapewniając wymuszanie dostępu klienta do dozwolonych plików.
+
+# **Zarządzanie danymi**
+Warstwowe przechowywanie
+
+Oprogramowanie Lustre zapewnia modułowe interfejsy do warstwowego przechowywania danych i inteligentnie zarządza systemem plików poprzez ruch danych oparty na zasadach. Dzięki temu administratorzy pamięci masowej mogą dynamicznie migrować "gorące" i "zimne" dane pomiędzy Luster i dynamicznie optymalizowaną pamięcią masową, aby uzyskać idealną równowagę między wydajnością i kosztami.
+
+Migawki systemu plików
+
+Zintegrowana obsługa migawek umożliwia administratorom pamięci masowej korzystanie z tej funkcji ochrony danych w systemach plików punktów kontrolnych. Migawki mogą być montowane jako nowe przestrzenie nazw umożliwiające dostęp do wcześniej zmodyfikowanych lub usuniętych plików w systemie pamięci masowej.
+
+Kompresja
+
+Luster i OpenZFS zapewniają kompresję danych w locie, maksymalizując dostępną pamięć i zwiększając ogólną wydajność, zmniejszając liczbę żądań we / wy danych.
+
+Podmontaż podkatalogów
+
+Klienci mogą zamontować pojedynczy katalog, ograniczając przypadkowe modyfikowanie lub usuwanie plików poza podkatalogiem.
+
 # **Źródła**
 
 - http://lustre.org
