@@ -1,4 +1,4 @@
-# ** System Lustre**
+# **System Lustre**
 
 System plików Lustre jest otwartym, równoległym systemem plików, który obsługuje wiele wymagań wiodących środowisk symulacji HPC. Opracowany na podstawie projektu badawczego na Uniwersytecie Carnegie Mellon system plików Luster przekształcił się w system plików obsługujący niektóre z najpotężniejszych superkomputerów na Ziemi. System plików Lustre zapewnia zgodny z POSIX interfejs systemu plików, może skalować do tysięcy klientów, petabajtów pamięci i setek gigabajtów na sekundę przepustowości we / wy. Kluczowymi komponentami systemu plików Lustre są serwery metadanych (MDS), cele metadanych (MDT), obiekty pamięci masowej obiektów (OSS), obiekty docelowe serwera obiektowego (OST) i klienci Luster.
 
