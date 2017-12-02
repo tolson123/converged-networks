@@ -7,11 +7,11 @@ Dokumentacja do wypełnienia podczas przedmiotu "Sieci konwergentne".
 
 ### Pierwsza wersja (do komentarzy przez prowadzącego)
 
-7.01.2017
+16.12.2017
 
 ### Wersja końcowa
 
-4.02.2017
+28.01.2018
 
 ### Informacje techniczne
 
@@ -26,33 +26,23 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 ## Architektura storage w ujęciu ogólnym:
 ### [DAS](das.md)
 
-(Tomasz Marzec, Kamil Paryż, Janusz Ładecki)
 ### [NAS](nas.md)
 
-(Kamil Paryż, Tomasz Marzec, Janusz Ładecki)
-
 ### [SAN](SAN-2.md)
-(Mateusz Łysek, Marcin Świerczek, Robert Słuszniak)
 
 ### SAN oraz [SAN-DG](SAN-DG/SAN-DG.md)
-[Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech]
 
 ## [Systemy RAID](RAID.md)
-(Joanna Kiełtyka, Kacper Barański, Maciej Kajanek)
 
 ## Podstawowe protokoły:
 
 ### [SCSI](scsi/scsi.md)
-(Daniel Karoń)
 
 ### [iSCSI](iSCSI.md)
-(Dmytro Zozulia)
 
 ### [FC](FC - Fibre Channel.md)
-(Konrad Brandys, Karol Barczyk, Kamil Świerkot)
 
 ### [FCoE](FCoE.md)
-(Michał Repeć, Oleksandr Oliinykov, Olena Bondarenko)
 
 ## Technologie konwergentnego data-center:
 
@@ -60,23 +50,19 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 (Daniel Karoń)
 
 ### [TRILL](TRILL.md)
-(Kristina Napreienko, Anton Ombodi, Yuri Odrzhekhovskyi)
 
 ## Jakość usług:
 
 ### Model Best Effort (Krzysztof Golonka)
 
 ### [Model Integrated Services](Model Integrated Services.md)
-(Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
 
 ### [Protokół RSVP](RSVP.md)
-(Daniel Cegielski, Adrian Krawczyński, Damian Kaczyński)
 
 ### Model Differentiated Services
 (Natalia Lasek)
 
 ### [Przykłady DSCP](PrzykladyDSCP.md)
-(Oleksandr Voloshyn, Ivan Kopko)
 
 ## Przydatne narzędzia:
 
@@ -103,12 +89,13 @@ Jakub Bojanek
 (Artur Jarzynka, Adam Pakosz, Przemysław Kasperkiewicz)
 ### [System Ceph](CEPH-DG/CEPH-DG.md) 
 
-[Dariusz Gawron, Mariusz Okularczyk, Krzysztof Czech]
-
 ## Sieci sterowane programowo
+
 ### Koncepcja SDN
 (Paweł Miczka)
 (Tomasz Chrabański, Marcin Karwot, Marta Olejnik)
+
 ### [Protokół OpenFlow](Openflow.md)
 (Damian Niedziela, Krzysztof Czech)
+
 ### Przełączniki programowalne
