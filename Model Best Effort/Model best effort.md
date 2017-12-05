@@ -22,3 +22,7 @@ Bazuje na UDP, ale UDP-lite pozwala na częściowe sumy kontrolne, które obejmu
 Wady modelu Best Effort doprowadziły do pojawienia się bardziej niezawodnych alternatyw zaprojektowanych, w celu zapewnienia wysokiej jakości usług (QoS) i niezawodności w komunikacji. 
 Tak jest w przypadku tak zwanych usług zróżnicowanych (DiffServ) i usług zintegrowanych (IntServ), oba zapewniają usługę sieciową, która gwarantuje ostateczne dostarczenie danych.
 
+### Źródła:
+* http://www.linfo.org/best_effort.html
+* https://es.wikipedia.org/wiki/Entrega_de_mejor_esfuerzo
+* http://www.inetdaemon.com/tutorials/internet/tcp/tcp_header.shtml
