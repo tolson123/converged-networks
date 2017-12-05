@@ -53,7 +53,8 @@ Swoje projekty przysyłać jako propozycje zmian do tego projektu [(pull request
 
 ## Jakość usług:
 
-### Model Best Effort (Krzysztof Golonka)
+### [Model Best Effort](Model Best Effort/Model best effort.md) 
+(Bacharz Dariusz, Gulczewska Natalia)
 
 ### [Model Integrated Services](Model Integrated Services.md)
 
