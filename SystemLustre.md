@@ -49,11 +49,11 @@ Pracę nad systemem Lustre rozpoczął Peter J. Braam w 1999 roku na Uniwersytec
 ![image](http://doc.lustre.org/figures/Basic_Cluster.png)
 
 
-### **1 Management Server (MGS)** ###
+### **1 Management Server (MGS)**
 
 MGS przechowuje informacje konfiguracyjne dla wszystkich systemów plików Lustre w klastrze i dostarcza te informacje do innych komponentów Lustre. Każdy Lustre target kontaktuje się z MGS w celu dostarczenia informacji, a klienci Lustre kontaktują się z MGS w celu uzyskania informacji. Zaleca się, aby MGS posiadał własną przestrzeń do przechowywania, aby można było nią zarządzać niezależnie. Jednak MGS może być umieszczony razem i współużytkować przestrzeń dyskową z MDS, jak pokazano na rysunku powyżej.
 
-### **2 Składniki Lustre File System** ###
+### **2 Składniki Lustre File System**
 
 Każdy system plików Lustre składa się z następujących komponentów:
 
@@ -71,7 +71,7 @@ Oprogramowanie klienckie Lustre zapewnia interfejs między wirtualnym systemem p
 Obiekt logiczny woluminu (LOV) agreguje elementy OSC, aby zapewnić przejrzysty dostęp do wszystkich OST. W ten sposób klient z zamontowanym systemem plików Lustre widzi pojedynczą, spójną, zsynchronizowaną przestrzeń nazw. Kilku klientów może jednocześnie pisać do różnych części tego samego pliku, podczas gdy inni klienci mogą czytać z pliku.
 Logiczny wolumin metadanych (LMV) agreguje MDC, aby zapewnić przejrzysty dostęp do wszystkich MDT w podobny sposób jak LOV dla dostępu do plików. Dzięki temu klient może zobaczyć drzewo katalogów na wielu MDT jako pojedynczą spójną przestrzeń nazw, a pofragmentowane katalogi są scalane na klientach w celu utworzenia pojedynczego widocznego katalogu dla użytkowników i aplikacji.
 
-### **3 Lustre Networking (LNet)** ###
+### **3 Lustre Networking (LNet)**
 
 Lustre Networking (LNet) to niestandardowy interfejs sieciowy udostępniający infrastrukturę komunikacyjną, która obsługuje metadane i dane wejścia/wyjścia pliku dla serwerów i klientów systemu plików Lustre.
 W klastrze wykorzystującym jeden lub więcej systemów plików Lustre infrastruktura komunikacji sieciowej wymagana przez system plików Luster jest implementowana za pomocą funkcji Sieci Lustre (LNet).
@@ -105,13 +105,13 @@ LNet obsługuje wiele typów sieci, w tym:
 
 
 
-### **4 Klaster Lustre** ###
+### **4 Klaster Lustre**
 
 Klaster systemu plików Lustre może zawierać setki systemów OSS i tysiące klientów. W klastrze Lustre można stosować więcej niż jeden typ sieci. Współużytkowane magazynowanie między OSS umożliwia przełączanie awaryjne. 
 
  ![image](http://opensfs.org/wp-content/uploads/2013/10/LustreComponents21.gif)
 
-## **Failover** ##
+## **Failover**
 W systemie o wysokiej dostępności (HA) nieplanowane przestoje są minimalizowane dzięki wykorzystaniu nadmiarowych komponentów sprzętowych i programowych oraz komponentów oprogramowania, które automatyzują odzyskiwanie po wystąpieniu awarii. Jeśli wystąpi incydent, taki jak utrata serwera, urządzenia pamięci masowej, usterka sieci lub oprogramowania, usługi systemu będą kontynuowane z minimalną przerwą. Zasadniczo dostępność określa się jako procent czasu, przez jaki system musi być dostępny.
 
 Dostępność jest osiągnięta poprzez replikację sprzętu i / lub oprogramowania. Gdy serwer podstawowy ulegnie awarii lub jest niedostępny, serwer zapasowy może zostać przełączony na jego miejsce w celu uruchamiania aplikacji i powiązanych zasobów. Proces ten, zwany przełączeniem awaryjnym, jest automatyczny w systemie HA iw większości przypadków jest całkowicie przezroczysty.
@@ -150,7 +150,7 @@ Przełączanie awaryjne w systemie plików Lustre wymaga skonfigurowania dwóch 
 
 - W przypadku przełączania awaryjnego OST można skonfigurować wiele węzłów OSS, aby móc obsługiwać ten sam OST. Jednak tylko jeden węzeł OSS może obsługiwać OST na raz. OST można przenosić między węzłami OSS, które mają dostęp do tego samego urządzenia pamięci masowej za pomocą poleceń umount / mount.
 
-#### **Para active/pasive:** ####
+#### **Para active/pasive:**
 ![image](http://doc.lustre.org/figures/MDT_Failover.png)
 
 
