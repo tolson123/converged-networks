@@ -22,7 +22,7 @@ Pracę nad systemem Lustre rozpoczął Peter J. Braam w 1999 roku na Uniwersytec
 
 - **Interoperacyjność** - system plików Lustre działa na różnych architekturach procesorów i mieszanych endianach klastrów i współdziała z kolejnymi wersjami oprogramowania.
 
-- **Architektura oparta na obiektach** - klienci są odizolowani od struktury pliku na dysku, co umozliwia uaktualnienie architektury pamięci masowej bez wpływu na klienta.
+- **Architektura oparta na obiektach** - klienci są odizolowani od struktury pliku na dysku, co umożliwia uaktualnienie architektury pamięci masowej bez wpływu na klienta.
 
 - **Precyzyjne blokowanie metadanych** - wielu klientów może jednocześnie czytać i modyfikować ten sam plik lub katalog. Menedżer blokowania rozproszonego Lustre (LDLM) zapewnia spójność plików między wszystkimi klientami i serwerami w systemie plików. LDL MDTM zarządza blokadami uprawnień i-węzłów i ścieżek. Każdy OST ma swój własny LDLM dla blokad przechowywanych na nim pasków plików, które skalują wydajność blokowania w miarę wzrostu systemu plików.
 
@@ -30,7 +30,7 @@ Pracę nad systemem Lustre rozpoczął Peter J. Braam w 1999 roku na Uniwersytec
 
 - **Wzrost wydajności** - rozmiar systemu plików i zagregowaną przepustowość klastra można zwiększyć bez przerywania działania systemu, dodając do klastra nowe OST i MDT.
 
-- **Kontrolowany układ plików** - układ plików między OST można skonfigurować dla każdego pliku, dla każdego katalogu lub dla każdego systemu plików. Umożliwia to dostrojenie I/O pliku do określonych wymagań aplikacji w ramach jednego systemu plików. System plików Lustre wykorzystuje striping RAID-0 i równoważy wykorzystanie przestrzeni przez OST.
+- **Kontrolowany układ plików** - układ plików między OST można skonfigurować dla każdego pliku, dla każdego katalogu lub dla każdego systemu plików. Umożliwia to dostrojenie I/O pliku do określonych wymagań aplikacji w ramach jednego systemu plików. System plików Lustre wykorzystuje stripping RAID-0 i równoważy wykorzystanie przestrzeni przez OST.
 
 - **Ochrona integralności danych sieciowych** -  suma kontrolna wszystkich danych przesyłanych od klienta do OSS chroni przed uszkodzeniem podczas przesyłania danych.
 
