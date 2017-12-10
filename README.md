@@ -85,8 +85,8 @@ Jakub Bojanek
 ### OCFS
 ### GPFS
 ### [System Lustre](SystemLustre.md)
-
 (Artur Jarzynka, Adam Pakosz, Przemysław Kasperkiewicz)
+
 ### [System Ceph](CEPH-DG/CEPH-DG.md) 
 
 ## Sieci sterowane programowo
