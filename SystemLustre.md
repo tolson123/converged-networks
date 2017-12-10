@@ -49,7 +49,7 @@ Pracę nad systemem Lustre rozpoczął Peter J. Braam w 1999 roku na Uniwersytec
 ![image](http://doc.lustre.org/figures/Basic_Cluster.png)
 
 
-###1 Management Server (MGS)###
+### **1 Management Server (MGS)** ###
 
 MGS przechowuje informacje konfiguracyjne dla wszystkich systemów plików Lustre w klastrze i dostarcza te informacje do innych komponentów Lustre. Każdy Lustre target kontaktuje się z MGS w celu dostarczenia informacji, a klienci Lustre kontaktują się z MGS w celu uzyskania informacji. Zaleca się, aby MGS posiadał własną przestrzeń do przechowywania, aby można było nią zarządzać niezależnie. Jednak MGS może być umieszczony razem i współużytkować przestrzeń dyskową z MDS, jak pokazano na rysunku powyżej.
 
