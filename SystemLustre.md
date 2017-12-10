@@ -159,8 +159,7 @@ Przełączanie awaryjne w systemie plików Lustre wymaga skonfigurowania dwóch 
 
 
 
- 
-### **Źródła**###
+# **Źródła**
  - Wikipedia
  - http://lustre.org
  - https://www.intel.com/content/www/us/en/lustre/new-generation-lustre-software.html
