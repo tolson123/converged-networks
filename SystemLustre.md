@@ -68,7 +68,7 @@ Każdy system plików Lustre składa się z następujących komponentów:
 - **Klienci Lustre** - klienci Lustre to komputery obliczeniowe, wizualizacyjne lub desktopowe, które korzystają z oprogramowania klienckiego Lustre, pozwalając im na zamontowanie systemu plików.
 
 Oprogramowanie klienckie Lustre zapewnia interfejs między wirtualnym systemem plików Linux a serwerami Lustre. Obejmuje klienta zarządzającego (MGC), klienta metadanych (MDC) i wielu klientów przechowywania obiektów (OSC), z których jeden odpowiada każdemu OST w systemie plików. 
-Obiekt logiczny voluminu (LOV) agreguje elementy OSC, aby zapewnić przejrzysty dostęp do wszystkich OST. W ten sposób klient z zamontowanym systemem plików Lustre widzi pojedynczą, spójną, zsynchronizowaną przestrzeń nazw. Kilku klientów może jednocześnie pisać do różnych części tego samego pliku, podczas gdy inni klienci mogą czytać z pliku.
+Obiekt logiczny woluminu (LOV) agreguje elementy OSC, aby zapewnić przejrzysty dostęp do wszystkich OST. W ten sposób klient z zamontowanym systemem plików Lustre widzi pojedynczą, spójną, zsynchronizowaną przestrzeń nazw. Kilku klientów może jednocześnie pisać do różnych części tego samego pliku, podczas gdy inni klienci mogą czytać z pliku.
 Logiczny wolumin metadanych (LMV) agreguje MDC, aby zapewnić przejrzysty dostęp do wszystkich MDT w podobny sposób jak LOV dla dostępu do plików. Dzięki temu klient może zobaczyć drzewo katalogów na wielu MDT jako pojedynczą spójną przestrzeń nazw, a pofragmentowane katalogi są scalane na klientach w celu utworzenia pojedynczego widocznego katalogu dla użytkowników i aplikacji.
 
 ### **3 Lustre Networking (LNet)** ###
@@ -79,7 +79,7 @@ LNet obsługuje wiele powszechnie używanych typów sieci, takich jak InfiniBand
 Funkcje wysokiej dostępności i odzyskiwania umożliwiają przezroczyste odzyskiwanie w połączeniu z serwerami przełączania awaryjnego
 LNet pozwala na uzyskanie kompleksowej przepustowości odczytu / zapisu na poziomie lub blisko szczytowej przepustowości na różnych połączeniach sieciowych.
 
-Sieć Lustre składa się z klientów i serwerów z oprogramowaniem Lustre. Nie musi być ograniczona do jednej podsieci LNet i może obejmować kilka sieci z ustwionym routingiem. W podobny sposób pojedyncza sieć może mieć wiele podsieci LNet.
+Sieć Lustre składa się z klientów i serwerów z oprogramowaniem Lustre. Nie musi być ograniczona do jednej podsieci LNet i może obejmować kilka sieci z ustawionym routingiem. W podobny sposób pojedyncza sieć może mieć wiele podsieci LNet.
 
 Stos sieciowy Lustre składa się z dwóch warstw: modułu LNet i LND. Warstwa LNet działa nad warstwą LND w sposób podobny do działania warstwy sieci nad warstwą łącza danych. Warstwa LNet jest bezpołączeniowa, asynchroniczna i nie sprawdza, czy dane zostały przesłane, podczas gdy warstwa LND jest zorientowana na połączenie i zwykle sprawdza transmisję danych.
 
@@ -156,6 +156,7 @@ Przełączanie awaryjne w systemie plików Lustre wymaga skonfigurowania dwóch 
 
 #### **Para active/active:** ####
 ![image](http://doc.lustre.org/figures/MDTs_Failover.png)
+
 
 
 
