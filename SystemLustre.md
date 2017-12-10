@@ -154,13 +154,13 @@ Przełączanie awaryjne w systemie plików Lustre wymaga skonfigurowania dwóch 
 ![image](http://doc.lustre.org/figures/MDT_Failover.png)
 
 
-#### **Para active/active:** ####
+#### **Para active/active:**
 ![image](http://doc.lustre.org/figures/MDTs_Failover.png)
 
 
 
 
-# **Źródła**
+## **Źródła**
  - Wikipedia
  - http://lustre.org
  - https://www.intel.com/content/www/us/en/lustre/new-generation-lustre-software.html
