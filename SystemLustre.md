@@ -111,7 +111,7 @@ Klaster systemu plików Lustre może zawierać setki systemów OSS i tysiące kl
 
  ![image](http://opensfs.org/wp-content/uploads/2013/10/LustreComponents21.gif)
 
-##**Failover**##
+## **Failover** ##
 W systemie o wysokiej dostępności (HA) nieplanowane przestoje są minimalizowane dzięki wykorzystaniu nadmiarowych komponentów sprzętowych i programowych oraz komponentów oprogramowania, które automatyzują odzyskiwanie po wystąpieniu awarii. Jeśli wystąpi incydent, taki jak utrata serwera, urządzenia pamięci masowej, usterka sieci lub oprogramowania, usługi systemu będą kontynuowane z minimalną przerwą. Zasadniczo dostępność określa się jako procent czasu, przez jaki system musi być dostępny.
 
 Dostępność jest osiągnięta poprzez replikację sprzętu i / lub oprogramowania. Gdy serwer podstawowy ulegnie awarii lub jest niedostępny, serwer zapasowy może zostać przełączony na jego miejsce w celu uruchamiania aplikacji i powiązanych zasobów. Proces ten, zwany przełączeniem awaryjnym, jest automatyczny w systemie HA iw większości przypadków jest całkowicie przezroczysty.
