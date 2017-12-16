@@ -1,0 +1,78 @@
+#Co to jest NAS?
+
+NAS to sieciowy serwer plików (Network Attached Storage), który umożliwia przechowywanie i uzyskiwanie dostępu do danych, które się na nim znajdują ze scentralizowanej lokalizacji przez upoważnionych użytkowników sieciowych oraz zróżnicowanych klientów. Zatem jest to urządzenie pamięci masowej podłączone do sieci.
+Główny cel?  	Dzielenie się plikami.
+##Co nam oferuje?
+
+1.	Wszystkie pliki w jednym miejscu:
+Nie ma już potrzeby, aby za każdym razem przeszukiwać pliki i foldery w poszukiwaniu potrzebnego dokumentu, filmu czy zdjęcia. Teraz wszystkie znajdują się w jednym miejscu, do którego masz dostęp z poziomu komputera, telefonu czy tabletu.
+2.	Tworzenie kopii zapasowych:
+Kopia zapasowa systemu? Plików? Znów zapomniałeś?
+NAS pozwala na zaplanowanie zadań w taki sposób, abyś nie musiał o niej pamiętać, gdyż dzięki odpowiedniemu harmonogramowi będzie ją wykonywał w czasie rzeczywistym.
+3.	Udostępnianie plików:
+Teraz będąc poza swoim domem lub miejscem pracy będziesz mógł skorzystać z plików, których potrzebujesz. Serwer FTP, twoja prywatna chmura zapewnią Ci do nich dostęp, a odpowiednie aplikacje sprawią, że będzie to prostsze niż myślisz.
+4.	Ochrona danych:
+Serwery mają mechanizmy zabezpieczeń, takie jak weryfikacja dwuetapowa, szyfrowanie woluminów i folderów udostępnionych, a także natychmiastowe powiadomienia wysyłane do urządzeń mobilnych. Jeśli chodzi o dane, to przed ich utratą bezpieczeństwo zapewnia odpowiednio skonfigurowana macierz RAID.
+5.	Domowe centrum multimedialne:
+Domowe centrum rozrywki – zatem możemy strumieniować treści audio oraz wideo do odpowiednich urządzeń takich jak Smart TV wykorzystując standard DLNA i skupić się na rozrywce, a nie na szukaniu płyt z ulubionym filmem.
+6.	Udostępnianie plików na różne platformy:
+Dzięki użyciu protokołów SMB/CIFS, NFS i AFP mamy możliwość uzyskania dostępu do plików przy użyciu urządzeń z systemami Windows®, Mac®, Linux®/UNIX®, Android™ i iOS®.
+7.	Synchronizacja plików i dokumentów:
+W ciągu kilku sekund możemy zsynchronizować pliki między urządzeniami, a także usprawnić pracę zespołu dzięki synchronizacji folderów współdzielonych.
+8.	Monitoring – Inteligentny dom:
+Serwera można używać jako profesjonalnego systemu NVR do monitorowania w czasie rzeczywistym, nagrywania, odtwarzania i inteligentnego zarządzania.
+9.	Wirtualizacja:
+- mamy możliwość tworzenia maszyn wirtualnych z różnymi systemami operacyjnym
+- posiadamy dostęp do danych i otwierania plików bezpośrednio przez aplikacje    zainstalowane na maszynach wirtualnych 
+- wszystkie operacje są wykonywane na serwerze NAS, co minimalizuje ryzyko wycieku danych i oszczędza przepustowość sieci.
+10.	Plug-iny:
+Od antywirusów, przez Drupala, Joomla, Magento, Perl, phpBB, Plex Media Server aż po Ruby i Pythona. NAS może być platformą dla sklepu internetowego, forum strony internetowej, serwerem FTP, poczty i druku. Można zainstalować na nim CRM lub system zarządzania kursami w szkole językowej. Możliwości są ogromne, a nic nie stoi na przeszkodzie, by napisać i zainstalować własny plug-in.
+
+##Rodzaje serwerów plikowych:
+
+-	Dedykowane urządzenie NAS wraz z odpowiednio przygotowanym panelem pozwalającym na zarządzenie serwerem plikowym
+-	Routery pozwalające na podpięciu urządzeń pod porty USB pełniące funkcje NAS
+-	Komputer (stary PC ) lub specjalnie do tego celu złożony sprzęt wyposażony w oprogramowanie FreeNAS lub NAS4Free umożlwiający konfigurację sprzętu według własnych upodobań oraz jego możliwości
+
+ ![](http://91.90.162.78/GRAFA/serwery-NAS.pl/general/for-home.jpg)
+ 
+
+##Jaki NAS wybrać?
+
+Wszystko zależy od celu do jakiego zamierzamy wykorzystać ten sprzęt. Jeśli zależy nam na możliwościach,  ale także na prostocie w konfigurowaniu sprzętu to powinniśmy skorzystać z dedykowanych do tego urządzeń. Firmy QNAP czy Synology oferują bogaty wachlarz produktów zarówno dla domu jak i firmy.
+Jeśli jednak jesteśmy zaawansowanymi użytkownikami i sami w pełni chcemy zbudować od podstaw taki sprzęt to nic nie stoi nam na przeszkodzie, począwszy od konfiguracji sprzętowej po instalację oprogramowania specjalnie do tego przeznaczonego.
+
+##Dla kogo serwer NAS?
+
+Jeśli:
+-	mamy rozbudowaną sieć domową, a w niej komputery, notebooki, tablety czy smartfony (więcej niż 2 urządzenia),
+-	wymieniamy duże ilości danych w sieci lokalnej,
+-	gromadzimy duże ilości danych,
+-	chcemy zadbać o bezpieczeństwo danych,
+-	chcemy magazynować dane w scentralizowanym miejscu (łatwość obsługi i zarządzania),
+-	chcemy tworzyć kopie zapasowe komputerów domowych,
+-	chcemy mieć szybki dostęp do danych w sieci lokalnej,
+-	szukamy cichego i energooszczędnego magazynu na dane,
+-	chcemy wykorzystać zasoby serwera łącząc się spoza sieci LAN,
+
+to NAS jest właśnie dla Ciebie!
+
+##Jakie cechy powinien mieć serwer NAS?
+
+-	co najmniej 2 zatoki na dyski (elastyczne dostosowanie powierzchni i możliwość zwiększenia zabezpieczenia przed awarią)
+-	praca w trybie RAID
+-	dodatkowe porty USB do podłączenia dysków zewnętrznych lub drukarek
+-	obsługa wielu protokołów sieciowych
+-	mechanizmy kopii zapasowych dla rożnych systemów operacyjnych
+-	dodatkowe aplikacje rozszerzające możliwości
+-	administracja i dostęp do zasobów serwera z poziomu aplikacji mobilnych
+-	obsługa w języku polskim
+
+
+###Źródła:
+-	[gadzetomania.pl] (https://gadzetomania.pl/3878,dyski-sieciowe-nas-i-kopie-zapasowe-czyli-na-czym-i-jak-zrobic-backup-poradnik,all)
+-	[qnap.com] (https://www.qnap.com/solution/7-reasons-why-nas/pl-pl/index.php)
+-	[segeate.com] (https://www.seagate.com/pl/pl/tech-insights/what-is-nas-master-ti/)
+-	[spiderweb.pl] (https://www.spidersweb.pl/2015/02/raspberry-pi-nas.html)
+
+
