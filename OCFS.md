@@ -29,4 +29,4 @@ https://pl.wikipedia.org/wiki/OCFS2
 
 https://oss.oracle.com/projects/ocfs/
 
-# wykonanie: Kamil Błaś, Jakub Dobisiak.
+# wykonanie: Kamil Błaś, Jakub Dobisiak
