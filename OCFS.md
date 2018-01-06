@@ -1,11 +1,9 @@
 ## OCFS2
-**to uniwersalny system plików klastra dysku współużytkowanego dla systemu Linux, który zapewnia zarówno wysoką wydajność, jak i wysoką dostępność. Ponieważ zapewnia semantykę lokalnego systemu plików, może być używany z prawie wszystkimi aplikacjami. Aplikacje wykorzystujące klastry mogą wykorzystywać równoległe operacje wejścia / wyjścia w pamięci podręcznej z wielu węzłów w celu łatwego skalowania aplikacji. Inne aplikacje mogą wykorzystywać możliwości systemu plików do uruchamiania aplikacji w przypadku awarii węzła.**
+**To uniwersalny system plików klastra dysku współużytkowanego dla systemu Linux, który zapewnia zarówno wysoką wydajność, jak i wysoką dostępność. Ponieważ zapewnia semantykę lokalnego systemu plików, może być używany z prawie wszystkimi aplikacjami. Aplikacje wykorzystujące klastry mogą wykorzystywać równoległe operacje wejścia / wyjścia w pamięci podręcznej z wielu węzłów w celu łatwego skalowania aplikacji. Inne aplikacje mogą wykorzystywać możliwości systemu plików do uruchamiania aplikacji w przypadku awarii węzła.**
 
-System plików jest obecnie używany w wirtualizacji (Oracle VM) zarówno w domenie zarządzania, do hostowania obrazów maszyn wirtualnych, jak iw domenie gościa, aby umożliwić gościom systemu Linux współdzielenie systemu plików. Jest również używany w klastrach baz danych (Oracle RAC), klastrach oprogramowania pośredniego (Oracle E-Business Suite), urządzeniach (SAP Business Intelligence Accelerator) itp.
+**System plików jest obecnie używany w wirtualizacji (Oracle VM) zarówno w domenie zarządzania, do hostowania obrazów maszyn wirtualnych, jak iw domenie gościa, aby umożliwić gościom systemu Linux współdzielenie systemu plików. Jest również używany w klastrach baz danych (Oracle RAC), klastrach oprogramowania pośredniego (Oracle E-Business Suite), urządzeniach (SAP Business Intelligence Accelerator) itp.**
 
-**System plików jest obecnie używany w domenie wirtualnej (maszyna wirtualna systemu Linux). Jest również używany w klastrach baz danych (Oracle RAC), klastrach oprogramowania pośredniego (Oracle E-Business Suite), urządzeniach (SAP Business Intelligence Accelerator) itp.**
- 
-**Jako system plików klastrów, OCFS2 przenosi raczej więcej bagażu niż jedno-węzłowy system plików, taki jak ext3. 
+**Jako system plików klastrów, OCFS2 przenosi więcej danych niż jedno-węzłowy system plików, taki jak ext3. 
 Ma on, w swojej istocie, implementację systemu plików na dysku, który jest silnie zainspirowany przez ext3. 
 Są jednak pewne różnice: jest to system plików oparty na zasięgu, co oznacza, że pliki są reprezentowane na dysku w dużych, ciągłych porcjach. Numery inode to 64 bity. OCFS2 używa jednak warstwy JBD Linux do kronikowania, więc nie musi wnosić ze sobą dużej części własnego kodu księgowania.**
 
@@ -15,12 +13,20 @@ Są jednak pewne różnice: jest to system plików oparty na zasięgu, co oznacz
 
 **Istnieje prosty, oparty na protokole TCP system przesyłania komunikatów, który jest używany przez OCFS2 do rozmowy między węzłami w klastrze.**
 
-**Pozostały kod to sama implementacja systemu plików. Ma wszystkie komplikacje, których można oczekiwać od implementacji systemu plików o wysokiej wydajności. OCFS2 ma jednak działać z dyskiem, który sam jest współużytkowany w klastrze (być może za pośrednictwem jakiejś sieci obszaru pamięci lub schematu wielościeżkowego). Zatem każdy węzeł na klastrze manipuluje bezpośrednio systemem plików, ale musi to robić w sposób, który pozwala uniknąć chaosu. Kod menedżera blokady obsługuje wiele z tego - węzły muszą wyłapać blokady na strukturach danych na dysku przed rozpoczęciem pracy z nimi.**
+rys.1 Porównywanie przepustowości transakcji dla systemów zarządzania plikami klastrowymi OCFS2 i ASM
+![alt text](https://www.ibm.com/support/knowledgecenter/linuxonibm/liaag/oracle_rac/l0wozl00_fig03.jpg)
 
-**Jest jednak coś więcej. Istnieje na przykład oddzielny "obszar alokacji" zarezerwowany dla każdego węzła w klastrze; kiedy węzeł musi dodać zakres do pliku, może pobrać go z własnego obszaru alokacji i uniknąć rywalizacji z innymi węzłami dla globalnej blokady. Istnieją również pewne operacje (na przykład usuwanie i zmienianie nazw plików), których nie może wykonać sam węzeł. Nie wystarczy, aby jeden węzeł usunął plik i zawrócił jego bloki, jeśli plik pozostanie otwarty w innym węźle. Istnieje zatem mechanizm głosowania dla operacji tego typu; węzeł, który chce usunąć plik, najpierw prosi o głosowanie. Jeśli inny węzeł zawetuje operację, plik pozostanie na razie. Tak czy inaczej, wszystkie węzły w klastrze mogą zauważyć, że plik jest usuwany i odpowiednio dostosowywać lokalne struktury danych.**
+# Wniosek
 
-rys.1 Postfix, replikacja w czasie rzeczywistym na serwerze pocztowym za pomocą podwójnego podstawowego DRBD z OCFS2
-![alt text](https://www.kutukupret.com/wp-content/uploads/2011/06/Postfix-drbd-ocfs2.png)
+**Znacznie wyższy wskaźnik transakcji z ASM z 60 użytkownikami w mniej kontrowersyjnym scenariuszu pokazuje przewagę ASM w porównaniu z OCFS2. Przy 100 użytkownikach rywalizacja w klastrze jest czynnikiem dominującym, który ma większy wpływ niż różnice w podstawowym narzędziu używanym do zarządzania współużytkowaną pamięcią masową.**
+
+rys.2 Porównanie obciążenia procesora dla systemów zarządzania plikami klastrowymi OCFS2 i ASM
+![alt text](https://www.ibm.com/support/knowledgecenter/linuxonibm/liaag/oracle_rac/l0wozl00_fig04.jpg)
+
+# Wniosek
+
+**Porównując 60 użytkowników z 100 użytkownikami, obciążenie procesora było prawie stałe. OCFS2 wymaga większego wykorzystania procesora w wartościach bezwzględnych, około trzech procesorów w porównaniu do wartości mniejszej niż dwa procesory dla ASM (cztery procesory są dostępne).**
+
 
 # linki:
 
