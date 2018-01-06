@@ -1,7 +1,7 @@
 # OCFS
-# OCFS2 (ang. Oracle Cluster File System, wersja 2) – system plików stworzony przez Oracle Corporation i wydany na licencji GNU General Public License jako kontynuacja OCFS.
+## OCFS2 (ang. Oracle Cluster File System, wersja 2) – system plików stworzony przez Oracle Corporation i wydany na licencji GNU General Public License jako kontynuacja OCFS.
 
-# Jest to klastrowy system plików – każdy węzeł ma bezpośredni dostęp do wszystkich urządzeń blokowych (takich jak dyski twarde), najczęściej poprzez szybką sieć lokalną SAN, co zapewnia bardzo wysoką wydajność, bez potrzeby używania pośrednich serwerów. Wersja OCFS2 wspiera semantykę POSIX, listy dostępu ACL, rozszerzone atrybuty oraz quota.
+### Jest to klastrowy system plików – każdy węzeł ma bezpośredni dostęp do wszystkich urządzeń blokowych (takich jak dyski twarde), najczęściej poprzez szybką sieć lokalną SAN, co zapewnia bardzo wysoką wydajność, bez potrzeby używania pośrednich serwerów. Wersja OCFS2 wspiera semantykę POSIX, listy dostępu ACL, rozszerzone atrybuty oraz quota.
 
  
 # Jako system plików klastrów, OCFS2 przenosi raczej więcej bagażu niż jedno-węzłowy system plików, taki jak ext3. 
