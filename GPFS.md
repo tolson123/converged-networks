@@ -22,7 +22,7 @@ Systemem plików był używany w superkomputerach ASCI White and Purple w Lawren
 * Linux od 2001 roku
 * Windows od 2008 roku
 
-GPFS obsługuje również inne protokoły sieciowe, takie jak Windows CIFS. Pierwotnie system plików był wykorzystywany tylko na wielkich urządzeniach do storage’u, jednak później oddzielono go od sprzętu i zaczęto sprzedawać go jako oprogramowanie. Niedawno dodano nowe umiejętności, takie jak klastry współdzielone. W dniu 17 lutego 2015 r. Zmieniono jego nazwę na IBM w Spectrum Scale.
+GPFS obsługuje również inne protokoły sieciowe, takie jak Windows CIFS. Pierwotnie system plików był wykorzystywany tylko na wielkich urządzeniach do storage’u, jednak później oddzielono go od sprzętu i zaczęto sprzedawać go jako oprogramowanie. Niedawno dodano nowe umiejętności, takie jak klastry współdzielone. W dniu 17 lutego 2015 r. zmieniono jego nazwę na IBM Spectrum Scale.
 
 ## Architektura
 GPFS zapewnia wysoką wydajność, **umożliwiając dostęp do danych na wielu komputerach jednocześnie**. Większość istniejących systemów plików zaprojektowano dla środowiska pojedynczego serwera, a dodanie większej liczby serwerów plików nie poprawia wydajności. GPFS zapewnia wyższą wydajność wejścia / wyjścia poprzez usuwanie bloków danych z poszczególnych plików na wielu dyskach oraz równoległe odczytywanie i zapisywanie tych bloków. Inne funkcje oferowane przez GPFS obejmują wysoką dostępność, obsługę heterogenicznych klastrów, odzyskiwanie po awarii, bezpieczeństwo, DMAPI , HSM i ILM .
