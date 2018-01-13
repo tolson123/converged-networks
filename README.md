@@ -86,7 +86,8 @@ Jakub Bojanek
 (Dominik Kozok)
 
 ### OCFS
-### GPFS
+### [GPFS](GPFS.md)
+(Artur Dudka, Michał Polak)
 
 ### [System Lustre](SystemLustre.md)
 (Artur Jarzynka, Adam Pakosz, Przemysław Kasperkiewicz)
