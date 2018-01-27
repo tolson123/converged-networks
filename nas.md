@@ -1,66 +1,92 @@
-#NAS (Network Attached Storage)
+# Co to jest NAS?
+
+### NAS  (Network Attached Storage)
+To sieciowy serwer plików, który umożliwia przechowywanie i uzyskiwanie dostępu do danych, które się na nim znajdują ze scentralizowanej lokalizacji przez upoważnionych użytkowników sieciowych oraz zróżnicowanych klientów. Zatem jest to urządzenie pamięci masowej podłączone do sieci.
+Systemy NAS zawierają jeden lub więcej napędów pamięci masowej, często ułożone w logiczne, redundantne kontenery. Zaczęły one zdobywać popularność jako wygodna metoda udostępniania plików na wielu komputerach. Potencjalne korzyści korzystania z serwera plików to szybszy dostęp do danych, łatwiejsza administrację i prosta konfiguracja.
+
+### Co oferuje NAS:
+
+1.	Wszystkie pliki w jednym miejscu:
+Wszystkie pliki znajdują się w jednym miejscu, a dostęp do nich można uzyskać z poziomu komputera, telefonu czy tabletu.
+2.	Synchronizacja plików i dokumentów:
+W ciągu kilku sekund następuje synchronizacja plików między urządzeniami, a także synchronizacji folderów współdzielonych dzięki protokołowi rsync o którym można przeczytać na stronie:
+[Rsync](https://pl.wikipedia.org/wiki/Rsync  )
+3.	Tworzenie kopii zapasowych:
+NAS pozwala na zaplanowanie zadań, a dzięki odpowiedniemu harmonogramowi będzie wykonywał kopie danych w czasie rzeczywistym.
+Przykładem może być artykuł dotyczący takiej konfiguracji:
+[Rsync Przykłady](http://linux.mazowsze.pl/rsync-przyklady-uzycia-kopia-zapasowa-synchronizacja)
+4.	Udostępnianie plików na różne platformy:
+Dzięki zastosowaniu protokołów SMB/CIFS, NFS i AFP serwer NAS daje możliwość dostępu do plików przy użyciu urządzeń z systemami Windows®, Mac®, Linux®/UNIX®, Android™ i iOS®. Dodatkowo posiadając odpowiednie aplikacje możemy uzyskać zdalny dostęp do plików.
+Informacje odnośnie protokołów znajdziemy na stronach:
+[SMB,](https://pl.wikipedia.org/wiki/Server_Message_Block)
+[NFS,](https://pl.wikipedia.org/wiki/Network_File_System_(protok%C3%B3%C5%82))
+[AFP](https://en.wikipedia.org/wiki/Apple_Filing_Protocol)
+5.	Ochrona danych:
+Serwery mogą wykorzystywać mechanizmy zabezpieczeń, takie jak weryfikacja dwuetapowa, szyfrowanie woluminów i folderów udostępnionych, a także natychmiastowe powiadomienia, które są wysyłane do urządzeń mobilnych. Jeśli chodzi o dane, to przed ich utratą bezpieczeństwo zapewnia odpowiednio skonfigurowana macierz RAID.
+Więcej informacji na temat RAID można znaleźć na stronie:
+[RAID](https://github.com/MRostanski/converged-networks/blob/master/RAID.md)
+Odnośnie weryfikacji dwuetapowej można przeczytać na
+[stronie](https://www.qnap.com/pl-pl/how-to/tutorial/article/w-jaki-spos%C3%B3b-poprawi%C4%87-bezpiecze%C5%84stwo-konta-korzystaj%C4%85c-z-2-krokowej-weryfikacji)
+6.	Domowe centrum multimedialne:
+Wykorzystując standard [DLNA](https://www.lifewire.com/what-is-dlna-1847363) NAS pozwala na strumieniowanie treści audio oraz wideo do odpowiednich urządzeń takich jak Smart TV. Przykładowe wykorzystanie serwer NAS zostało przedstawione w artykule na [stronie](http://www.benchmark.pl/testy_i_recenzje/DLNA-4124.html)
+7.	Wirtualizacja:
+- tworzenia maszyn wirtualnych z różnymi systemami operacyjnym
+- dostęp do danych i otwierania plików bezpośrednio przez aplikacje zainstalowane na maszynach wirtualnych 
+- wszystkie operacje są wykonywane na serwerze NAS, co minimalizuje ryzyko wycieku danych i oszczędza przepustowość sieci.
+8.	Plug-iny:
+Od antywirusów, przez Drupala, Joomla, Magento, Perl, phpBB, Plex Media Server aż po Ruby i Pythona. NAS może być platformą dla sklepu internetowego, forum strony internetowej, serwerem FTP, poczty i druku. 
+
+## Rodzaje serwerów plikowych:
+
+-	Dedykowane urządzenie NAS wraz z odpowiednio przygotowanym panelem pozwalającym na zarządzenie serwerem plikowym
+-	Routery pozwalające na podpięciu urządzeń pod porty USB pełniące funkcje NAS
+-	Komputer (stary PC ) lub specjalnie do tego celu złożony sprzęt wyposażony w oprogramowanie [FreeNAS](http://www.freenas.org/) lub NAS4Free [nas4free](https://www.nas4free.org) umożlwiający konfigurację sprzętu według własnych upodobań oraz jego możliwości
+-	Clustered NAS - Serwer NAS klastrowany używa rozproszonego systemu plików działającego jednocześnie na wielu serwerach. Kluczową różnicą między klastrami i tradycyjnymi serwerami NAS jest możliwość dystrybucji danych i metadanych, które są potrzebne w węzłach klastra lub urządzeniach pamięci masowej
+
+![](http://www.qnap.com/images/products/NAS/vsseries/TSX69L_us11.png)
+
+## Jaki NAS wybrać?
+
+Wszystko zależy od celu do jakiego zamierzamy wykorzystać ten sprzęt. Jeśli zależy nam na możliwościach,  ale także na prostocie w konfigurowaniu sprzętu to powinniśmy skorzystać z dedykowanych do tego urządzeń (QNAP czy Synology ).
+Zaawansowanymi użytkownicy mogą sami zbudować od podstaw taki sprzęt, począwszy od konfiguracji sprzętowej po instalację oprogramowania specjalnie do tego przeznaczonego.
+
+## Kiedy stosować serwer NAS?
+
+Serwer plikowy najlepiej stosować, gdy:
+-	mamy rozbudowaną sieć domową, a w niej komputery, notebooki, tablety czy smartfony (więcej niż 2 urządzenia),
+-	wymieniamy duże ilości danych w sieci lokalnej,
+-	gromadzimy duże ilości danych,
+-	chcemy zadbać o bezpieczeństwo danych,
+-	chcemy magazynować dane w scentralizowanym miejscu (łatwość obsługi i zarządzania),
+-	chcemy tworzyć kopie zapasowe komputerów domowych,
+-	chcemy mieć szybki dostęp do danych w sieci lokalnej,
+-	szukamy cichego i energooszczędnego magazynu na dane,
+-	chcemy wykorzystać zasoby serwera łącząc się spoza sieci LAN,
 
 
+## Jakie cechy powinien mieć serwer NAS?
 
-### Skad wzięło się NAS?
-
-NAS to skrót od Network-attached Storage. Jest to protokół software/hardware obejmujący **dedykowane serwery plikowe**, opracowany przez znanego producenta podzespołów sieciowych - 3Com, obecnie przejętego przez HP. Ideą NAS było podłączenie zasobów masowych pamięci dyskowych bezpośrednio do sieci. Pod tym względem, można powiedzieć, 3Com wygrało wyścig zbrojeń z takimi firmami jak IBM czy też Novell & SUN. NASy zdobywaja popularność od połowy lat dziewięćdziesiątych. 
-
-
-
-### Czym dokładnie jest NAS?
-
-Mówiąc NAS w kontekście produktu mówimy o urządzeniu do przechowywania danych które podłączamy bezpośrednio do sieci. Najczęściej przyjmuje ono formę computer appliance, to jest, urządzenia dedykowanego, z hardwarem, firmwarem i konfiguracja przeznaczonymi dla przechowywania danych dla użytkowników sieci. Takie NASy NAS w porównaniu z SAN dostarcza nie tylko pamięci dla danych ale również system plików dla ich obsługi, kiedy SAN pozostawia ta kwestię stronie klienta. Dedykowany NAS zawiera sloty na kilka dysków twardych, które są łączone w systemie RAID w celu zapewnienia redundancji danych.Dostęp do danych zapisanych w NAS jest w pełni kontrolowany, przykładowo klienci mogą uzyskać czasowy dostęp do określonych danych a pełny dostęp jest możliwy tylko z scentralizowanej lokacji w sieci przez upoważnionych użytkowników. NAS podobnie jak router posiada interfejs sieciowy do jego konfiguracji. Jego oprogramowanie oferuje różne przydatne aplikacje, np. służące do streamowania mediów lub klient Torrent dla pobierania danych do urządzenia.
-
-![enter image description here](http://www.elibron.pl/images/das02.jpg)
-
-
-
-###Formy NAS:
-
-1. Dedykowane urzadzenie NAS
-
-2. Innym, bardziej budżetowym rozwiązaniem kwestii NAS jest zastosowanie routerów z wbudowanymi dyskami twardymi i oprogramowaniem serwera NAS. Najpopularniejszymi tego typu produktami sa AirpPort Time Capsule firmy Apple. Alternatywa dla wbudowanego dysku twardego jet tutaj router z złączem USB 3.0 do którego można podłączyć dysk zewnętrzny.
-
-3. Na użytek domowy lub małego biura, kolejna opcja stworzenia NAS jest zagospodarowanie nieużywanego, podłączonego do sieci PC za pomocą systemu FreeNAS. 
-
-
-
-* Systemy FreeNAS i NAS4Free są również wykorzystywane w urządzeniach dedykowanych. FreeNAS oferuje interfejs webowy, protokoły udostępniania plików: SMB/CIFS (dla Windowsa), NFS (dla rodziny UNIX), AFP (dla oprogramowania Apple) oraz FTP. Inne możliwości to w pełni konfigurowalne snapshoty i ich replikacja.
-
-
-
-Wspólnym mianownikiem tych wszystkich rozwiązań jest:
-
-Tworzenie własnej, prywatnej chmury dla przechowywania danych
-
-Skalowalność, dodając kolejne urządzenia zwiększamy dostępna w sieci pamięć masowa
-
-Ograniczenie oczekiwania na odpowiedź na zapytania o dane w obrębie sieci
-
-Łatwe tworzenie kopii zapasowych
-
-
-
-### Dlaczego NAS i ile kosztuje?
-
-NAS znajdują zastosowanie zarówno wśród sieci domowych jak i przedsiębiorstw o różnym rozmiarze, ceny NASów dla użytkowników domowych i małych biur zaczynają się od 169$ a dochodzą do 1770$. Ceny Apple Time Capsule oscylują wokół 300$. 
-
-
-
-Tym co odróżnia NASy od serwerów “ogólnego zastosowania” jest łatwiejsza i bardziej przejrzysta konfiguracja i inne czynności administracyjne oraz  szybszy dostęp do plików.
-
-
+- co najmniej 2 zatoki na dyski (elastyczne dostosowanie powierzchni i możliwość zwiększenia zabezpieczenia przed awarią)
+-	praca w trybie RAID
+-	dodatkowe porty USB do podłączenia dysków zewnętrznych lub drukarek
+-	obsługa wielu protokołów sieciowych
+-	mechanizmy kopii zapasowych dla rożnych systemów operacyjnych
+-	dodatkowe aplikacje rozszerzające możliwości
+-	administracja i dostęp do zasobów serwera z poziomu aplikacji mobilnych
+-	obsługa w języku polskim
 
 
 
 ## Źródła
 
-* <http://cctvinstitute.co.uk/network-attached-storage/> -
 
-* <http://www.seagate.com/pl/pl/tech-insights/what-is-nas-master-ti/> 
+[Link1](http://www.seagate.com/pl/pl/tech-insights/what-is-nas-master-ti)
+[Link2](https://gadzetomania.pl/3878,dyski-sieciowe-nas-i-kopie-zapasowe-czyli-na-czym-i-jak-zrobic-backup-poradnik,all)
+[link3](https://www.qnap.com/solution/7-reasons-why-nas/pl-pl/index.php)
+[Link4](https://www.spidersweb.pl/2015/02/raspberry-pi-nas.html)
 
-* <http://www.howtogeek.com/208030/how-to-set-up-a-nas-network-attached-storage-drive/>
+
+
 
 
 
